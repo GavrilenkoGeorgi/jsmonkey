@@ -1,0 +1,23 @@
+@import '../../styles/_colors'
+
+.nav
+  border-bottom: 1px solid lightgrey
+  height: 4rem
+  font-size: 1.5rem
+  display: flex
+  justify-content: flex-end
+  align-items: center
+
+.navLink
+  color: $grey-font
+  margin: 0 .75rem
+  &:hover
+    color: black
+    text-decoration: underline
+    -text-decoration-color: $grey-font
+
+.navLink:last-of-type
+  margin-right: 5rem
+
+.current
+  color: $highlight-color
