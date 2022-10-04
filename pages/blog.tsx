@@ -1,6 +1,10 @@
 import type { NextPage, GetServerSideProps } from 'next'
+import { formatRelative, subDays } from 'date-fns'
+
 import Header from '../components/layout/Header'
+import PostCTA from '../components/blog/PostCTA'
 import styles from '../styles/Main.module.scss'
+
 
 type BlogProps = {
   posts: [
@@ -14,20 +18,37 @@ type BlogProps = {
 
 const Blog: NextPage<BlogProps> = ({ posts }) => {
 
+  const date = () => {
+    const humanReadableDate = formatRelative(subDays(new Date(), 3), new Date())
+    return humanReadableDate
+  }
+
   const listOfPosts = posts.map(post =>
-    <div key={post.id}>
-      <h2>{post.title}</h2>
-      <p>{post.body}</p>
-    </div>
+      <div className={styles.postContainer}
+        key={post.id}
+      >
+        <PostCTA
+          id={post.id}
+          date={date()}
+          title={post.title}
+          body={post.body}
+        />
+      </div>
   )
 
   return (
     <div className={styles.container}>
-      <Header title="Blog posts" descr="Paginated list of blog posts.">
+      <Header
+        title="Blog posts"
+        descr="Paginated list of blog posts."
+      >
       </Header>
       <main className={styles.main}>
         <h1>Blog</h1>
-        {listOfPosts}
+        <p>Blog intro</p>
+        <aside>
+          {listOfPosts}
+        </aside>
       </main>
     </div>
   )
