@@ -9,7 +9,6 @@ tags:
 author: jsmonkey
 authorImage: /uploads/someimage.webp
 image: /uploads/test.webp
-comments: true
 share: true
 type: post
 ---
