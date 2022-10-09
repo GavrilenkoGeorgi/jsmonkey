@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+import Logo from '../Logo'
 import styles from './NavBar.module.sass'
 
 type Link = {
@@ -40,7 +41,14 @@ const NavBar:FC = () => {
   )
 
   return <nav className={styles.nav}>
-    {navLinks}
+    <>
+      <div className={styles.navigationContainer}>
+        <Logo />
+        <div className={styles.linksContainer}>
+          {navLinks}
+        </div>
+      </div>
+    </>
   </nav>
 }
 
