@@ -5,6 +5,8 @@ import Header from '../components/layout/Header'
 import PostCTA from '../components/blog/PostCTA'
 import styles from '../styles/Main.module.scss'
 
+import posts from '../data/posts.json'
+
 
 type BlogProps = {
   posts: [
@@ -60,8 +62,10 @@ export default BlogJson
 // function directly in `getStaticProps`
 export const getStaticProps = async () => {
 
-  const response = await fetch(`http://${process.env.API_HOST}/api/posts`)
-  const data = await response.json()
+  // const response = await fetch(`http://${process.env.API_HOST}/api/posts`)
+  // const data = await response.json()
+
+  const data = posts
 
   if (!data) {
     return {
