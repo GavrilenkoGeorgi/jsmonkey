@@ -1,25 +1,22 @@
-import fs from 'fs'
-import matter from 'gray-matter'
-import type { NextPage } from 'next'
+import type { NextPage, GetServerSideProps } from 'next'
 import { formatRelative, subDays } from 'date-fns'
 
 import Header from '../components/layout/Header'
 import PostCTA from '../components/blog/PostCTA'
 import styles from '../styles/Main.module.scss'
 
+
 type BlogProps = {
   posts: [
     {
       title: string,
       body: string,
-      slug: string
+      id: string
     }
   ]
 }
 
-const Blog: NextPage<BlogProps> = ({ posts }) => {
-
-  // console.log(posts)
+const BlogJson: NextPage<BlogProps> = ({ posts }) => {
 
   const date = () => {
     const humanReadableDate = formatRelative(subDays(new Date(), 3), new Date())
@@ -28,10 +25,10 @@ const Blog: NextPage<BlogProps> = ({ posts }) => {
 
   const listOfPosts = posts.map(post =>
       <div className={styles.postContainer}
-        key={post.slug}
+        key={post.id}
       >
         <PostCTA
-          id={post.slug}
+          id={post.id}
           date={date()}
           title={post.title}
           body={post.body}
@@ -57,29 +54,22 @@ const Blog: NextPage<BlogProps> = ({ posts }) => {
   )
 }
 
-export default Blog
+export default BlogJson
 
 // Instead of fetching your `/api` route you can call the same
 // function directly in `getStaticProps`
 export const getStaticProps = async () => {
 
-  const filesInBlogs = fs.readdirSync('./content/blogs')
+  const response = await fetch(`http://${process.env.API_HOST}/api/posts`)
+  const data = await response.json()
 
-  const posts = filesInBlogs.map(filename => {
-    const file = fs.readFileSync(`./content/blogs/${filename}`, 'utf8')
-    const matterData = matter(file)
-    console.log(matterData.data)
-
+  if (!data) {
     return {
-      ...matterData.data,
-      slug: filename.slice(0, filename.indexOf('.'))
-    }
-  })
-
-  return {
-    props: {
-      posts
+      notFound: true
     }
   }
 
+  return {
+    props: { posts: data }
+  }
 }
