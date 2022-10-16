@@ -14,7 +14,7 @@ const BlogHeroSection:FC = () => (
       height="1215px"
       layout="intrinsic"
     />
-    <h1 className={styles.heroHeading}>Stuff i think about</h1>
+    <h1 className={styles.heroHeading}>Lorem ipsum dolor sit amet</h1>
   </section>
 )
 

@@ -5,6 +5,9 @@ const nextConfig = {
   env: {
     API_HOST: 'localhost:3000',
   },
+  images: {
+    domains: ['jsmonkey.netlify.app', 'localhost']
+  }
 }
 
 module.exports = nextConfig

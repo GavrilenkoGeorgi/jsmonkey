@@ -1,16 +1,15 @@
 ---
 title: Test blog post
-date: 24, August, 2021
+date: May 6, 2021 10:01 AM
 draft: false
 tags:
   - qa
   - intitial setup
 author: jsmonkey
 authorImage: /uploads/author-placeholder.svg
-image: /uploads/post-image-placeholder.svg
+image: /uploads/wallpaperflare.com_wallpaper.jpg
 share: true
 type: post
-categories: Test
 ---
 
 # Welcome
