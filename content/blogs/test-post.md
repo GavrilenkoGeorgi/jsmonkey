@@ -1,16 +1,16 @@
 ---
-title: "Test blog post"
+title: Test blog post
 date: 24, August, 2021
 draft: false
-categories: Test
 tags:
   - qa
   - intitial setup
 author: jsmonkey
-authorImage: /uploads/someimage.webp
-image: /uploads/test.webp
+authorImage: /uploads/author-placeholder.svg
+image: /uploads/post-image-placeholder.svg
 share: true
 type: post
+categories: Test
 ---
 
 # Welcome
