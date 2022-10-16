@@ -4,6 +4,7 @@ import type { NextPage } from 'next'
 import { formatRelative, subDays } from 'date-fns'
 
 import Header from '../components/layout/Header'
+import BlogHeroSection from '../components/pages/BlogHeroSection'
 import PostCTA from '../components/blog/PostCTA'
 import styles from '../styles/Main.module.scss'
 
@@ -47,8 +48,7 @@ const Blog: NextPage<BlogProps> = ({ posts }) => {
       >
       </Header>
       <main className={styles.main}>
-        <h1>Blog</h1>
-        <p>Blog intro</p>
+        <BlogHeroSection />
         <aside>
           {listOfPosts}
         </aside>
