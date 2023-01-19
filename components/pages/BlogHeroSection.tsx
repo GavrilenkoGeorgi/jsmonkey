@@ -12,9 +12,10 @@ const BlogHeroSection:FC = () => (
       alt="Decorative pattern"
       width="2160px"
       height="1215px"
-      layout="intrinsic"
+      // layout="intrinsic"
+      objectFit="cover"
     />
-    <h1 className={styles.heroHeading}>Lorem ipsum dolor sit amet</h1>
+    <h1 className={styles.heroHeading}>Blog</h1>
   </section>
 )
 

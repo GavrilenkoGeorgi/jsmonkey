@@ -1,16 +1,13 @@
+@import '../../styles/_variables'
+
 .listContainer
-  // background-color: pink
   display: flex
   flex-direction: row
-  justify-content: space-around
-  // padding: 1rem
-  margin-top: 4rem
-
-.postContainer
-  background-color: aliceblue
-  width: 22rem
-  min-height: 15rem
-  // padding: 1rem
-
-
-
+  justify-content: space-evenly
+  margin: 4rem auto
+  flex-wrap: wrap
+  padding: 1rem
+  @media screen and (max-width: $medium)
+    flex-direction: column
+    align-items: center
+    margin: 0

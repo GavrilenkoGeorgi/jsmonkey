@@ -1,15 +1,36 @@
+@import '../../styles/variables'
+@import '../../styles/colors'
+
 .heading
-  color: #222222
-  margin-top: 0
+  color: $grey-font
+  margin-bottom: 0
+  font-size: 2.2rem
+  font-weight: 400
 
 .cardContainer
-  border: 1px solid #b8b8b8
-  border-radius: 5px
-
-.cardImage
-  height: 150px
-  width: 22rem
-  object-fit: cover
+  box-shadow: -1px 3px 11px 0px rgb(184,184,184)
+  width: 450px
+  margin: 2rem
+  @media screen and (max-width: $medium)
+    width: auto
+    max-width: 450px
+    margin: 0
+    margin-bottom: 1rem
 
 .postInfoContainer
-  padding: 1rem
+  padding: 1rem 2rem 2.5rem
+
+.postMetaInfo
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  margin-bottom: 1rem
+
+.authorName
+  font-size: 1.25rem
+  color: $grey-font
+  font-style: italic
+  margin-bottom: .25rem
+
+.timestamp
+  color: $light-gray

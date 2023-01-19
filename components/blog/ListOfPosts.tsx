@@ -1,5 +1,5 @@
 import { FC } from 'react'
-// import { formatRelative, subDays } from 'date-fns'
+import { format } from 'date-fns'
 import { BlogProps } from '../../types'
 
 import PostCard from './PostCard'
@@ -12,7 +12,7 @@ const ListOfPosts: FC<BlogProps> = ({ posts }) => {
   const listOfPosts = posts.map(post =>
     <PostCard
       key={post.slug}
-      date={post.date}
+      date={format(new Date(post.date), 'MMMM do yyyy')}
       title={post.title}
       body={post.body}
       image={post.image}
