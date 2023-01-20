@@ -30,6 +30,7 @@ const NavBar:FC = () => {
   const navLinks = navigation.map(link =>
     <Link href={link.url}
       key={link.id}
+      legacyBehavior // check this again later
     >
       <a className={pathname === link.url
         ? `${styles.navLink} ${styles.current}`
