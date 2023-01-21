@@ -2,12 +2,14 @@ import fs from 'fs'
 import matter from 'gray-matter'
 import type { NextPage } from 'next'
 // import { formatRelative, subDays } from 'date-fns'
-import { BlogProps } from '../types'
+import { BlogProps } from '../../types'
 
-import Header from '../components/layout/Header'
-import BlogHeroSection from '../components/pages/BlogHeroSection'
-import ListOfPosts from '../components/blog/ListOfPosts'
-import styles from '../styles/Main.module.scss'
+import Header from '../../components/layout/Header'
+import HeroSection from '../../components/pages/HeroSection'
+import ListOfPosts from '../../components/blog/ListOfPosts'
+import heroImg from '../../assets/images/blog-hero-image.webp'
+
+import styles from '../../styles/Main.module.scss'
 
 const Blog: NextPage<BlogProps> = ({ posts }) => {
 
@@ -18,7 +20,7 @@ const Blog: NextPage<BlogProps> = ({ posts }) => {
     >
     </Header>
     <main className={styles.main}>
-      <BlogHeroSection />
+      <HeroSection heading="Blog" image={heroImg}/>
       <ListOfPosts posts={posts} />
     </main>
   </div>

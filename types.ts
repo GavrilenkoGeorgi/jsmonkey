@@ -12,3 +12,8 @@ export type postCardProps = {
   image: string,
   author: string
 }
+
+export type heroSectionProps = {
+  heading: string,
+  image: MediaImage
+}

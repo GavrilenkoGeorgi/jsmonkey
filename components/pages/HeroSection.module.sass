@@ -4,15 +4,18 @@
   height: 10rem
   position: relative
   overflow: hidden
-  // hero hight
+  // hero height
   @media screen and (min-width: $medium)
     height: 18rem
   @media screen and (min-width: $large)
     height: 32rem
-  span
+  // span
     // remove white space after image (this span mimics the real img behaviour)
     // https://github.com/vercel/next.js/issues/18915
-    display: inline !important
+    // display: inline !important
+  img
+    object-fit: cover
+    width: 100%
 
 .heroHeading
   position: absolute

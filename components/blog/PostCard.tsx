@@ -18,7 +18,7 @@ const PostCTA: FC<postCardProps> = (props) => {
       width="450"
       height="250"
       // layout="responsive"
-      objectFit="cover"
+      // objectFit="cover"
     />
 
     <div className={styles.postInfoContainer}>
