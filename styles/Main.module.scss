@@ -49,15 +49,33 @@
 .footer {
   display: flex;
   flex: 1;
-  padding: 2rem 0;
+  background-color: aliceblue;
+  padding: 2rem;
   border-top: 1px solid #eaeaea;
-  justify-content: center;
   align-items: center;
+  .logoContainer {
+    flex-grow: 1;
+  }
+  .socialLinksContainer {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .textLink {
+    margin-right: 1rem;
+  }
+  @media screen and (max-width: $medium) {
+    flex-direction: column;
+    .textLink {
+      width: 100%;
+      margin: 3rem 0 1rem;
+      justify-content: center;
+    }
+  }
 }
 
 .footer a {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-grow: 1;
 }

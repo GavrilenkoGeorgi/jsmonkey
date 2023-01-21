@@ -17,3 +17,9 @@ export type heroSectionProps = {
   heading: string,
   image: MediaImage
 }
+
+export type socialIconProps = {
+  image: MediaImage,
+  altText: string,
+  link: string
+}

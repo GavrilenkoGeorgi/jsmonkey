@@ -1,24 +1,35 @@
 import { FC } from 'react'
+import Link from 'next/link'
 
-import Image from 'next/image'
+import Logo from '../Logo'
+import SocialIcon from '../pages/SocialIcon'
+import facebookIcon from '../../assets/icons/icon-facebook.svg'
+import instagramIcon from '../../assets/icons/icon-instagram.svg'
+import githubIcon from '../../assets/icons/icon-github.svg'
+
 import styles from '../../styles/Main.module.scss'
 
-
 const Footer:FC = () => {
-  return <>
-    <footer className={styles.footer}>
-      <a
+  return <footer className={styles.footer}>
+    <div className={styles.logoContainer}>
+      <Logo />
+    </div>
+    <div className={styles.socialLinksContainer}>
+      <Link
         href="/"
-        // target="_blank"
-        // rel="noopener noreferrer"
+        className={styles.textLink}
       >
-        It ain't much but it's honest work.{' '}{'{ JS }'}
-        {/* <span className={styles.logo}>
-          <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-        </span> */}
-      </a>
-    </footer>
-  </>
+        It ain't much but it's honest work.
+      </Link>
+      <SocialIcon
+        image={facebookIcon}
+        link="https://facebook.com/gavrilenko.georgi"
+        altText="Facebook icon."
+      />
+      <SocialIcon image={instagramIcon} link="https://www.instagram.com/keypuncherfromouterspace/" altText="Instagram icon." />
+      <SocialIcon image={githubIcon} link="https://github.com/GavrilenkoGeorgi" altText="Github icon." />
+    </div>
+  </footer>
 }
 
 export default Footer
