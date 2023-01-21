@@ -1,33 +1,34 @@
 @import '../../styles/_colors'
+@import '../../styles/variables'
 
 .nav
-  border-bottom: 1px solid lightgrey
-  height: 4rem
-  font-size: 1.5rem
   display: flex
   justify-content: flex-end
   align-items: center
+  position: absolute
+  width: 100%
+  height: $navbarHeight
+  font-size: 1.5rem
+  border-bottom: 1px solid lightgrey
+  padding: 0 2rem
 
 .navLink
   color: $grey-font
   margin: 0 .75rem
+  transition: color .25s ease-in
   &:hover
-    color: black
+    color: $highlight-color
     text-decoration: underline
-    -text-decoration-color: $grey-font
-
-.navLink:last-of-type
-  margin-right: 5rem
 
 .current
   color: $highlight-color
 
 .navigationContainer
-  // border: 1px solid pink
   width: 100%
   display: flex
   justify-content: space-between
-  margin-bottom: .2rem
+  align-items: center
 
 .linksContainer
-  // border: 1px solid green
+  @media screen and (max-width: $extraSmall)
+    font-size: 80%

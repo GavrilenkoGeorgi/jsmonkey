@@ -2,7 +2,7 @@ import type { NextPage, GetServerSideProps } from 'next'
 import { formatRelative, subDays } from 'date-fns'
 
 import Header from '../components/layout/Header'
-import PostCTA from '../components/blog/PostCTA'
+import PostCTA from '../components/blog/PostCard'
 import styles from '../styles/Main.module.scss'
 
 import posts from '../data/posts.json'

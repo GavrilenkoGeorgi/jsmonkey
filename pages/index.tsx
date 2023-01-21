@@ -1,5 +1,12 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import Link from 'next/link'
+import Image from 'next/image'
+
+import HeroSection from '../components/pages/HeroSection'
+import heroImg from '../assets/images/main-page-pattern.webp'
+import icon from '../assets/icons/icon-download.svg'
+
 import styles from '../styles/Main.module.scss'
 
 const Home: NextPage = () => {
@@ -12,44 +19,33 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.tsx</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
+        <HeroSection heading='JSMonkey.dev' image={heroImg} />
+          <section className={styles.containerLg}>
+            <p className={styles.leadParagraph}>
+              Hi, my name is George and I am looking for a full-time job as a Middle Frontend Developer.
             </p>
-          </a>
-        </div>
+
+            <p className={styles.pageParagraph}>
+              Most of my experience is with ECMAScript 6/ES2015, React, Redux, Node.js, Express, MongoDB, Webpack 4, HTML5, CSS3, SASS/SCSS. I am testing using Jest and Cypress. My prior experience includes PHP7, MySQL and a basic knowledge of C and Java.
+              My English is Upper Intermediate (B2), I speak Ukrainian and Russian language. Currently living in Kyiv, can relocate.
+            </p>
+
+            <div className={styles.downloadResumeCTA}>
+              My resume in pdf
+              <Link href="/public/pdf/gavrylenkoCV.pdf">
+                <Image
+                  src={icon}
+                  alt="Download icon"
+                  width="100"
+                  height="100"
+                  />
+              </Link>
+            </div>
+
+          </section>
+
+        {/* <div className={styles.grid}>
+        </div> */}
       </main>
 
     </div>
