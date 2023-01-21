@@ -42,14 +42,12 @@ const NavBar:FC = () => {
   )
 
   return <nav className={styles.nav}>
-    <>
-      <div className={styles.navigationContainer}>
-        <Logo />
-        <div className={styles.linksContainer}>
-          {navLinks}
-        </div>
+    <div className={styles.navigationContainer}>
+      <Logo />
+      <div className={styles.linksContainer}>
+        {navLinks}
       </div>
-    </>
+    </div>
   </nav>
 }
 

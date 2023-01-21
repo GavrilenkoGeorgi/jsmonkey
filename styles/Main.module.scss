@@ -19,20 +19,29 @@
 }
 
 .leadParagraph {
-  font-size: 250%;
-  margin-top: 10rem;
+  font-size: 200%;
+  margin-top: 2rem;
+  @media screen and (min-width: $medium) {
+    font-size: 250%;
+  }
 }
 
 .pageParagraph {
-  font-size: 200%;
+  font-size: 125%;
   line-height: 1.5;
+  @media screen and (min-width: $medium) {
+    font-size: 200%;
+  }
 }
 .downloadResumeCTA {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  font-size: 300%;
+  font-size: 200%;
   margin-top: 5rem;
+  @media screen and (min-width: $medium) {
+    font-size: 300%;
+  }
   @media screen and (max-width: $medium) {
    flex-direction: column;
   }
