@@ -13,7 +13,7 @@ type BlogProps = {
     {
       title: string,
       body: string,
-      id: string
+      slug: string
     }
   ]
 }
@@ -27,10 +27,10 @@ const BlogJson: NextPage<BlogProps> = ({ posts }) => {
 
   const listOfPosts = posts.map(post =>
       <div className={styles.postContainer}
-        key={post.id}
+        key={post.slug}
       >
         <PostCTA
-          id={post.id}
+          slug={post.slug}
           date={date()}
           title={post.title}
           body={post.body}

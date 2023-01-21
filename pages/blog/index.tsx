@@ -1,7 +1,6 @@
 import fs from 'fs'
 import matter from 'gray-matter'
 import type { NextPage } from 'next'
-// import { formatRelative, subDays } from 'date-fns'
 import { BlogProps } from '../../types'
 
 import Header from '../../components/layout/Header'
@@ -37,7 +36,6 @@ export const getStaticProps = async () => {
   const posts = filesInBlogs.map(filename => {
     const file = fs.readFileSync(`./content/blogs/${filename}`, 'utf8')
     const matterData = matter(file)
-    console.log(matterData.data)
 
     return {
       ...matterData.data,

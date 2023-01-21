@@ -19,7 +19,7 @@ const Footer:FC = () => {
         href="/"
         className={styles.textLink}
       >
-        It ain't much but it's honest work.
+        It ain&apos;t much but it&apos;s honest work.
       </Link>
       <SocialIcon
         image={facebookIcon}
