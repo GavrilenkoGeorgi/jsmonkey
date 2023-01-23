@@ -3,8 +3,9 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
 
-import HeroSection from '../components/pages/HeroSection'
+import HeroSection from '../components/layout/HeroSection'
 import heroImg from '../assets/images/main-page-pattern.webp'
+import Carousel from '../components/layout/Carousel/Carousel'
 import icon from '../assets/icons/icon-download.svg'
 
 import styles from '../styles/Main.module.scss'
@@ -42,6 +43,10 @@ const Home: NextPage = () => {
               </Link>
             </div>
 
+          </section>
+
+          <section>
+            <Carousel />
           </section>
 
         {/* <div className={styles.grid}>

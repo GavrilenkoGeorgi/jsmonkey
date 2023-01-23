@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 
 import Header from '../../components/layout/Header'
-import HeroSection from '../../components/pages/HeroSection'
+import HeroSection from '../../components/layout/HeroSection'
 import heroImg from '../../assets/images/projects-pattern.webp'
 
 import styles from '../../styles/Main.module.scss'

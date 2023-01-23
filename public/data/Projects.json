@@ -1,0 +1,24 @@
+{
+  "items": {
+    "responsive": [
+      {
+        "id": 1,
+        "title": "ArtViva",
+        "text": "Children's art school website with custom backend.",
+        "imageUrl": "/img/artviva.webp"
+      },
+      {
+        "id": 2,
+        "title": "Sharlushka",
+        "text": "Famous dice game from the previous century.",
+        "imageUrl": "/img/sharlushka.webp"
+      },
+      {
+        "id": 3,
+        "title": "maxdog.com.ua",
+        "text": "Dog training and grooming bussiness.",
+        "imageUrl": "/img/maxdog.webp"
+      }
+    ]
+  }
+}
