@@ -15,6 +15,8 @@ export default function ResponsiveCarousel() {
       showStatus={false}
       showArrows={false}
       autoPlay={true}
+      preventMovementUntilSwipeScrollTolerance={true}
+      swipeScrollTolerance={50}
       renderIndicator={(onClickHandler, isSelected, index, label) => { // moce this somewhere
         const defStyle = { margin: '.2rem', color: 'gray', cursor: 'pointer', fontSize: '300%' }
         const style = isSelected
