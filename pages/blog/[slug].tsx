@@ -13,11 +13,7 @@ type PostProps = {
 }
 
 const Post: NextPage<PostProps> = ({ frontmatter, markdown }) => {
-  
-  console.log('Matter', frontmatter)
-  console.log('markdown', markdown)
-  
-  
+
   return <section>
     <h1>{frontmatter.title}</h1>
     <span>{frontmatter.date}</span>

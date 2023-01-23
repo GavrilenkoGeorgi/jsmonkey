@@ -8,22 +8,12 @@ const PostCTA: FC<postCardProps> = (props) => {
 
   const { date, title, image, author } = props
 
-  const imgStyle = { // what's this?
-    border: 'none',
-    'object-fit': 'cover',
-    'max-height': '9rem'
-  }
-
-  console.log(`https://${process.env.API_HOST}${image}`)
-
   return <div className={styles.cardContainer}>
     <Image
-      // src={`https://${process.env.API_HOST}${image}`}
       src={image}
       alt="Decorative pattern"
       className={styles.cardImg}
       fill
-      style={imgStyle}
     />
 
     <div className={styles.postInfoContainer}>

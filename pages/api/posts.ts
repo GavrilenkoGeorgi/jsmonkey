@@ -1,11 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
-
-type Data = {
-  name?: string,
-  error?: string,
-  result?: any // TODO Define this later?
-}
+import type { Data } from '../../types'
 
 export default async function handler(
   req: NextApiRequest,

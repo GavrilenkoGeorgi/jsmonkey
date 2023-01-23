@@ -37,7 +37,6 @@ export const getStaticProps = async () => {
   const posts = filesInBlogs.map(filename => {
     const file = fs.readFileSync(`./content/blogs/${filename}`, 'utf8')
     const matterData = matter(file)
-    console.log(matterData.data)
 
     return {
       ...matterData.data,
