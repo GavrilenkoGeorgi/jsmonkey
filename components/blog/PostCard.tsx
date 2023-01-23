@@ -18,7 +18,8 @@ const PostCTA: FC<postCardProps> = (props) => {
 
   return <div className={styles.cardContainer}>
     <Image
-      src={`https://${process.env.API_HOST}${image}`}
+      // src={`https://${process.env.API_HOST}${image}`}
+      src={image}
       alt="Decorative pattern"
       className={styles.cardImg}
       fill
