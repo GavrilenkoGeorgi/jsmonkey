@@ -7,8 +7,6 @@ import styles from './ListOfPosts.module.sass'
 
 const ListOfPosts: FC<BlogProps> = ({ posts }) => {
 
-  console.log(posts)
-
   const listOfPosts = posts.map(post =>
     <PostCard
       key={post.slug}
