@@ -1,5 +1,5 @@
 import { Carousel } from "react-responsive-carousel"
-import { responsive } from "../../../public/data/projects.json"
+import { responsive } from "../../../public/data/Projects.json"
 
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import styles from "./Carousel.module.sass"
