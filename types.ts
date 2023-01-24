@@ -23,3 +23,9 @@ export type socialIconProps = {
   altText: string,
   link: string
 }
+
+export type Data = {
+  name?: string,
+  error?: string,
+  result?: any // TODO Define this later?
+}

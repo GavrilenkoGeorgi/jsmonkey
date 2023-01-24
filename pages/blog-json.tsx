@@ -2,21 +2,11 @@ import type { NextPage, GetServerSideProps } from 'next'
 import { formatRelative, subDays } from 'date-fns'
 
 import Header from '../components/layout/Header'
-import PostCTA from '../components/blog/PostCard'
+import PostCard from '../components/blog/PostCard'
+
+import { BlogProps } from '../types'
 import styles from '../styles/Main.module.scss'
-
 import posts from '../data/posts.json'
-
-
-type BlogProps = {
-  posts: [
-    {
-      title: string,
-      body: string,
-      slug: string
-    }
-  ]
-}
 
 const BlogJson: NextPage<BlogProps> = ({ posts }) => {
 
@@ -29,11 +19,13 @@ const BlogJson: NextPage<BlogProps> = ({ posts }) => {
       <div className={styles.postContainer}
         key={post.slug}
       >
-        <PostCTA
+        <PostCard
           slug={post.slug}
           date={date()}
           title={post.title}
           body={post.body}
+          image={post.image}
+          author={post.author}
         />
       </div>
   )

@@ -2,7 +2,7 @@ import { FC } from 'react'
 import Link from 'next/link'
 
 import Logo from '../Logo'
-import SocialIcon from '../pages/SocialIcon'
+import SocialIcon from './SocialIcon'
 import facebookIcon from '../../assets/icons/icon-facebook.svg'
 import instagramIcon from '../../assets/icons/icon-instagram.svg'
 import githubIcon from '../../assets/icons/icon-github.svg'

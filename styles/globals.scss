@@ -1,3 +1,5 @@
+@import 'variables';
+
 html,
 body {
   padding: 0;
@@ -22,5 +24,15 @@ a {
   body {
     color: white;
     background: black;
+  }
+}
+
+h2 {
+  font-size: 200%;
+  @media screen and (min-width: $medium) {
+    font-size: 300%;
+  }
+  @media screen and (min-width: $large) {
+    font-size: 300%;
   }
 }

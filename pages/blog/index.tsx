@@ -4,7 +4,7 @@ import type { NextPage } from 'next'
 import { BlogProps } from '../../types'
 
 import Header from '../../components/layout/Header'
-import HeroSection from '../../components/pages/HeroSection'
+import HeroSection from '../../components/layout/HeroSection'
 import ListOfPosts from '../../components/blog/ListOfPosts'
 import heroImg from '../../assets/images/blog-hero-image.webp'
 

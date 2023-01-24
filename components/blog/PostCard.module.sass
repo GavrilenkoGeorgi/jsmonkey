@@ -21,7 +21,7 @@
 .postInfoContainer
   padding: 10rem 1rem 1rem
   @media screen and (min-width: $medium)
-    padding: 10rem 2rem 2rem
+    padding: 14rem 2rem 2rem
 
 .postMetaInfo
   display: flex
@@ -29,8 +29,11 @@
   justify-content: space-between
   margin-bottom: 1rem
 
-.nextImage
-  background-color: red
+.cardImg
+  object-fit: cover
+  max-height: 9rem
+  @media screen and (min-width: $medium)
+    max-height: 13rem
 
 .authorName
   color: $grey-font
