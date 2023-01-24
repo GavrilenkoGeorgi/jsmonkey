@@ -9,8 +9,8 @@ export type postCardProps = {
   body: string,
   slug?: string,
   date: string,
-  image: string,
-  author: string
+  image?: string,
+  author?: string
 }
 
 export type heroSectionProps = {

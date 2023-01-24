@@ -1,7 +1,6 @@
 import fs from 'fs'
 import matter from 'gray-matter'
 import type { NextPage } from 'next'
-// import { formatRelative, subDays } from 'date-fns'
 import { BlogProps } from '../../types'
 
 import Header from '../../components/layout/Header'

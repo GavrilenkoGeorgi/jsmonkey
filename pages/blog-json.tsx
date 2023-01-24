@@ -20,6 +20,7 @@ const BlogJson: NextPage<BlogProps> = ({ posts }) => {
         key={post.slug}
       >
         <PostCard
+          slug={post.slug}
           date={date()}
           title={post.title}
           body={post.body}

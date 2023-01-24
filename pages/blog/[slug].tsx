@@ -3,10 +3,6 @@ import fs from 'fs'
 import ReactMarkdown from 'react-markdown'
 import matter from 'gray-matter'
 
-// import { ParsedUrlQuery } from 'querystring'
-
-// import Header from '../components/layout/Header'
-
 type PostProps = {
   frontmatter: any,
   markdown: any
@@ -42,7 +38,6 @@ export const getStaticProps = async ({ params: { slug } }: staticPropsParams) =>
     props: { frontmatter, markdown }
   }
 }
-
 
 export const getStaticPaths:GetStaticPaths = async () => {
 
