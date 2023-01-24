@@ -45,7 +45,8 @@ const Home: NextPage = () => {
 
           </section>
 
-          <section>
+          <section className={styles.section}>
+            <h2 className={styles.heading}>Some of my work</h2>
             <Carousel />
           </section>
 

@@ -1,5 +1,6 @@
 import { Carousel } from "react-responsive-carousel"
 import { responsive } from "../../../public/data/Projects.json"
+import Link from "next/link"
 
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import styles from "./Carousel.module.sass"
@@ -14,10 +15,10 @@ export default function ResponsiveCarousel() {
       showThumbs={false}
       showStatus={false}
       showArrows={false}
-      autoPlay={true}
+      autoPlay={false}
       preventMovementUntilSwipeScrollTolerance={true}
-      swipeScrollTolerance={50}
-      renderIndicator={(onClickHandler, isSelected, index, label) => { // moce this somewhere
+      swipeScrollTolerance={25}
+      renderIndicator={(onClickHandler, isSelected, index, label) => { // move this somewhere
         const defStyle = { margin: '.2rem', color: 'gray', cursor: 'pointer', fontSize: '300%' }
         const style = isSelected
           ? { ...defStyle, color: 'black' }
@@ -38,13 +39,17 @@ export default function ResponsiveCarousel() {
       }}
     >
       {responsive.map((item) => (
-        <div key={item.id} className={styles.swipItem}>
+        <div key={item.id} className={styles.swipeItem}>
           <div className={styles.imgBox}>
             <img src={item.imageUrl} alt="slides" />
           </div>
-          <div className={styles.detail}>
-            <h2>{item.title}</h2>
-            <p>{item.text}</p>
+          <div className={styles.slideDetails}>
+            <Link href={item.url}>
+              <h3 className={styles.slideHeading}>
+                {item.url}
+              </h3>
+            </Link>
+            <p className={styles.slideText}>{item.text}</p>
           </div>
         </div>
       ))}

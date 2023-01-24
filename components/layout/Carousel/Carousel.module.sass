@@ -1,16 +1,19 @@
+@import '../../../styles/_colors'
+@import '../../../styles/_variables'
+
 .container
   display: flex
   flex-direction: column
   justify-content: center
   align-items: center
   overflow: hidden
-  margin-bottom: 4rem
+  margin-bottom: 10rem
 
 .mySwiper
   width: 90%
   max-width: 900px
 
-.swipItem
+.swipeItem
   text-align: center
   /* Center slide text vertically */
   display: flex
@@ -18,18 +21,33 @@
   justify-content: center
   align-items: center
 
-
-.swipItem .imgBox
+.swipeItem .imgBox
   padding: 1rem
 
-.swipItem .imgBox img
+.swipeItem .imgBox img
   width: 100%
-  max-width: 500px
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px
+  box-shadow: -1px 3px 11px 0px rgb(184,184,184)
   display: block
 
-.detail
-  margin-top: 2rem
-  margin-bottom: 4rem
-  p
-    max-width: 20rem
+.slideDetails
+  margin: 2rem 0 4rem
+
+.slideHeading
+  font-size: 90%
+  font-weight: 400
+  color: $highlight-color
+  text-decoration: underline
+  letter-spacing: 1.5px
+  @media screen and (min-width: $small)
+    font-size: 130%
+  @media screen and (min-width: $large)
+    font-size: 250%
+
+.slideText
+  line-height: 1.6
+  font-size: 100%
+  max-width: 35rem
+  @media screen and (min-width: $small)
+    font-size: 140%
+  @media screen and (min-width: $large)
+    font-size: 200%

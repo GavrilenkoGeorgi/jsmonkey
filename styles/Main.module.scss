@@ -7,6 +7,13 @@
   flex-direction: column;
 }
 
+.section {
+  padding: 0 .5rem;
+  .heading {
+    text-align: center;
+  }
+}
+
 .containerLg {
   max-width: 1280px;
   margin: 4rem auto;
@@ -20,7 +27,7 @@
 
 .leadParagraph {
   font-size: 200%;
-  margin-top: 2rem;
+  margin-top: 5rem;
   @media screen and (min-width: $medium) {
     font-size: 250%;
   }
@@ -38,7 +45,7 @@
   align-items: center;
   justify-content: flex-end;
   font-size: 200%;
-  margin-top: 5rem;
+  margin: 6rem 0;
   @media screen and (min-width: $medium) {
     font-size: 300%;
   }
