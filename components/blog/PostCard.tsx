@@ -10,7 +10,9 @@ const PostCTA: FC<postCardProps> = (props) => {
 
   return <div className={styles.cardContainer}>
     <Image
-      src={image}
+      src={`${image}`}
+      // but not this
+      // src={image}
       alt="Decorative pattern"
       className={styles.cardImg}
       fill
