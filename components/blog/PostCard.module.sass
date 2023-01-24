@@ -3,43 +3,40 @@
 
 .heading
   color: $grey-font
-  margin-bottom: 0
+  margin: 0
   font-weight: 400
+  font-size: 100%
+  @media screen and (min-width: $xlarge)
+    font-size: 150%
 
 .cardContainer
+  margin-bottom: 3em
   box-shadow: -1px 3px 11px 0px rgb(184,184,184)
-  width: 90%
-  max-width: 275px
+  width: 100%
+  max-width: 300px
+  min-height: 240px
+  @media screen and (min-width: $xlarge)
+    max-width: 30rem
+
+.imgContainer
   position: relative
-  margin-bottom: 1rem
-  @media screen and (min-width: $medium)
-    margin: 2rem
-    max-width: 350px
-  @media screen and (min-width: $large)
-    max-width: 450px // need to make container wider to fit this
+  height: 8rem
+  @media screen and (min-width: $xlarge)
+    height: 14rem
 
 .postInfoContainer
-  padding: 10rem 1rem 1rem
-  @media screen and (min-width: $medium)
-    padding: 14rem 2rem 2rem
+  padding: 1rem
 
 .postMetaInfo
   display: flex
   flex-direction: column
   justify-content: space-between
-  margin-bottom: 1rem
 
 .cardImg
   object-fit: cover
-  max-height: 9rem
-  @media screen and (min-width: $medium)
-    max-height: 13rem
 
-.authorName
-  color: $grey-font
-  font-style: italic
-  margin-bottom: .25rem
 
 .timestamp
+  margin-top: .5rem
   color: $light-gray
   font-size: 80%

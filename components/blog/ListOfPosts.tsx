@@ -18,9 +18,12 @@ const ListOfPosts: FC<BlogProps> = ({ posts }) => {
     />
   )
 
-  return <div className={styles.listContainer}>
-    {listOfPosts}
-  </div>
+  return <section className={styles.postsListSection}>
+    <h2 className={styles.blogHeading}>Random thoughts</h2>
+    <div className={styles.listContainer}>
+      {listOfPosts}
+    </div>
+  </section>
 }
 
 export default ListOfPosts

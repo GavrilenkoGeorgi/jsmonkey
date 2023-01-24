@@ -13,7 +13,7 @@ const Projects: NextPage = () => {
       </Header>
       <main className={styles.main}>
         <HeroSection heading="Projects" image={heroImg}/>
-        <h1>Projects</h1>
+        <h2 className={styles.projectsHeading}>Projects</h2>
       </main>
     </div>
   )
