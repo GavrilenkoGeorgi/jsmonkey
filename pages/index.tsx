@@ -23,7 +23,7 @@ const Home: NextPage = () => {
         <HeroSection heading='JSMonkey.dev' image={heroImg} />
           <section className={styles.containerLg}>
             <p className={styles.leadParagraph}>
-              Hi, my name is George and I am looking for a full-time job as a Middle Frontend Developer.
+              Hi, my name is George and I am working as a full-time Middle Frontend Developer.
             </p>
 
             <p className={styles.pageParagraph}>
