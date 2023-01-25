@@ -14,6 +14,7 @@ return <section className={styles.heroSection}>
       alt="Decorative pattern"
       width="2160"
       height="1215"
+      priority
     />
     <h1 className={styles.heroHeading}>
       {heading}

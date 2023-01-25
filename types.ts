@@ -6,6 +6,23 @@ export type blogProps = {
   ]
 }
 
+export type projectSectionProps = {
+  project: {
+    id: number,
+    title: string,
+    url: string
+    text: string
+    imageUrl: string
+    images: string[],
+    description: string,
+    logoImgs: string[]
+  }
+}
+
+export type projectCarouselProps = {
+  images: string[]
+}
+
 export type layoutProps = {
   children: ReactNode
 }

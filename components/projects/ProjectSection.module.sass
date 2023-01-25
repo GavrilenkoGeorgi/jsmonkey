@@ -1,0 +1,19 @@
+@import '../../styles/_variables'
+
+.container
+  display: flex
+  flex-direction: column
+  margin-bottom: 6rem
+  padding: 1rem
+  @media screen and (min-width: $medium)
+    padding: 3rem
+    flex-direction: row
+
+.descr
+  padding: 1rem
+  flex: 2 1 0
+  @media screen and (min-width: $medium)
+    padding: 3rem
+
+.carousel
+  flex: 3 1 0
