@@ -2,13 +2,9 @@ import type { NextPage, GetStaticProps, GetStaticPaths } from 'next'
 import fs from 'fs'
 import ReactMarkdown from 'react-markdown'
 import matter from 'gray-matter'
+import { postProps, staticPropsParams } from '../../types'
 
-type PostProps = {
-  frontmatter: any,
-  markdown: any
-}
-
-const Post: NextPage<PostProps> = ({ frontmatter, markdown }) => {
+const Post: NextPage<postProps> = ({ frontmatter, markdown }) => {
 
   return <section>
     <h1>{frontmatter.title}</h1>
@@ -22,12 +18,6 @@ const Post: NextPage<PostProps> = ({ frontmatter, markdown }) => {
 }
 
 export default Post
-
-type staticPropsParams = {
-  params: {
-    slug: string
-  }
-}
 
 export const getStaticProps = async ({ params: { slug } }: staticPropsParams) => {
   const fileContent = matter(fs.readFileSync(`./content/blogs/${slug}.md`, 'utf8'))

@@ -1,11 +1,7 @@
 import { FC, ReactNode } from 'react'
 import Head from 'next/head'
 
-type headProps = {
-  title: string,
-  descr: string,
-  children: ReactNode
-}
+import { headProps } from '../../types'
 
 const Header:FC<headProps> = (props) => (
   <Head>

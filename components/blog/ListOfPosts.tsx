@@ -1,11 +1,11 @@
 import { FC } from 'react'
 import { format } from 'date-fns'
-import { BlogProps } from '../../types'
+import { blogProps } from '../../types'
 
 import PostCard from './PostCard'
 import styles from './ListOfPosts.module.sass'
 
-const ListOfPosts: FC<BlogProps> = ({ posts }) => {
+const ListOfPosts: FC<blogProps> = ({ posts }) => {
 
   const listOfPosts = posts.map(post =>
     <PostCard

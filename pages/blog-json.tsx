@@ -4,11 +4,11 @@ import { formatRelative, subDays } from 'date-fns'
 import Header from '../components/layout/Header'
 import PostCard from '../components/blog/PostCard'
 
-import { BlogProps } from '../types'
+import { blogProps } from '../types'
 import styles from '../styles/Main.module.scss'
 import posts from '../data/posts.json'
 
-const BlogJson: NextPage<BlogProps> = ({ posts }) => {
+const BlogJson: NextPage<blogProps> = ({ posts }) => {
 
   const date = () => {
     const humanReadableDate = formatRelative(subDays(new Date(), 3), new Date())

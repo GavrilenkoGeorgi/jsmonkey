@@ -1,7 +1,7 @@
 import fs from 'fs'
 import matter from 'gray-matter'
 import type { NextPage } from 'next'
-import { BlogProps } from '../../types'
+import { blogProps } from '../../types'
 
 import Header from '../../components/layout/Header'
 import HeroSection from '../../components/layout/HeroSection'
@@ -10,7 +10,7 @@ import heroImg from '../../assets/images/blog-hero-image.webp'
 
 import styles from '../../styles/Main.module.scss'
 
-const Blog: NextPage<BlogProps> = ({ posts }) => {
+const Blog: NextPage<blogProps> = ({ posts }) => {
 
   return <div className={styles.container}>
     <Header
