@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "ArtViva",
+    "url": "https://artviva.school",
+    "text": "Children's art school website and custom backend used to handle school tuition fees using LiqPay API.",
+    "imageUrl": "/img/artviva.webp"
+  },
+  {
+    "id": 2,
+    "title": "Sharlushka",
+    "url": "https://sharlushka.netlify.app",
+    "text": "Famous dice game from the previous century. Also called 'Yahtzee'.",
+    "imageUrl": "/img/sharlushka.webp"
+  },
+  {
+    "id": 3,
+    "title": "maxdog.com.ua",
+    "url": "https://maxdog.com.ua",
+    "text": "Local animals training and grooming bussiness.",
+    "imageUrl": "/img/maxdog.webp"
+  }
+]

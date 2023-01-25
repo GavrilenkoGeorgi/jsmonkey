@@ -1,11 +1,14 @@
-import { Carousel } from "react-responsive-carousel"
-import { responsive } from "../../../public/data/Projects.json"
-import Link from "next/link"
+import type { NextPage } from 'next'
+import Image from 'next/image'
+import Link from 'next/link'
+import { Carousel } from 'react-responsive-carousel'
 
-import "react-responsive-carousel/lib/styles/carousel.min.css"
-import styles from "./Carousel.module.sass"
+import items from '../../../data/projects.json'
 
-export default function ResponsiveCarousel() {
+import 'react-responsive-carousel/lib/styles/carousel.min.css'
+import styles from './Carousel.module.sass'
+
+const ResponsiveCarousel: NextPage = () => {
 
   return <div className={styles.container}>
     <Carousel
@@ -38,10 +41,10 @@ export default function ResponsiveCarousel() {
         )
       }}
     >
-      {responsive.map((item) => (
+      {items.map((item) => (
         <div key={item.id} className={styles.swipeItem}>
           <div className={styles.imgBox}>
-            <img src={item.imageUrl} alt="slides" />
+            <Image src={item.imageUrl} alt="Slide" width={474} height={889} />
           </div>
           <div className={styles.slideDetails}>
             <Link href={item.url}>
@@ -56,3 +59,5 @@ export default function ResponsiveCarousel() {
     </Carousel>
   </div>
 }
+
+export default ResponsiveCarousel
