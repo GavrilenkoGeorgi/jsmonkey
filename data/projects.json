@@ -4,27 +4,40 @@
     "title": "ArtViva",
     "url": "https://artviva.school",
     "text": "Children's art school website and custom backend used to handle school tuition fees using LiqPay API.",
-    "imageUrl": "/img/artviva-desktop.webp"
+    "imageUrl": "/img/artviva-desktop.webp",
+    "images": [ "/img/projects/artviva/slide1.webp", "/img/projects/artviva/slide2.webp", "/img/projects/artviva/slide3.webp", "/img/projects/artviva/slide4.webp" ],
+    "logoImgs": ["/img/logos/nextjs.webp", "/img/logos/nextjs.webp"],
+    "description": "Children's art school website and custom backend used to handle school tuition fees using LiqPay API. Frontend for ArtViva school. Client side form validation is done using Formik and Yup. Integrated google maps with the list of all school departments. School facebook group on a separate page. Parents can pay tuition fees directly from the site using liqpay.",
+    "techStack": ["React", "Redux", "Redux", "Thunk", "React router", "Axios", "Bootstrap 4", "Cypress", "Jest", "ESLint"]
   },
   {
     "id": 4,
     "title": "huma.com",
     "url": "https://huma.com",
     "text": "Telemedicine company.",
-    "imageUrl": "/img/huma-desktop.webp"
+    "imageUrl": "/img/huma-desktop.webp",
+    "images": [ "/img/projects/artviva/slide1.webp", "/img/projects/artviva/slide2.webp" ],
+    "logoImgs": ["/img/logos/nextjs.webp", "/img/logos/nextjs.webp"],
+    "description": "Telemedicine company."
   },
   {
     "id": 2,
     "title": "Sharlushka",
     "url": "https://sharlushka.netlify.app",
     "text": "Famous dice game from the previous century. Also called 'Yahtzee'.",
-    "imageUrl": "/img/sharlushka-desktop.webp"
+    "imageUrl": "/img/sharlushka-desktop.webp",
+    "images": [ "/img/projects/artviva/slide1.webp", "/img/projects/artviva/slide2.webp" ],
+    "logoImgs": ["/img/logos/nextjs.webp", "/img/logos/nextjs.webp"],
+    "description": "Famous dice game from the previous century. Also called 'Yahtzee'."
   },
   {
     "id": 3,
     "title": "maxdog.com.ua",
     "url": "https://maxdog.com.ua",
     "text": "Local animals training and grooming bussiness.",
-    "imageUrl": "/img/maxdog-desktop.webp"
+    "imageUrl": "/img/maxdog-desktop.webp",
+    "images": [ "/img/projects/artviva/slide1.webp", "/img/projects/artviva/slide2.webp" ],
+    "logoImgs": ["/img/logos/nextjs.webp", "/img/logos/nextjs.webp"],
+    "description": "Local animals training and grooming bussiness."
   }
 ]
