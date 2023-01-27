@@ -6,6 +6,12 @@ export type blogProps = {
   ]
 }
 
+export type sliderNavArrowProps = {
+  clickHandler: void,
+  hasPrev: boolean,
+  label: string
+}
+
 export type projectSectionProps = {
   project: {
     id: number,
