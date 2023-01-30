@@ -16,7 +16,6 @@ const Projects: NextPage<projectSectionProps> = () => {
       </Header>
       <main className={styles.main}>
         <HeroSection heading="Projects" image={heroImg}/>
-        <h2 className={styles.projectsHeading}>Projects</h2>
         {items.map((item) => (
           <ProjectSection key={item.id} project={item}/>
         ))}

@@ -1,9 +1,10 @@
 import type { NextPage } from 'next'
 import Image from 'next/image'
-import Link from 'next/link'
-import { Carousel } from 'react-responsive-carousel'
-
 import { projectCarouselProps } from '../../../types'
+
+import { Carousel } from 'react-responsive-carousel'
+import prevArrow from './PrevArrow'
+import nextArrow from './NextArrow'
 
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import styles from './ProjectCarousel.module.sass'
@@ -21,6 +22,8 @@ const ProjectCarousel: NextPage<projectCarouselProps> = ({ images }) => {
       autoPlay={false}
       preventMovementUntilSwipeScrollTolerance={true}
       swipeScrollTolerance={25}
+      renderArrowPrev={prevArrow}
+      renderArrowNext={nextArrow}
     >
       {images.map((url) => (
         <div key={url} className={styles.swipeItem}>
@@ -28,7 +31,7 @@ const ProjectCarousel: NextPage<projectCarouselProps> = ({ images }) => {
             <Image
               className={styles.slide}
               src={url}
-              alt="Slide"
+              alt="Project slide."
               width={1416}
               height={895}
             />

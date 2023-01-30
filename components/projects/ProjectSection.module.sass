@@ -1,19 +1,81 @@
-@import '../../styles/_variables'
+@import '../../styles/variables'
+@import '../../styles/colors'
 
 .container
   display: flex
   flex-direction: column
-  margin-bottom: 6rem
   padding: 1rem
+  max-width: 100rem
+  margin: auto
+  margin-bottom: 10rem
   @media screen and (min-width: $medium)
     padding: 3rem
+    padding: 1rem
+  @media screen and (min-width: $large)
     flex-direction: row
-
-.descr
-  padding: 1rem
-  flex: 2 1 0
-  @media screen and (min-width: $medium)
     padding: 3rem
 
 .carousel
   flex: 3 1 0
+  display: flex
+  align-items: center
+
+.description
+  padding: 1rem
+  flex: 2 1 0
+  max-width: 820px
+  margin: auto
+  @media screen and (min-width: $medium)
+    padding: 3rem
+    padding-right: 1rem
+  @media screen and (min-width: $large)
+    padding-right: 3rem
+
+.projectTitle
+    margin: 2rem 0 1rem
+    font-weight: 400
+    letter-spacing: 2px
+    font-size: 150%
+    text-align: center
+    @media screen and (min-width: $medium)
+      font-size: 200%
+      margin-top: 0
+    @media screen and (min-width: $large)
+      text-align: left
+      font-size: 350%
+
+.projectInfo
+  text-indent: 1rem
+  line-height: 1.5rem
+  @media screen and (min-width: $medium)
+    font-size: 115%
+    line-height: 1.7rem
+  @media screen and (min-width: $large)
+    font-size: 150%
+    line-height: 2.33rem
+
+.projectURL
+  width: 100%
+  text-align: center
+  @media screen and (min-width: $medium)
+    text-align: right
+  margin: 2rem 0 1rem
+  font-size: 90%
+  color: $light-gray
+  transition: color .25s ease-in
+  &:hover
+    color: $grey-font
+    text-decoration: underline
+    cursor: pointer
+
+.logos
+  display: flex
+  justify-content: flex-end
+  flex-wrap: wrap
+  align-content: space-around
+  justify-content: center
+  @media screen and (min-width: $medium)
+    justify-content: flex-end
+
+.logo
+  margin: .33rem

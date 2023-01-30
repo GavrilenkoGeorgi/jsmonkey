@@ -6,7 +6,7 @@
     "text": "Children's art school website and custom backend used to handle school tuition fees using LiqPay API.",
     "imageUrl": "/img/artviva-desktop.webp",
     "images": [ "/img/projects/artviva/slide1.webp", "/img/projects/artviva/slide2.webp", "/img/projects/artviva/slide3.webp", "/img/projects/artviva/slide4.webp" ],
-    "logoImgs": ["/img/logos/nextjs.webp", "/img/logos/nextjs.webp"],
+    "logoImgs": ["react", "bootstrap", "axios", "node-js", "jest", "cypress", "eslint"],
     "description": "Children's art school website and custom backend used to handle school tuition fees using LiqPay API. Frontend for ArtViva school. Client side form validation is done using Formik and Yup. Integrated google maps with the list of all school departments. School facebook group on a separate page. Parents can pay tuition fees directly from the site using liqpay.",
     "techStack": ["React", "Redux", "Redux", "Thunk", "React router", "Axios", "Bootstrap 4", "Cypress", "Jest", "ESLint"]
   },
@@ -17,8 +17,8 @@
     "text": "Telemedicine company.",
     "imageUrl": "/img/huma-desktop.webp",
     "images": [ "/img/projects/artviva/slide1.webp", "/img/projects/artviva/slide2.webp" ],
-    "logoImgs": ["/img/logos/nextjs.webp", "/img/logos/nextjs.webp"],
-    "description": "Telemedicine company."
+    "logoImgs": ["es6", "html5", "handlebars", "webpack", "sass"],
+    "description": "Telemedicine company. Frontend, form handling, page templates and reusable components. Webpack v5 setup tuned for performance."
   },
   {
     "id": 2,
@@ -27,8 +27,8 @@
     "text": "Famous dice game from the previous century. Also called 'Yahtzee'.",
     "imageUrl": "/img/sharlushka-desktop.webp",
     "images": [ "/img/projects/artviva/slide1.webp", "/img/projects/artviva/slide2.webp" ],
-    "logoImgs": ["/img/logos/nextjs.webp", "/img/logos/nextjs.webp"],
-    "description": "Famous dice game from the previous century. Also called 'Yahtzee'."
+    "logoImgs": ["vue", "axios", "eslint"],
+    "description": "Famous dice game from the previous century. Also called 'Yahtzee'. Build using Vue to test some things out, I would like to redo this using React someday ;)"
   },
   {
     "id": 3,
@@ -37,7 +37,7 @@
     "text": "Local animals training and grooming bussiness.",
     "imageUrl": "/img/maxdog-desktop.webp",
     "images": [ "/img/projects/artviva/slide1.webp", "/img/projects/artviva/slide2.webp" ],
-    "logoImgs": ["/img/logos/nextjs.webp", "/img/logos/nextjs.webp"],
-    "description": "Local animals training and grooming bussiness."
+    "logoImgs": ["vue", "webpack"],
+    "description": "Local animals training and grooming bussiness. Just a couple of pages with overcomplicated price update system. Looks kinda nice though."
   }
 ]
