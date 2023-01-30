@@ -1,17 +1,14 @@
-import { FC, ReactNode} from 'react'
+import { FC } from 'react'
 import Navbar from '../navigation/NavBar'
 import Footer from '../layout/Footer'
 
-type layoutProps = {
-  children: ReactNode
-}
+import { layoutProps } from '../../types'
 
-const Layout:FC<layoutProps> = ({ children }) => (
+const Layout:FC<layoutProps> = ({ children }) =>
   <>
     <Navbar />
     {children}
     <Footer />
   </>
-)
 
 export default Layout

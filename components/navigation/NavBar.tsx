@@ -1,20 +1,17 @@
 import { FC } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import Logo from '../Logo'
-import styles from './NavBar.module.sass'
+import { navLink } from '../../types'
 
-type Link = {
-  id: string,
-  label: string,
-  url: string
-}
+import Logo from '../Logo'
+
+import styles from './NavBar.module.sass'
 
 const NavBar:FC = () => {
 
   const { pathname } = useRouter()
 
-  const navigation: Array<Link> = [
+  const navigation: Array<navLink> = [
     {
       id: 'id-1',
       label: 'Blog',

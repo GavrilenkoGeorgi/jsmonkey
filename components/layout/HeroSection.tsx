@@ -4,16 +4,16 @@ import { heroSectionProps } from '../../types'
 
 import styles from './HeroSection.module.sass'
 
-const HeroSection:FC<heroSectionProps> = (props) => {
+const HeroSection: FC<heroSectionProps> = (props) => {
 
   const {heading, image} = props
 
-return <section className={styles.heroSection}>
+  return <section className={styles.heroSection}>
     <Image
       src={image.src}
       alt="Decorative pattern"
-      width="2160"
-      height="1215"
+      priority
+      fill
     />
     <h1 className={styles.heroHeading}>
       {heading}
