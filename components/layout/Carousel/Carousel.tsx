@@ -27,6 +27,7 @@ const ResponsiveCarousel: FC = () => {
       renderArrowPrev={prevArrow}
       renderArrowNext={nextArrow}
       renderIndicator={dots}
+      transitionTime={1000}
     >
       {items.map((item) => (
         <div key={item.id} className={styles.swipeItem}>
@@ -34,11 +35,11 @@ const ResponsiveCarousel: FC = () => {
             <Image src={item.imageUrl} alt="Slide" width={474} height={889} />
           </div>
           <div className={styles.slideDetails}>
-            <Link href={item.url}>
+            {/* <Link href={item.url}>
               <h3 className={styles.slideHeading}>
                 {item.url}
               </h3>
-            </Link>
+            </Link> */}
             <p className={styles.slideText}>{item.text}</p>
           </div>
         </div>

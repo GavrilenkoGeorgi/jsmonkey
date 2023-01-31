@@ -27,8 +27,8 @@ const ProjectSection:FC<projectSectionProps> = ({ project }) => {
             src={`/img/logos/${logo}.svg`}
             className={styles.logo}
             alt={`Icon ${logo}.`}
-            width={30}
-            height={30}
+            width={45}
+            height={45}
           />)}
       </div>
     </div>

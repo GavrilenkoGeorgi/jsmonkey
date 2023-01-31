@@ -1,8 +1,10 @@
 import type { NextPage } from 'next'
 import Image from 'next/image'
+import { Carousel } from 'react-responsive-carousel'
+
 import { projectCarouselProps } from '../../../types'
 
-import { Carousel } from 'react-responsive-carousel'
+import dots from './Dots'
 import prevArrow from './PrevArrow'
 import nextArrow from './NextArrow'
 
@@ -14,7 +16,7 @@ const ProjectCarousel: NextPage<projectCarouselProps> = ({ images }) => {
   return <div className={styles.container}>
     <Carousel
       className={styles.mySwiper}
-      showIndicators={false}
+      showIndicators={true}
       infiniteLoop={true}
       showThumbs={false}
       showStatus={false}
@@ -24,6 +26,8 @@ const ProjectCarousel: NextPage<projectCarouselProps> = ({ images }) => {
       swipeScrollTolerance={25}
       renderArrowPrev={prevArrow}
       renderArrowNext={nextArrow}
+      renderIndicator={dots}
+      transitionTime={900}
     >
       {images.map((url) => (
         <div key={url} className={styles.swipeItem}>
@@ -32,8 +36,8 @@ const ProjectCarousel: NextPage<projectCarouselProps> = ({ images }) => {
               className={styles.slide}
               src={url}
               alt="Project slide."
-              width={1416}
-              height={895}
+              width={1170}
+              height={2532}
             />
           </div>
         </div>

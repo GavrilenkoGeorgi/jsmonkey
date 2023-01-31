@@ -15,8 +15,8 @@ const nextArrow = (clickHandler: MouseEventHandler<HTMLButtonElement>,
       <Image
         src={arrowRight}
         alt="Next slide arrow icon."
-        width={100}
-        height={100}
+        width={125}
+        height={125}
       />
     </button>
   </div>
