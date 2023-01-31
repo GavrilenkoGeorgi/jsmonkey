@@ -15,8 +15,8 @@ const prevArrow = (clickHandler: MouseEventHandler<HTMLButtonElement>,
       <Image
         src={arrowLeft}
         alt="Previous slide arrow icon."
-        width={100}
-        height={100}
+        width={125}
+        height={125}
       />
     </button>
   </div>
