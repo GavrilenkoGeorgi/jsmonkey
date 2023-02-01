@@ -1,5 +1,6 @@
 import { FC } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 import ProjectCarousel from '../layout/Carousel/ProjectCarousel'
 import { projectSectionProps } from '../../types'
@@ -10,7 +11,7 @@ const ProjectSection:FC<projectSectionProps> = ({ project }) => {
 
   const { title, description, images, logoImgs, url } = project
 
-  return <section className={styles.container}>
+  return <section className={styles.container} id={title}>
 
     <aside className={styles.carousel}>
       <ProjectCarousel images={images}/>
@@ -19,7 +20,9 @@ const ProjectSection:FC<projectSectionProps> = ({ project }) => {
     <div className={styles.description}>
       <h2 className={styles.projectTitle}>{title}</h2>
       <p className={styles.projectInfo}>{description}</p>
-      <p className={styles.projectURL}>{url}</p>
+      <Link href={url}>
+        <p className={styles.projectURL}>{url}</p>
+      </Link>
       <div className={styles.logos}>
         {logoImgs.map(logo =>
           <Image
