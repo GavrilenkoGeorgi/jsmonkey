@@ -29,12 +29,12 @@ const NavBar:FC = () => {
       key={link.id}
       legacyBehavior // check this again later
     >
-      <a className={pathname === link.url
+      <span className={pathname === link.url
         ? `${styles.navLink} ${styles.current}`
         : styles.navLink}
       >
         {link.label}
-      </a>
+      </span>
     </Link>
   )
 

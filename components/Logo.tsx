@@ -10,8 +10,6 @@ const Logo:FC = () => {
     <Image
       src={icon}
       alt="Logo icon."
-      width="36"
-      height="36"
     />
   </Link>
 }

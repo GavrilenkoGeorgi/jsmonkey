@@ -23,8 +23,11 @@
 
 .containerLg {
   max-width: 1280px;
-  margin: 4rem auto;
+  margin: 2rem auto;
   padding: 0 2rem;
+  @media screen and (min-width: $medium) {
+    margin: 4rem auto;
+  }
 }
 
 .leadParagraph,
@@ -34,8 +37,8 @@
 
 .leadParagraph {
   font-size: 200%;
-  margin-top: 5rem;
   @media screen and (min-width: $medium) {
+    margin-top: 5rem;
     font-size: 250%;
   }
 }
@@ -73,12 +76,10 @@
   display: flex;
   flex: 1;
   background-color: aliceblue;
-  padding: 2rem;
+  padding: 2rem 4rem;
   border-top: 1px solid #eaeaea;
   align-items: center;
-  .logoContainer {
-    flex-grow: 1;
-  }
+  justify-content: space-between;
   .socialLinksContainer {
     display: flex;
     align-items: center;

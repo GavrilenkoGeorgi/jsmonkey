@@ -19,7 +19,6 @@ const ListOfPosts: FC<blogProps> = ({ posts }) => {
   )
 
   return <section className={styles.postsListSection}>
-    <h2 className={styles.blogHeading}>Random thoughts</h2>
     <div className={styles.listContainer}>
       {listOfPosts}
     </div>

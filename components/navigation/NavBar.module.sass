@@ -1,4 +1,4 @@
-@import '../../styles/_colors'
+@import '../../styles/colors'
 @import '../../styles/variables'
 
 .nav
@@ -8,27 +8,45 @@
   position: absolute
   width: 100%
   height: $navbarHeight
-  font-size: 1.5rem
-  border-bottom: 1px solid lightgrey
+  font-size: 1.2rem
+  border-bottom: 1px solid $light-gray
   padding: 0 2rem
-
-.navLink
-  color: $grey-font
-  margin: 0 .75rem
-  transition: color .25s ease-in
-  &:hover
-    color: $highlight-color
-    text-decoration: underline
-
-.current
-  color: $highlight-color
+  @media screen and (min-width: $small)
+    font-size: 1.4rem
+  @media screen and (min-width: $large)
+    padding: 0 4rem
+    font-size: 1.7rem
 
 .navigationContainer
   width: 100%
   display: flex
   justify-content: space-between
   align-items: center
+  height: 100%
+  border: none
 
 .linksContainer
+  display: flex
+  height: 100%
   @media screen and (max-width: $extraSmall)
     font-size: 80%
+
+.navLink
+  display: flex
+  align-items: center
+  color: $grey-font
+  margin: 0 .75rem
+  padding: 0 .5rem
+  transition: color .25s ease-in
+  transition: border-color .25s ease-in
+  height: 100%
+  border-bottom: 2px solid transparent
+  &:hover
+    cursor: pointer
+    color: $highlight-color
+    border-bottom: 2px solid $highlight-color
+
+
+.current
+  color: $highlight-color
+  border-bottom: 2px solid $highlight-color

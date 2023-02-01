@@ -43,8 +43,11 @@
   font-size: 80%
   font-weight: 400
   letter-spacing: 1.5px
+  cursor: pointer
+  transition: color .25s ease-out, border-color .25s ease-out
   &:hover
-    text-decoration: underline
+    color: $light-gray
+    border-color: $light-gray
   @media screen and (min-width: $small)
     font-size: 130%
   @media screen and (min-width: $large)
