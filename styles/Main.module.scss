@@ -1,8 +1,7 @@
 @import 'variables';
 
 .main {
-  min-height: calc(99.40vh - $navbarHeight);
-  padding-top: $navbarHeight;
+  margin-top: -$navbarHeight;
   display: flex;
   flex-direction: column;
 }
