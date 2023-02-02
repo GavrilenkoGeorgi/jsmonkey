@@ -50,24 +50,37 @@
     font-size: 200%;
   }
 }
+
 .downloadResumeCTA {
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  font-size: 200%;
-  margin: 6rem 0;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 110%;
+  margin: 3rem 0;
   @media screen and (min-width: $medium) {
     font-size: 300%;
+    margin: 6rem 0;
   }
   @media screen and (max-width: $medium) {
    flex-direction: column;
   }
   a {
     display: flex;
+    align-items: center;
+    transition: opacity .25s ease-in;
+    &:hover {
+      opacity: .4;
+    }
+    @media screen and (min-width: $medium) {
+      margin: 1rem;
+    }
+  }
+  img {
     margin-left: 1rem;
-    @media screen and (max-width: $medium) {
-      margin: 0;
-      margin-top: 2rem;
+    opacity: .7;
+    width: 50px;
+    @media screen and (min-width: $medium) {
+      width: 100px;
     }
   }
 }

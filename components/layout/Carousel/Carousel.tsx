@@ -42,7 +42,7 @@ const ResponsiveCarousel: FC = () => {
           <div className={styles.slideDetails}>
             <p className={styles.slideText}>{item.text}</p>
             <Link href={`/projects#${item.title}`}>
-              <button className={styles.readMoreLink}>
+              <button className={styles.slideCTA}>
                 More info
               </button>
             </Link>

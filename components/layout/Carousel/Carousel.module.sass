@@ -35,19 +35,20 @@
 .slideDetails
   margin: 2rem 0 4rem
 
-.readMoreLink
+.slideCTA
   background-color: transparent
-  border: 1px solid $grey-font
+  border: 1px solid $light-gray
   padding: 1rem 2rem
-  margin: 3rem auto
+  margin: 1rem auto
   font-size: 80%
   font-weight: 400
   letter-spacing: 1.5px
+  color: $light-gray
   cursor: pointer
-  transition: color .25s ease-out, border-color .25s ease-out
+  transition: color .5s ease-out, border-color .5s ease-out
   &:hover
-    color: $light-gray
-    border-color: $light-gray
+    border-color: $grey-font
+    color: $grey-font
   @media screen and (min-width: $small)
     font-size: 130%
   @media screen and (min-width: $large)
@@ -57,7 +58,6 @@
   line-height: 1.6
   font-size: 100%
   max-width: 35rem
-  min-height: 160px
   @media screen and (min-width: $extraSmall)
     padding: 0 .5rem
   @media screen and (min-width: $small)

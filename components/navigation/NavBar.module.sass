@@ -2,20 +2,20 @@
 @import '../../styles/variables'
 
 .nav
+  height: $navbarHeight // TODO: mobile navbar height
+  width: 100%
+  padding: 0 2rem
   display: flex
   justify-content: flex-end
   align-items: center
   position: absolute
-  width: 100%
-  height: $navbarHeight
-  font-size: 1.2rem
-  border-bottom: 1px solid $light-gray
-  padding: 0 2rem
   @media screen and (min-width: $small)
-    font-size: 1.4rem
-  @media screen and (min-width: $large)
+    font-size: 125%
+  @media screen and (min-width: $medium)
     padding: 0 4rem
-    font-size: 1.7rem
+    font-size: 150%
+  @media screen and (min-width: $xlarge)
+    font-size: 200%
 
 .navigationContainer
   width: 100%

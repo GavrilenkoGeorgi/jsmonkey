@@ -9,8 +9,7 @@ const dots = (onClickHandler: MouseEventHandler<HTMLButtonElement>,
     margin: '.4rem',
     color: 'lightgray',
     cursor: 'pointer',
-    fontSize: '150%',
-    transition: 'color .5s ease-in'
+    transition: 'color .75s ease-in'
   }
 
   const style = isSelected
