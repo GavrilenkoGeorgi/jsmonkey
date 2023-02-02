@@ -4,6 +4,7 @@ import ReactMarkdown from 'react-markdown'
 import matter from 'gray-matter'
 import { postProps, staticPropsParams } from '../../types'
 
+import Header from '../../components/layout/Header'
 import HeroSection from '../../components/layout/HeroSection'
 import styles from '../../styles/Main.module.scss'
 import blogStyles from '../../styles/Blog.module.sass'
@@ -15,19 +16,26 @@ const Post: NextPage<postProps> = ({ frontmatter, markdown }) => {
   }
 
   return <>
-    <HeroSection
-      heading={frontmatter.title}
-      image={heroImage}
-    />
-    <section className={styles.containerMd}>
-      <article className={blogStyles.article}>
-        <p className={blogStyles.timestamp}>{frontmatter.date}</p>
-        <hr className={blogStyles.hr} />
-        <ReactMarkdown>
-          {markdown}
-        </ReactMarkdown>
-      </article>
-    </section>
+    <Header
+      title="Blog posts"
+      descr="Paginated list of blog posts."
+    >
+    </Header>
+    <main className={styles.main}>
+      <HeroSection
+        heading={frontmatter.title}
+        image={heroImage}
+      />
+      <section className={styles.containerMd}>
+        <article className={blogStyles.article}>
+          <p className={blogStyles.timestamp}>{frontmatter.date}</p>
+          <hr className={blogStyles.hr} />
+          <ReactMarkdown>
+            {markdown}
+          </ReactMarkdown>
+        </article>
+      </section>
+    </main>
   </>
 }
 
