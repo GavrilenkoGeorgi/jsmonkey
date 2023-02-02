@@ -20,6 +20,7 @@
   }
 }
 
+.containerMd,
 .containerLg {
   max-width: 1280px;
   margin: 2rem auto;
@@ -27,6 +28,10 @@
   @media screen and (min-width: $medium) {
     margin: 4rem auto;
   }
+}
+
+.containerMd {
+  max-width: 960px;
 }
 
 .leadParagraph,

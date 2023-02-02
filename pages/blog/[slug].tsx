@@ -4,17 +4,31 @@ import ReactMarkdown from 'react-markdown'
 import matter from 'gray-matter'
 import { postProps, staticPropsParams } from '../../types'
 
+import HeroSection from '../../components/layout/HeroSection'
+import styles from '../../styles/Main.module.scss'
+import blogStyles from '../../styles/Blog.module.sass'
+
 const Post: NextPage<postProps> = ({ frontmatter, markdown }) => {
 
-  return <section>
-    <h1>{frontmatter.title}</h1>
-    <span>{frontmatter.date}</span>
+  const heroImage = {
+    src: frontmatter.image
+  }
 
-    <hr />
-    <ReactMarkdown>
-      {markdown}
-    </ReactMarkdown>
-  </section>
+  return <>
+    <HeroSection
+      heading={frontmatter.title}
+      image={heroImage}
+    />
+    <section className={styles.containerMd}>
+      <article className={blogStyles.article}>
+        <p className={blogStyles.timestamp}>{frontmatter.date}</p>
+        <hr className={blogStyles.hr} />
+        <ReactMarkdown>
+          {markdown}
+        </ReactMarkdown>
+      </article>
+    </section>
+  </>
 }
 
 export default Post
