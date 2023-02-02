@@ -6,7 +6,8 @@ import Image from 'next/image'
 import HeroSection from '../components/layout/HeroSection'
 import heroImg from '../assets/images/main-page-pattern.webp'
 import Carousel from '../components/layout/Carousel/Carousel'
-import icon from '../assets/icons/icon-download.svg'
+import downloadIcon from '../assets/icons/icon-download.svg'
+import githubIcon from '../public/img/logos/github.svg'
 
 import styles from '../styles/Main.module.scss'
 
@@ -32,13 +33,22 @@ const Home: NextPage = () => {
             </p>
 
             <div className={styles.downloadResumeCTA}>
-              My resume in pdf
               <Link href="/public/pdf/gavrylenkoCV.pdf">
+                My resume in pdf
                 <Image
-                  src={icon}
+                  src={downloadIcon}
                   alt="Download icon"
-                  width="100"
-                  height="100"
+                  width={75}
+                  height={75}
+                  />
+              </Link>
+              <Link href="https://github.com/GavrilenkoGeorgi">
+                Github account
+                <Image
+                  src={githubIcon}
+                  alt="Github icon"
+                  width={60}
+                  height={60}
                   />
               </Link>
             </div>

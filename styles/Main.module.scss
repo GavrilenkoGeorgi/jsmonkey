@@ -1,8 +1,7 @@
 @import 'variables';
 
 .main {
-  min-height: calc(99.40vh - $navbarHeight);
-  padding-top: $navbarHeight;
+  margin-top: -$navbarHeight;
   display: flex;
   flex-direction: column;
 }
@@ -23,8 +22,11 @@
 
 .containerLg {
   max-width: 1280px;
-  margin: 4rem auto;
+  margin: 2rem auto;
   padding: 0 2rem;
+  @media screen and (min-width: $medium) {
+    margin: 4rem auto;
+  }
 }
 
 .leadParagraph,
@@ -34,8 +36,8 @@
 
 .leadParagraph {
   font-size: 200%;
-  margin-top: 5rem;
   @media screen and (min-width: $medium) {
+    margin-top: 5rem;
     font-size: 250%;
   }
 }
@@ -47,24 +49,37 @@
     font-size: 200%;
   }
 }
+
 .downloadResumeCTA {
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  font-size: 200%;
-  margin: 6rem 0;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 110%;
+  margin: 3rem 0;
   @media screen and (min-width: $medium) {
     font-size: 300%;
+    margin: 6rem 0;
   }
   @media screen and (max-width: $medium) {
    flex-direction: column;
   }
   a {
     display: flex;
+    align-items: center;
+    transition: opacity .25s ease-in;
+    &:hover {
+      opacity: .4;
+    }
+    @media screen and (min-width: $medium) {
+      margin: 1rem;
+    }
+  }
+  img {
     margin-left: 1rem;
-    @media screen and (max-width: $medium) {
-      margin: 0;
-      margin-top: 2rem;
+    opacity: .7;
+    width: 50px;
+    @media screen and (min-width: $medium) {
+      width: 100px;
     }
   }
 }
@@ -73,12 +88,10 @@
   display: flex;
   flex: 1;
   background-color: aliceblue;
-  padding: 2rem;
+  padding: 2rem 4rem;
   border-top: 1px solid #eaeaea;
   align-items: center;
-  .logoContainer {
-    flex-grow: 1;
-  }
+  justify-content: space-between;
   .socialLinksContainer {
     display: flex;
     align-items: center;

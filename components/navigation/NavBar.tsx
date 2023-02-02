@@ -2,14 +2,15 @@ import { FC } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { navLink } from '../../types'
+import { useScrollDirection } from '../../hooks'
 
 import Logo from '../Logo'
-
 import styles from './NavBar.module.sass'
 
 const NavBar:FC = () => {
 
   const { pathname } = useRouter()
+  const scrollDirection = useScrollDirection()
 
   const navigation: Array<navLink> = [
     {
@@ -29,16 +30,18 @@ const NavBar:FC = () => {
       key={link.id}
       legacyBehavior // check this again later
     >
-      <a className={pathname === link.url
+      <span className={pathname === link.url
         ? `${styles.navLink} ${styles.current}`
         : styles.navLink}
       >
         {link.label}
-      </a>
+      </span>
     </Link>
   )
 
-  return <nav className={styles.nav}>
+  const navbarStyle = `${styles.nav} ${ scrollDirection === 'down' ? styles.hiddenNav : styles.visibleNav }`
+
+  return <nav className={navbarStyle}>
     <div className={styles.navigationContainer}>
       <Logo />
       <div className={styles.linksContainer}>

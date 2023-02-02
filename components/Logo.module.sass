@@ -1,10 +1,15 @@
-@import '../styles/_colors'
+@import '../styles/colors'
+@import '../styles/variables'
 
 .logo
   color: $highlight-color
-  // margin: 0 1.5rem
   cursor: pointer
   display: flex
   align-items: center
   &:hover
     color: gray
+  img
+    height: 1.5rem
+    width: 100%
+    @media screen and (min-width: $small)
+      height: 2.25rem
