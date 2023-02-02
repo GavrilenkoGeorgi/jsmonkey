@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { navLink } from '../../types'
-import { useScrollDirection } from '../../pages/hooks'
+import { useScrollDirection } from '../../hooks'
 
 import Logo from '../Logo'
 import styles from './NavBar.module.sass'
