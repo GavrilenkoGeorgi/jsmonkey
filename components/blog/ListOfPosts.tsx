@@ -10,6 +10,7 @@ const ListOfPosts: FC<blogProps> = ({ posts }) => {
   const listOfPosts = posts.map(post =>
     <PostCard
       key={post.slug}
+      slug={post.slug}
       date={format(new Date(post.date), 'MMMM do yyyy')}
       title={post.title}
       body={post.body}
