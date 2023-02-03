@@ -1,14 +1,24 @@
-import { FC } from 'react'
+import { FC, useCallback } from 'react'
+import { useReCaptcha } from 'next-recaptcha-v3'
+import { validateToken } from '../../utils/reCaptcha'
 
 import styles from './ContactForm.module.sass'
 import globalStyles from '../../styles/Main.module.scss'
 
 const ContactForm:FC = () => {
 
+  const { executeRecaptcha } = useReCaptcha()
+
+  const handleSubmit = useCallback(async (event: React.ChangeEvent<any>) => {
+    event.preventDefault()
+    const token = await executeRecaptcha('submit')
+    validateToken(token)
+  }, [executeRecaptcha])
+
   return <div className={globalStyles.containerMd}>
     <h2 className={styles.title}>Send me a message</h2>
     <form
-      action="/send-data-here"
+      onSubmit={handleSubmit}
       method="post"
       className={styles.form}
     >
@@ -18,7 +28,7 @@ const ContactForm:FC = () => {
         id="name"
         name="name"
         placeholder='Your name'
-        required
+        // required
         minLength={2}
         maxLength={33}
       />
@@ -29,7 +39,7 @@ const ContactForm:FC = () => {
         id="message"
         name="message"
         placeholder='Message'
-        required
+        // required
         minLength={10}
         maxLength={350}
       />
