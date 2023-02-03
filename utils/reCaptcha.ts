@@ -1,11 +1,10 @@
 import axios from 'axios'
 
 export const validateToken = (token: string) => {
-  console.log('Token: ', token)
+  // console.log('Token: ', token)
+  // console.log('backend url ', process.env.NEXT_PUBLIC_CAPTCHA_BACKEND)
 
-  console.log('Secret ', process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY)
-
-  const url= 'https://www.google.com/recaptcha/api/siteverify'
+  const url = `${process.env.NEXT_PUBLIC_CAPTCHA_BACKEND}`
 
   const data = {
     secret: process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY,
