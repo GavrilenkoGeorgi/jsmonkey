@@ -6,6 +6,7 @@ import Image from 'next/image'
 import HeroSection from '../components/layout/HeroSection'
 import heroImg from '../assets/images/main-page-pattern.webp'
 import Carousel from '../components/layout/Carousel/Carousel'
+import ContactForm from '../components/forms/ContactForm'
 import downloadIcon from '../assets/icons/icon-download.svg'
 import githubIcon from '../public/img/logos/github.svg'
 
@@ -52,16 +53,16 @@ const Home: NextPage = () => {
                   />
               </Link>
             </div>
-
           </section>
 
           <section className={styles.section}>
-            {/* <h2 className={styles.heading}>Some of my work</h2> */}
             <Carousel />
           </section>
 
-        {/* <div className={styles.grid}>
-        </div> */}
+          <section className={styles.section}>
+            <ContactForm />
+          </section>
+
       </main>
 
     </div>

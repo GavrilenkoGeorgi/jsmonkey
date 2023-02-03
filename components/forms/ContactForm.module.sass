@@ -1,0 +1,46 @@
+@import '../../styles/colors'
+
+.title
+  text-align: center
+  margin: 1.5rem 0
+
+.form
+  display: flex
+  flex-direction: column
+  max-width: 25rem
+  margin: 0 auto 8rem
+  input
+    height: 2rem
+    padding: 1rem
+    color: $grey-font
+  input::placeholder
+    color: $light-gray
+
+  textarea
+    padding: 1rem
+    font-family: sans-serif
+    color: $grey-font
+  textarea::placeholder
+    color: $light-gray
+
+  label
+    visibility: hidden
+    line-height: 0
+
+  button
+    background-color: transparent
+    border: 1px solid $grey-font
+    max-width: fit-content
+    padding: .5rem 2rem
+    margin: 0 auto 2rem
+    cursor: pointer
+    transition: color .25s ease-in, border-color .25s ease-in
+    &:hover
+      border-color: $light-gray
+      color: $light-gray
+
+.errorMsg
+  visibility: hidden
+  font-size: 80%
+  color: $error
+  margin-top: 0
