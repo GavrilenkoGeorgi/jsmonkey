@@ -42,8 +42,8 @@ const Home: NextPage = () => {
                 <Image
                   src={downloadIcon}
                   alt="Download icon"
-                  width={75}
-                  height={75}
+                  width={65}
+                  height={65}
                   />
               </Link>
               <Link href="https://github.com/GavrilenkoGeorgi">
@@ -51,8 +51,8 @@ const Home: NextPage = () => {
                 <Image
                   src={githubIcon}
                   alt="Github icon"
-                  width={60}
-                  height={60}
+                  width={55}
+                  height={55}
                   />
               </Link>
             </div>

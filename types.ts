@@ -53,7 +53,6 @@ export type headProps = {
 }
 
 export type navLink = {
-  id: string,
   label: string,
   url: string
 }
