@@ -1,19 +1,23 @@
-import { FC, useCallback } from 'react'
+import { FC, useCallback, useState } from 'react'
 import { useReCaptcha } from 'next-recaptcha-v3'
+import Image from 'next/image'
 
 import { sendContactMsg } from '../../utils/mailSender'
 import { validateToken } from '../../utils/reCaptcha'
 import { contactFormMessage } from '../../types'
 
+import submIcon from '../../assets/icons/icon-bars-fade.svg'
 import styles from './ContactForm.module.sass'
 import globalStyles from '../../styles/Main.module.scss'
 
 const ContactForm:FC = () => {
 
   const { executeRecaptcha } = useReCaptcha()
+  const [submitting, setSubmitting] = useState(false)
 
   const handleSubmit = useCallback(async (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault()
+    setSubmitting(true)
 
     // Get data from the form
     const form = event.target
@@ -32,6 +36,7 @@ const ContactForm:FC = () => {
       }
       sendContactMsg(msg)
       form.reset()
+      setSubmitting(false)
     }
 
   }, [executeRecaptcha])
@@ -65,7 +70,12 @@ const ContactForm:FC = () => {
         maxLength={500}
       />
       <p className={styles.errorMsg}>You forgot your message</p>
-      <button type="submit">Submit</button>
+      <button type="submit" className={styles.submitBtn}>
+        {submitting
+          ? <Image src={submIcon} alt='Submit indicator' width={24} height={24}/>
+          : 'Submit'
+        }
+      </button>
     </form>
   </div>
 }
