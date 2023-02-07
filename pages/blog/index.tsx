@@ -12,7 +12,7 @@ import styles from '../../styles/Main.module.scss'
 
 const Blog: NextPage<blogProps> = ({ posts }) => {
 
-  return <div className={styles.container}>
+  return <>
     <Header
       title="Blog posts"
       descr="Paginated list of blog posts."
@@ -22,7 +22,7 @@ const Blog: NextPage<blogProps> = ({ posts }) => {
       <HeroSection heading="Blog" image={heroImg}/>
       <ListOfPosts posts={posts} />
     </main>
-  </div>
+  </>
 }
 
 export default Blog

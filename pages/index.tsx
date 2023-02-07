@@ -6,6 +6,7 @@ import Image from 'next/image'
 import HeroSection from '../components/layout/HeroSection'
 import heroImg from '../assets/images/main-page-pattern.webp'
 import Carousel from '../components/layout/Carousel/Carousel'
+import ContactForm from '../components/forms/ContactForm'
 import downloadIcon from '../assets/icons/icon-download.svg'
 import githubIcon from '../public/img/logos/github.svg'
 
@@ -28,8 +29,11 @@ const Home: NextPage = () => {
             </p>
 
             <p className={styles.pageParagraph}>
-              Most of my experience is with ECMAScript 6/ES2015, React, Redux, Node.js, Express, MongoDB, Webpack 4, HTML5, CSS3, SASS/SCSS. I am testing using Jest and Cypress. My prior experience includes PHP7, MySQL and a basic knowledge of C and Java.
-              My English is Upper Intermediate (B2), I speak Ukrainian and Russian language. Currently living in Kyiv, can relocate.
+              Most of my experience is with ECMAScript 6/ES2015, Next.js, React, Redux, Node.js, Express, MongoDB, Webpack 5,
+              HTML5, CSS3, SASS/SCSS. I am testing using Jest and Cypress. My prior experience includes PHP7, MySQL and
+              a basic knowledge of C and Java.
+              My English is Upper Intermediate (B2), I speak Ukrainian and Russian languages.
+              Currently living in Kyiv, can relocate.
             </p>
 
             <div className={styles.downloadResumeCTA}>
@@ -52,16 +56,16 @@ const Home: NextPage = () => {
                   />
               </Link>
             </div>
-
           </section>
 
           <section className={styles.section}>
-            {/* <h2 className={styles.heading}>Some of my work</h2> */}
             <Carousel />
           </section>
 
-        {/* <div className={styles.grid}>
-        </div> */}
+          <section className={styles.section}>
+            <ContactForm />
+          </section>
+
       </main>
 
     </div>

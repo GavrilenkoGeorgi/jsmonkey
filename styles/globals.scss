@@ -29,12 +29,12 @@ a {
   }
 }
 
-h2 {
-  font-size: 200%;
+h2 { // is this really necessary
+  font-size: 125%;
   @media screen and (min-width: $medium) {
-    font-size: 300%;
+    font-size: 200%;
   }
   @media screen and (min-width: $large) {
-    font-size: 300%;
+    font-size: 250%;
   }
 }

@@ -91,12 +91,11 @@
 
 .footer {
   display: flex;
-  flex: 1;
   background-color: aliceblue;
   padding: 2rem 4rem;
-  border-top: 1px solid #eaeaea;
   align-items: center;
   justify-content: space-between;
+  margin-top: auto;
   .socialLinksContainer {
     display: flex;
     align-items: center;

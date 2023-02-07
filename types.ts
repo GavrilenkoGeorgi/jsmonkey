@@ -1,5 +1,18 @@
 import { ReactNode } from 'react'
 
+export type reCaptchaScore = {
+  action: string,
+  challenge_ts: string,
+  hostname: string,
+  score: number,
+  success: true
+}
+
+export type contactFormMessage = {
+  email: string,
+  message: string
+}
+
 export type blogProps = {
   posts: [
     postCardProps
