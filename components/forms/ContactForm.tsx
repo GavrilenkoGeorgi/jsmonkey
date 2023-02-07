@@ -1,6 +1,9 @@
 import { FC, useCallback } from 'react'
 import { useReCaptcha } from 'next-recaptcha-v3'
+
+import { sendContactMsg } from '../../utils/mailSender'
 import { validateToken } from '../../utils/reCaptcha'
+import { contactFormMessage } from '../../types'
 
 import styles from './ContactForm.module.sass'
 import globalStyles from '../../styles/Main.module.scss'
@@ -9,10 +12,28 @@ const ContactForm:FC = () => {
 
   const { executeRecaptcha } = useReCaptcha()
 
-  const handleSubmit = useCallback(async (event: React.ChangeEvent<any>) => {
+  const handleSubmit = useCallback(async (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault()
+
+    // Get data from the form
+    const form = event.target
+    const formData = new FormData(form)
+    const formProps = Object.fromEntries(formData)
+
     const token = await executeRecaptcha('submit')
-    validateToken(token)
+    const result = await validateToken(token)
+
+    if (result && result.score < .5) { // minify this
+      console.log('Sorry, score is too low.')
+    } else {
+      const msg: contactFormMessage = {
+        email: String(formProps.email),
+        message: String(formProps.message)
+      }
+      sendContactMsg(msg)
+      form.reset()
+    }
+
   }, [executeRecaptcha])
 
   return <div className={globalStyles.containerMd}>
@@ -22,13 +43,13 @@ const ContactForm:FC = () => {
       method="post"
       className={styles.form}
     >
-      <label htmlFor="name">Your name</label>
+      <label htmlFor="email">Your email</label>
       <input
-        type="text"
-        id="name"
-        name="name"
-        placeholder='Your name'
-        // required
+        type="email"
+        id="email"
+        name="email"
+        placeholder='Your email'
+        required
         minLength={2}
         maxLength={33}
       />
@@ -39,9 +60,9 @@ const ContactForm:FC = () => {
         id="message"
         name="message"
         placeholder='Message'
-        // required
-        minLength={10}
-        maxLength={350}
+        required
+        minLength={2}
+        maxLength={500}
       />
       <p className={styles.errorMsg}>You forgot your message</p>
       <button type="submit">Submit</button>

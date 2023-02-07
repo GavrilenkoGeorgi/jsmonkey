@@ -1,17 +1,19 @@
 import axios from 'axios'
+import { reCaptchaScore } from '../types'
 
-export const validateToken = (token: string) => {
+export const validateToken = async (token: string) => {
 
   const url = `${process.env.NEXT_PUBLIC_CAPTCHA_BACKEND}`
   const data = {
     token
   }
 
-  axios.post(url, data)
-  .then(function (response) {
-    console.log(response)
-  })
-  .catch(function (error) {
+  try {
+    const score = await axios.post(url, data)
+    const result: reCaptchaScore = score.data
+    return result
+  } catch (error) {
+    // TODO: handle recaptcha errors
     console.log(error)
-  })
+  }
 }
