@@ -5,7 +5,7 @@ draft: false
 tags:
   - stuff
   - test
-author: JSmonkey
+author: JSMonkey
 authorImage: /uploads/author-placeholder.svg
 image: /uploads/third-pattern.png
 share: false
