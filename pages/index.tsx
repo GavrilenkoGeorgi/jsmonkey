@@ -37,7 +37,7 @@ const Home: NextPage = () => {
             </p>
 
             <div className={styles.downloadResumeCTA}>
-              <Link href="/public/pdf/gavrylenkoCV.pdf">
+              <Link href="/pdf/gavrylenkoCV.pdf">
                 My resume in pdf
                 <Image
                   src={downloadIcon}
