@@ -1,8 +1,13 @@
 @import '../../styles/colors'
 
+$form-font-size: 1rem
+
 .title
   text-align: center
   margin: 1.5rem 0
+  letter-spacing: 1.5px
+  font-weight: 400
+  margin-bottom: 2rem
 
 .form
   display: flex
@@ -10,18 +15,24 @@
   max-width: 25rem
   margin: 0 auto 8rem
   input
+    font-size: $form-font-size
     height: 2rem
-    padding: 1rem
-    color: $grey-font
+    padding: 1.25rem
+    color: $gray-font
+    border: 1px solid $gray
   input::placeholder
     color: $light-gray
+    font-size: $form-font-size
 
   textarea
-    padding: 1rem
+    font-size: $form-font-size
+    padding: 1.25rem
     font-family: sans-serif
-    color: $grey-font
+    color: $gray-font
+    border: 1px solid $gray
   textarea::placeholder
     color: $light-gray
+    font-size: $form-font-size
 
   label
     visibility: hidden

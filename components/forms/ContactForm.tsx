@@ -52,7 +52,7 @@ const ContactForm:FC = () => {
         type='email'
         id='email'
         name='email'
-        placeholder='Your email'
+        placeholder='Your email*'
         required
         minLength={2}
         maxLength={33}
@@ -63,7 +63,7 @@ const ContactForm:FC = () => {
         rows={5}
         id='message'
         name='message'
-        placeholder='Message'
+        placeholder='Message*'
         required
         minLength={2}
         maxLength={500}

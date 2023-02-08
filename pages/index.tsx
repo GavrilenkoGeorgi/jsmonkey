@@ -51,8 +51,8 @@ const Home: NextPage = () => {
                 <Image
                   src={githubIcon}
                   alt="Github icon"
-                  width={55}
-                  height={55}
+                  width={40}
+                  height={40}
                   />
               </Link>
             </div>
