@@ -93,3 +93,10 @@ export type staticPropsParams = {
     slug: string
   }
 }
+
+export type btnProps = {
+  label: string,
+  type?: string,
+  link?: string,
+  submitting?: boolean
+}
