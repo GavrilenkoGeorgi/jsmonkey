@@ -1,21 +1,24 @@
-import { FC, useCallback } from 'react'
+import { FC, useCallback, useState } from 'react'
 import { useReCaptcha } from 'next-recaptcha-v3'
 
 import { sendContactMsg } from '../../utils/mailSender'
 import { validateToken } from '../../utils/reCaptcha'
 import { contactFormMessage } from '../../types'
 
+import Button from '../layout/Button'
 import styles from './ContactForm.module.sass'
 import globalStyles from '../../styles/Main.module.scss'
 
 const ContactForm:FC = () => {
 
   const { executeRecaptcha } = useReCaptcha()
+  const [submitting, setSubmitting] = useState(false)
 
   const handleSubmit = useCallback(async (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault()
+    setSubmitting(true)
 
-    // Get data from the form
+    // Get form data
     const form = event.target
     const formData = new FormData(form)
     const formProps = Object.fromEntries(formData)
@@ -32,6 +35,7 @@ const ContactForm:FC = () => {
       }
       sendContactMsg(msg)
       form.reset()
+      setSubmitting(false)
     }
 
   }, [executeRecaptcha])
@@ -40,32 +44,36 @@ const ContactForm:FC = () => {
     <h2 className={styles.title}>Send me a message</h2>
     <form
       onSubmit={handleSubmit}
-      method="post"
+      method='post'
       className={styles.form}
     >
-      <label htmlFor="email">Your email</label>
+      <label htmlFor='email'>Your email</label>
       <input
-        type="email"
-        id="email"
-        name="email"
-        placeholder='Your email'
+        type='email'
+        id='email'
+        name='email'
+        placeholder='Your email*'
         required
         minLength={2}
         maxLength={33}
       />
       <p className={styles.errorMsg}>This one is requred</p>
-      <label htmlFor="last">Message</label>
+      <label htmlFor='last'>Message</label>
       <textarea
         rows={5}
-        id="message"
-        name="message"
-        placeholder='Message'
+        id='message'
+        name='message'
+        placeholder='Message*'
         required
         minLength={2}
         maxLength={500}
       />
       <p className={styles.errorMsg}>You forgot your message</p>
-      <button type="submit">Submit</button>
+      <Button
+        type='submit'
+        label='Submit'
+        submitting={submitting}
+      />
     </form>
   </div>
 }

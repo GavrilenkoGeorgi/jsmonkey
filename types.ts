@@ -53,7 +53,6 @@ export type headProps = {
 }
 
 export type navLink = {
-  id: string,
   label: string,
   url: string
 }
@@ -93,4 +92,11 @@ export type staticPropsParams = {
   params: {
     slug: string
   }
+}
+
+export type btnProps = {
+  label: string,
+  type?: string,
+  link?: string,
+  submitting?: boolean
 }

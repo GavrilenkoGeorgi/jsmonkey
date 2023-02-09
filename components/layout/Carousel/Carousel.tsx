@@ -7,6 +7,7 @@ import items from '../../../data/projects.json'
 import prevArrow from './PrevArrow'
 import nextArrow from './NextArrow'
 import dots from './Dots'
+import Button from '../Button'
 
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import styles from './Carousel.module.sass'
@@ -41,11 +42,10 @@ const ResponsiveCarousel: FC = () => {
           </div>
           <div className={styles.slideDetails}>
             <p className={styles.slideText}>{item.text}</p>
-            <Link href={`/projects#${item.title}`}>
-              <button className={styles.slideCTA}>
-                More info
-              </button>
-            </Link>
+            <Button
+              link={`/projects#${item.title}`}
+              label='More info'
+            />
           </div>
         </div>
       ))}

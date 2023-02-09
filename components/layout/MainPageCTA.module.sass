@@ -1,0 +1,36 @@
+@import '../../styles/_variables'
+
+.downloadResumeCTA
+  display: flex
+  flex-direction: column
+  align-items: flex-end
+  font-size: 110%
+  margin: 3rem 0
+  @media screen and (min-width: $medium)
+    font-size: 225%
+    margin: 6rem 0
+  @media screen and (max-width: $medium)
+   flex-direction: column
+  a
+    display: flex
+    align-items: center
+    transition: opacity .25s ease-in
+    margin-bottom: 1rem
+    &:hover
+      opacity: .4
+    @media screen and (min-width: $medium)
+      margin: 1rem
+  img
+    margin-left: 1rem
+    opacity: .7
+    width: 50px
+    @media screen and (min-width: $medium)
+      width: 100px
+
+.svgIcon
+  margin-left: 1rem
+  margin-right: .33rem
+  @media screen and (min-width: $medium)
+    margin-left: 1.5rem
+    width: 60px
+    height: 60px

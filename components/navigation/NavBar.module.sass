@@ -15,12 +15,11 @@
   box-shadow: 0px 0px 11px 0px #0000003a
   transition: opacity .5s ease-in, top .5s ease-in
   @media screen and (min-width: $small)
-    font-size: 125%
+    font-size: 115%
   @media screen and (min-width: $medium)
     padding: 0 4rem
-    font-size: 150%
   @media screen and (min-width: $xlarge)
-    font-size: 200%
+    font-size: 175%
 
 .hiddenNav
   top: -$navbarHeight
@@ -41,25 +40,23 @@
 .linksContainer
   display: flex
   height: 100%
-  @media screen and (max-width: $extraSmall)
-    font-size: 80%
 
 .navLink
   display: flex
   align-items: center
-  color: $grey-font
+  color: $gray-font
   margin: 0 .75rem
   padding: 0 .5rem
   transition: color .25s ease-in
   transition: border-color .25s ease-in
   height: 100%
-  border-bottom: 2px solid transparent
+  border-top: 4px solid transparent
+  border-bottom: 4px solid transparent
   &:hover
     cursor: pointer
     color: $highlight-color
-    border-bottom: 2px solid $highlight-color
-
+    border-bottom: 4px solid $highlight-color
 
 .current
   color: $highlight-color
-  border-bottom: 2px solid $highlight-color
+  border-bottom: 4px solid $highlight-color

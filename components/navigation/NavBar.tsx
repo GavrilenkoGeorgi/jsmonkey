@@ -14,12 +14,10 @@ const NavBar:FC = () => {
 
   const navigation: Array<navLink> = [
     {
-      id: 'id-1',
       label: 'Blog',
       url: '/blog'
     },
     {
-      id: 'id-2',
       label: 'Projects',
       url: '/projects'
     }
@@ -27,7 +25,7 @@ const NavBar:FC = () => {
 
   const navLinks = navigation.map(link =>
     <Link href={link.url}
-      key={link.id}
+      key={link.url}
       legacyBehavior // check this again later
     >
       <span className={pathname === link.url
