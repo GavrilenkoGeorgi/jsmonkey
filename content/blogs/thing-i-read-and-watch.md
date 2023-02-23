@@ -1,6 +1,6 @@
 ---
 title: Thing I read and watch
-date: February 23, 2023 1:37 PM
+date: February 24, 2023 1:50 PM
 draft: true
 tags:
   - reading
