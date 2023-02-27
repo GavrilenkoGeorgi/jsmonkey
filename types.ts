@@ -46,6 +46,25 @@ export type layoutProps = {
   children: ReactNode
 }
 
+export type nextSeoProps = {
+  title: string,
+  description: string,
+  canonical: string,
+  openGraph: {
+    url: string,
+    title: string,
+    description: string,
+    images: [{
+      url: string,
+      width: number,
+      height: number,
+      alt: string,
+      type: string
+    }],
+    siteName: string
+  }
+}
+
 export type headProps = {
   title: string,
   descr: string,

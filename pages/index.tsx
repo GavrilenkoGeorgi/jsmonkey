@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
 
+import NextSeoHead from '../components/layout/NextSeoHead'
 import HeroSection from '../components/layout/HeroSection'
 import heroImg from '../assets/images/main-page-pattern.webp'
 import Carousel from '../components/layout/Carousel/Carousel'
@@ -11,11 +11,26 @@ import styles from '../styles/Main.module.scss'
 
 const Home: NextPage = () => {
   return <div className={styles.container}>
-    <Head>
-      <title>JSMonkey.dev</title>
-      <meta name="description" content="My resume, projects, blog." />
-      <link rel="icon" href="/favicon.ico" />
-    </Head>
+    <NextSeoHead
+      title='Home page: jsmonkey.dev'
+      description='Some more info about me and what I do.'
+      canonical='https://jsmonkey.dev'
+      openGraph={{
+        url: 'https://jsmonkey.dev',
+        title: 'Home page: jsmonkey.dev',
+        description: 'Some more info about me and what I do.',
+        images: [
+          {
+            url: 'https://jsmonkey.dev/img/og/jsmonkey-og-img.png',
+            width: 1200,
+            height: 630,
+            alt: 'JSMonkey home page pattern.',
+            type: 'image/png'
+          }
+        ],
+        siteName: 'JSMonkey'
+      }}
+    />
 
     <main className={styles.main}>
       <HeroSection heading='JSMonkey.dev' image={heroImg} />
