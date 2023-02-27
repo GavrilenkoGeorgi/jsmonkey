@@ -3,7 +3,7 @@ import matter from 'gray-matter'
 import type { NextPage } from 'next'
 import { blogProps } from '../../types'
 
-import Header from '../../components/layout/Header'
+import NextSeoHead from '../../components/layout/NextSeoHead'
 import HeroSection from '../../components/layout/HeroSection'
 import ListOfPosts from '../../components/blog/ListOfPosts'
 import heroImg from '../../assets/images/blog-hero-image.webp'
@@ -13,11 +13,26 @@ import styles from '../../styles/Main.module.scss'
 const Blog: NextPage<blogProps> = ({ posts }) => {
 
   return <>
-    <Header
-      title="Blog posts"
-      descr="Paginated list of blog posts."
-    >
-    </Header>
+    <NextSeoHead
+      title='My Blog'
+      description='Mostly random thoughts about things that interest me.'
+      canonical='https://jsmonkey.dev'
+      openGraph={{
+        url: 'https://jsmonkey.dev/blog',
+        title: 'My Blog',
+        description: 'Mostly random thoughts about things that interest me.',
+        images: [
+          {
+            url: 'https://jsmonkey.dev/img/og/jsmonkey-blog-og-img.png',
+            width: 1200,
+            height: 630,
+            alt: 'JSMonkey blog page pattern.',
+            type: 'image/png'
+          }
+        ],
+        siteName: 'JSMonkey'
+      }}
+    />
     <main className={styles.main}>
       <HeroSection heading="Blog" image={heroImg}/>
       <ListOfPosts posts={posts} />
