@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import Link from 'next/link'
 
-import Logo from '../Logo'
+import Logo from './Logo'
 import SocialIcon from './SocialIcon'
 import facebookIcon from '../../assets/icons/icon-facebook.svg'
 import instagramIcon from '../../assets/icons/icon-instagram.svg'
