@@ -1,0 +1,16 @@
+@import '../../styles/colors'
+@import '../../styles/variables'
+
+.logo
+  color: $highlight-color
+  cursor: pointer
+  display: flex
+  align-items: center
+  transition: opacity .25s ease-in
+  &:hover
+    opacity: .5
+  img
+    height: 1.4rem
+    width: 100%
+    @media screen and (min-width: $large)
+      height: 2.25rem

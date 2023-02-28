@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { navLink } from '../../types'
 import { useScrollDirection } from '../../hooks'
 
-import Logo from '../Logo'
+import Logo from '../layout/Logo'
 import styles from './NavBar.module.sass'
 
 const NavBar:FC = () => {
