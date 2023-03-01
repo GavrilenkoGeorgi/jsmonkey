@@ -24,8 +24,9 @@
 .containerLg {
   max-width: 1280px;
   margin: 2rem auto;
-  padding: 0 2rem;
+  padding: 0 .5rem;
   @media screen and (min-width: $medium) {
+    padding: 0 2rem;
     margin: 4rem auto;
   }
 }

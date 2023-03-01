@@ -8,6 +8,7 @@ import Header from '../../components/layout/Header'
 import HeroSection from '../../components/layout/HeroSection'
 import styles from '../../styles/Main.module.scss'
 import blogStyles from '../../styles/Blog.module.sass'
+import markdownStyles from '../../styles/Markdown.module.sass'
 
 const Post: NextPage<postProps> = ({ frontmatter, markdown }) => {
 
@@ -30,7 +31,9 @@ const Post: NextPage<postProps> = ({ frontmatter, markdown }) => {
         <article className={blogStyles.article}>
           <p className={blogStyles.timestamp}>{frontmatter.date}</p>
           <hr className={blogStyles.hr} />
-          <ReactMarkdown>
+          <ReactMarkdown
+            className={markdownStyles.reactMarkDown}
+          >
             {markdown}
           </ReactMarkdown>
         </article>
