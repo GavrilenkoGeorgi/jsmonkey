@@ -2,7 +2,7 @@ import { FC } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import ProjectCarousel from '../layout/Carousel/ProjectCarousel'
+import ProjectSlider from '../layout/Carousel/ProjectSlider'
 import { projectSectionProps } from '../../types'
 
 import styles from './ProjectSection.module.sass'
@@ -12,9 +12,8 @@ const ProjectSection:FC<projectSectionProps> = ({ project }) => {
   const { title, description, images, logoImgs, url } = project
 
   return <section className={styles.container} id={title}>
-
     <aside className={styles.carousel}>
-      <ProjectCarousel images={images}/>
+      <ProjectSlider images={images}/>
     </aside>
 
     <div className={styles.description}>

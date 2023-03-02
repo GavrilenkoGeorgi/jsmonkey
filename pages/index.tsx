@@ -3,7 +3,7 @@ import type { NextPage } from 'next'
 import NextSeoHead from '../components/layout/NextSeoHead'
 import HeroSection from '../components/layout/HeroSection'
 import heroImg from '../assets/images/main-page-pattern.webp'
-import Carousel from '../components/layout/Carousel/Carousel'
+import MainSlider from '../components/layout/Carousel/MainSlider'
 import ContactForm from '../components/forms/ContactForm'
 import MainPageCTA from '../components/layout/MainPageCTA'
 
@@ -50,7 +50,7 @@ const Home: NextPage = () => {
         </section>
 
         <section className={styles.section}>
-          <Carousel />
+          <MainSlider />
         </section>
 
         <section className={styles.section}>
