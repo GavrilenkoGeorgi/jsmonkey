@@ -3,8 +3,10 @@ import { useEffect } from 'react'
 import { Noto_Sans } from '@next/font/google'
 import type { AppProps } from 'next/app'
 import { ReCaptchaProvider } from 'next-recaptcha-v3'
-import * as gtag from "../utils/gtag"
+import * as gtag from '../utils/gtag'
 import Script from 'next/script'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
 import '../styles/globals.scss'
 import Layout from '../components/layout/Layout'
@@ -30,10 +32,10 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [router.events])
 
   return <div className={quicksand.className}>
-    <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-NHDRDGHWQ9"></Script>
+    <Script strategy='afterInteractive' src='https://www.googletagmanager.com/gtag/js?id=G-NHDRDGHWQ9'></Script>
     <Script
       id='google-analytics'
-      strategy="afterInteractive"
+      strategy='afterInteractive'
       dangerouslySetInnerHTML={{
         __html: `
           window.dataLayer = window.dataLayer || [];
