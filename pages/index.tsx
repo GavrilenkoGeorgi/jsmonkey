@@ -56,7 +56,7 @@ const Home: NextPage = () => {
 
         <section className={styles.section}>
           <FadeIn>
-            <h2 className='text-center'>Accomplised tasks</h2>
+            <h2 className='text-center'>Accomplished tasks</h2>
             <MainSlider />
           </FadeIn>
         </section>
