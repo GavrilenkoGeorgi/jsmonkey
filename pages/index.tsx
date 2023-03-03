@@ -6,6 +6,7 @@ import heroImg from '../assets/images/main-page-pattern.webp'
 import MainSlider from '../components/layout/Carousel/MainSlider'
 import ContactForm from '../components/forms/ContactForm'
 import MainPageCTA from '../components/layout/MainPageCTA'
+import FadeIn from '../components/layout/Animation/FadeIn'
 
 import styles from '../styles/Main.module.scss'
 
@@ -34,27 +35,36 @@ const Home: NextPage = () => {
 
     <main className={styles.main}>
       <HeroSection heading='JSMonkey.dev' image={heroImg} />
-        <section className={styles.containerLg}>
-          <p className={styles.leadParagraph}>
-            Hi, my name is George and I am working as a full-time Middle Frontend Developer.
-          </p>
+        <section className={styles.section}>
+          <FadeIn>
+            <div className={styles.containerMd}>
+              <p className={styles.leadParagraph}>
+                Hi, my name is George and I am working as a full-time Middle Frontend Developer.
+              </p>
 
-          <p className={styles.pageParagraph}>
-            Most of my experience is with ECMAScript 6/ES2015, Next.js, React, Redux, Node.js, Express, MongoDB, Webpack 5,
-            HTML5, CSS3, SASS/SCSS. I am testing using Jest and Cypress. My prior experience includes PHP7, MySQL and
-            a basic knowledge of C and Java.
-            My English is Upper Intermediate (B2), I speak Ukrainian and Russian languages.
-            Currently living in Kyiv, can relocate.
-          </p>
-          <MainPageCTA />
+              <p className={styles.pageParagraph}>
+                Most of my experience is with ECMAScript 6/ES2015, Next.js, React, Redux, Node.js, Express, MongoDB, Webpack 5,
+                HTML5, CSS3, SASS/SCSS. I am testing using Jest and Cypress. My prior experience includes PHP7, MySQL and
+                a basic knowledge of C and Java.
+                My English is Upper Intermediate (B2), I speak Ukrainian and Russian languages.
+                Currently living in Kyiv, can relocate.
+              </p>
+              <MainPageCTA />
+            </div>
+          </FadeIn>
         </section>
 
         <section className={styles.section}>
-          <MainSlider />
+          <FadeIn>
+            <h2 className='text-center'>Accomplised tasks</h2>
+            <MainSlider />
+          </FadeIn>
         </section>
 
         <section className={styles.section}>
-          <ContactForm />
+          <FadeIn>
+            <ContactForm />
+          </FadeIn>
         </section>
     </main>
   </div>
