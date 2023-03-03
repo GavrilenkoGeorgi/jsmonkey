@@ -20,7 +20,7 @@
   @media screen and (min-width: $medium)
     padding: 0 4rem
   @media screen and (min-width: $xlarge)
-    font-size: 175%
+    font-size: 133%
 
 .hiddenNav
   top: -$navbarHeight
@@ -45,18 +45,22 @@
 .navLink
   display: flex
   align-items: center
-  color: $gray-font
   margin: 0 .75rem
   padding: 0 .5rem
+  height: 100%
+  color: $gray-font
+  letter-spacing: 1.35px
   transition: color .25s ease-in
   transition: border-color .25s ease-in
-  height: 100%
   border-top: 4px solid transparent
   border-bottom: 4px solid transparent
   &:hover
     cursor: pointer
     color: $highlight-color
     border-bottom: 4px solid $highlight-color
+  @media screen and (min-width: $medium)
+    padding: 0 1.33rem
+
 
 .current
   color: $highlight-color
