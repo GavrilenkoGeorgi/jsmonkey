@@ -1,7 +1,10 @@
 @import '../../styles/colors'
 @import '../../styles/variables'
 
-$form-font-size: 1rem
+$form-font-size: .9rem
+$desktop-form-font-size: 1.4rem
+$field-padding: .8rem
+$form-ltr-spacing: 1.45px
 
 .title
   text-align: center
@@ -9,43 +12,45 @@ $form-font-size: 1rem
   font-weight: 400
   margin-bottom: 2rem
   @media screen and (min-width: $medium)
-    margin-bottom: 5rem
+    margin-bottom: 3rem
 
 .form
   display: flex
   flex-direction: column
   width: 100%
-  max-width: 35rem
+  max-width: 25rem
   margin: auto
+  @media screen and (min-width: $large)
+    max-width: 35rem
   input
     font-size: $form-font-size
-    padding: .8rem
+    padding: $field-padding
     color: $gray-font
     border: 1px solid $gray
+    letter-spacing: $form-ltr-spacing
+    @media screen and (min-width: $large)
+      font-size: $desktop-form-font-size
   input::placeholder
     color: $light-gray
     font-size: $form-font-size
-
-  input, input::placeholder
     @media screen and (min-width: $large)
-      padding: 1rem
-      font-size: 2rem
+      font-size: $desktop-form-font-size
 
   textarea
     font-size: $form-font-size
-    padding: .8rem
+    letter-spacing: $form-ltr-spacing
+    padding: $field-padding
     font-family: sans-serif
     color: $gray-font
     border: 1px solid $gray
+    @media screen and (min-width: $large)
+      font-size: $desktop-form-font-size
 
   textarea::placeholder
     color: $light-gray
     font-size: $form-font-size
-
-  textarea, textarea::placeholder
     @media screen and (min-width: $large)
-      padding: 1rem
-      font-size: 2rem
+      font-size: $desktop-form-font-size
 
   label
     visibility: hidden
