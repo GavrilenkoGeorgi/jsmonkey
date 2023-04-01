@@ -32,18 +32,21 @@
   box-shadow: 0px 0px 5px 0px rgb(184,184,184)
 
 .slideDetails
-  padding: 1rem 0 2rem
+  margin-top: 2rem
+  height: 10rem
+  @media screen and (min-width: $large)
+    height: 15rem
 
 .slideText
   line-height: 1.6
-  font-size: .8rem
-  max-width: 35rem
+  font-size: 80%
+  max-width: 30rem
   margin: auto
-  margin-bottom: 3rem
-  @media screen and (min-width: $extraSmall)
-    padding: 0 .5rem
+  margin-bottom: 2rem
+  @media screen and (max-width: $small)
+    padding: 0 1rem
   @media screen and (min-width: $small)
-    font-size: 140%
+    font-size: 100%
   @media screen and (min-width: $large)
-    font-size: 200%
-    max-width: 50rem
+    font-size: 150%
+    max-width: 35rem
