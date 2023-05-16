@@ -39,7 +39,7 @@ const Home: NextPage = () => {
           <FadeIn>
             <div className={styles.containerMd}>
               <p className={styles.leadParagraph}>
-                Hi, my name is George and I am working as a full-time Middle Frontend Developer.
+                Hi, my name is George, and I am a Frontend Developer.
               </p>
 
               <p className={styles.pageParagraph}>
