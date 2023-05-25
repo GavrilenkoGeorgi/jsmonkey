@@ -50,10 +50,6 @@ button, input {
 }
 
 .slick-dots li {
-  margin: 0 .05rem;
-  transform: scale(1.5);
-  @media screen and (min-width: $medium) {
-    margin: .25rem;
-    transform: scale(2.25);
-  }
+  margin: .25rem;
+  transform: scale(2.5);
 }
