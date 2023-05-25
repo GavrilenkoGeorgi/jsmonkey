@@ -13,7 +13,8 @@ import Layout from '../components/layout/Layout'
 
 const font = Noto_Sans({
   subsets: ['latin'],
-  weight: ['400', '600']
+  weight: ['400', '600'],
+  display: 'swap'
 })
 
 function MyApp({ Component, pageProps }: AppProps) {
