@@ -36,6 +36,8 @@ const ProjectSection:FC<projectSectionProps> = ({ project }) => {
             />)}
         </div>
       </div>
+    {/* Fix this! */}
+    <div className={`${styles.divider} ${styles.divTransparent} ${styles.divStopper}`}></div>
     </FadeIn>
   </section>
 }

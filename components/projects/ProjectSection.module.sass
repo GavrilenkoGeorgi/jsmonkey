@@ -4,10 +4,9 @@
 .container
   display: flex
   flex-direction: column
-  max-width: 100rem
+  justify-content: center
   width: 100%
   margin: 3rem auto
-  margin-bottom: 10rem
   @media screen and (min-width: $medium)
     padding: 3rem
     padding: 1rem
@@ -22,6 +21,7 @@
 
 .description
   padding: 1rem
+  max-width: 60rem
   @media screen and (min-width: $medium)
     padding: 3rem
     padding-right: 1rem
@@ -75,3 +75,32 @@
 
 .logo
   margin: .66rem
+
+.divider
+  position: relative
+  margin-top: 90px
+  height: 1px
+
+.divTransparent
+  &::before
+    content: ""
+    position: absolute
+    top: 0
+    left: 5%
+    right: 5%
+    width: 90%
+    height: 1px
+    background-image: linear-gradient(to right, transparent, rgb(48,49,51), transparent)
+
+.divStopper
+  &::after
+    content: ""
+    position: absolute
+    z-index: 1
+    top: -6px
+    left: calc(50% - 7px)
+    width: 14px
+    height: 12px
+    background-color: white
+    border-left: 1px solid rgb(48,49,51)
+    border-right: 1px solid rgb(48,49,51)
