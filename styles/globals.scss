@@ -53,3 +53,9 @@ button, input {
   margin: .25rem;
   transform: scale(2.5);
 }
+
+// some sketchy fix for slick fonts
+.slick-next:before, .slick-prev:before {
+  font-family: inherit !important;
+  font-display: swap;
+}
