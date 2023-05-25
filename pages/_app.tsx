@@ -11,7 +11,7 @@ import 'slick-carousel/slick/slick-theme.css'
 import '../styles/globals.scss'
 import Layout from '../components/layout/Layout'
 
-const quicksand = Noto_Sans({
+const font = Noto_Sans({
   subsets: ['latin'],
   weight: ['400', '600']
 })
@@ -31,7 +31,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     }
   }, [router.events])
 
-  return <div className={quicksand.className}>
+  return <div className={font.className}>
     <Script strategy='afterInteractive' src='https://www.googletagmanager.com/gtag/js?id=G-NHDRDGHWQ9'></Script>
     <Script
       id='google-analytics'
