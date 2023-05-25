@@ -36,24 +36,22 @@ const Home: NextPage = () => {
     <main className={styles.main}>
       <HeroSection heading='JSMonkey.dev' image={heroImg} />
         <section className={styles.section}>
-          <FadeIn>
-            <div className={styles.containerMd}>
-              <p className={styles.leadParagraph}>
-                Hi, my name is George, and I am a Frontend Developer.
-              </p>
+          <div className={styles.containerMd}>
+            <p className={styles.leadParagraph}>
+              Hi, my name is George, and I am a Frontend Developer.
+            </p>
 
-              <p className={styles.pageParagraph}>
-                Most of my experience is with Typescript, ECMAScript 6/ES2015,
-                Next.js, React, Redux, Node.js, Express, MongoDB, Webpack 5,
-                HTML5, CSS3, SASS/SCSS. I am testing using Jest and Cypress.
-                My prior experience includes PHP7, MySQL and basic knowledge
-                of C and Java.
-                My English is Upper Intermediate (B2), I speak Ukrainian and Russian.
-                Currently living in Kyiv, can relocate.
-              </p>
-              <MainPageCTA />
-            </div>
-          </FadeIn>
+            <p className={styles.pageParagraph}>
+              Most of my experience is with Typescript, ECMAScript 6/ES2015,
+              Next.js, React, Redux, Node.js, Express, MongoDB, Webpack 5,
+              HTML5, CSS3, SASS/SCSS. I am testing using Jest and Cypress.
+              My prior experience includes PHP7, MySQL and basic knowledge
+              of C and Java.
+              My English is Upper Intermediate (B2), I speak Ukrainian and Russian.
+              Currently living in Kyiv, can relocate.
+            </p>
+            <MainPageCTA />
+          </div>
         </section>
 
         <section className={styles.section}>
