@@ -53,3 +53,44 @@ button, input {
   margin: .25rem;
   transform: scale(2.5);
 }
+
+.slick-arrow {
+  width: $slickNavArrowMobileSize;
+  height: $slickNavArrowMobileSize;
+  z-index: 2;
+  transition: opacity .5s ease-in;
+  &:hover {
+    opacity: .35;
+  }
+  @media screen and (min-width: $medium) {
+    width: $slickNavArrowDesktopSize;
+    height: $slickNavArrowDesktopSize;
+  }
+}
+
+.slick-prev, .slick-next {
+  &:before {
+    font-family: inherit;
+    display: block;
+    content: '';
+    background-size: $slickNavArrowMobileSize $slickNavArrowMobileSize;
+    background-repeat: no-repeat;
+    height: $slickNavArrowMobileSize;
+    @media screen and (min-width: $medium) {
+      background-size: $slickNavArrowDesktopSize $slickNavArrowDesktopSize;
+      height: $slickNavArrowDesktopSize;
+    }
+  }
+}
+
+.slick-prev {
+  &:before {
+    background-image: url('../assets/icons/icon-arrow-left.svg');
+  }
+}
+
+.slick-next {
+  &:before {
+    background-image: url('../assets/icons/icon-arrow-right.svg');
+  }
+}
