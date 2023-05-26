@@ -11,12 +11,12 @@ const MainSlider: FC = () => {
 
   const settings = {
     dots: true,
-    arrows: false,
     centerMode: true,
     centerPadding: '0px',
     infinite: true,
-    speed: 500,
-    adaptiveHeight: true
+    speed: 1000,
+    // adaptiveHeight: true,
+    arrows: true
   }
 
   return <Slider {...settings}>
