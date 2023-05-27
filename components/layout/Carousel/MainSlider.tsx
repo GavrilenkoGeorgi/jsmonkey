@@ -13,7 +13,7 @@ const MainSlider: FC = () => {
     dots: true,
     centerMode: true,
     centerPadding: '0px',
-    infinite: true,
+    infinite: false,
     speed: 1000,
     // adaptiveHeight: true,
     arrows: true
