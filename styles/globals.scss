@@ -41,12 +41,25 @@ h2 { // is this really necessary
 }
 
 // https://stackoverflow.com/questions/74925042/why-my-fonts-not-working-when-i-use-input-or-button-tags-in-next-js-13
-button, input { 
+button, input {
   font-family: inherit;
 }
 
 .text-center {
   text-align: center;
+}
+
+.slick-slider {
+  cursor: pointer;
+}
+
+.slick-slide {
+  min-height: 250px;
+  transition: opacity 1.5s ease-in;
+  &:not(.slick-active) {
+    visibility: hidden;
+    opacity: 0;
+  }
 }
 
 .slick-dots li {
@@ -93,4 +106,9 @@ button, input {
   &:before {
     background-image: url('../assets/icons/icon-arrow-right.svg');
   }
+}
+
+.slick-disabled {
+  opacity: 0;
+  visibility: hidden;
 }
