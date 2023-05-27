@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import Image from 'next/image'
 import Slider from 'react-slick'
 
@@ -10,7 +10,6 @@ import styles from './MainSlider.module.sass'
 const MainSlider: FC = () => {
 
   const settings = {
-    dots: true,
     centerPadding: '0px',
     infinite: false,
     speed: 1000,
@@ -19,27 +18,44 @@ const MainSlider: FC = () => {
     mobileFirst: true
   }
 
-  return <Slider {...settings}>
-    {items.map((item) => (
-      <div key={item.id} className={styles.swipeItem}>
-        <div className={styles.imgBox}>
-          <Image
-            src={item.imageUrl}
-            alt="Slide"
-            width={4368}
-            height={2892}
-          />
+  const navSettings = {
+    arrows: false,
+    fade: true
+  }
+
+  const [navSlider, setNavSlider] = useState<Slider>()
+  const [imgSlider, setImgSlider] = useState<Slider>()
+
+  return <>
+    <Slider {...settings} asNavFor={navSlider} ref={(slider: Slider) => setImgSlider(slider)}>
+      {items.map((item) => (
+        <div key={item.id} className={styles.swipeItem}>
+          <div className={styles.imgBox}>
+            <Image
+              src={item.imageUrl}
+              alt="Slide"
+              width={4368}
+              height={2892}
+            />
+          </div>
         </div>
-        <div className={styles.slideDetails}>
+        ))}
+    </Slider>
+    <Slider
+      {...navSettings}
+      asNavFor={imgSlider}
+      ref={(slider: Slider) => setNavSlider(slider)}>
+      {items.map((item) => (
+        <article className={styles.slideDetails} key={item.id}>
           <p className={styles.slideText}>{item.text}</p>
           <Button
             link={`/projects#${item.title}`}
             label='More info'
           />
-        </div>
-      </div>
+        </article>
       ))}
-  </Slider>
+    </Slider>
+  </>
 }
 
 export default MainSlider
