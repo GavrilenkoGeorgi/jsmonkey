@@ -10,17 +10,18 @@ import styles from './MainSlider.module.sass'
 const MainSlider: FC = () => {
 
   const settings = {
-    centerPadding: '0px',
-    infinite: false,
+    centerMode: true,
+    slidesToShow: 1,
+    centerPadding: '30px',
+    infinite: true,
     speed: 1000,
-    arrows: true,
-    cssEase: 'ease-in',
-    mobileFirst: true
+    cssEase: 'ease-out'
   }
 
   const navSettings = {
     arrows: false,
-    fade: true
+    fade: true,
+    speed: 1000
   }
 
   const [navSlider, setNavSlider] = useState<Slider>()

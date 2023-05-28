@@ -1,4 +1,5 @@
 @import '../../styles/colors'
+@import '../../styles/variables'
 
 .btn
   font-size: 1rem
@@ -6,14 +7,14 @@
   letter-spacing: 1.5px
   background-color: transparent
   border: 1px solid $gray-font
-  padding: .5rem 2rem
-  height: 3rem
-  width: 10rem
   justify-content: center
   align-content: center
+  padding: .5rem .75rem
   margin: 0 auto
   cursor: pointer
   transition: color .25s ease-in, border-color .25s ease-in
   &:hover
     border-color: $highlight-color
     color: $highlight-color
+  @media screen and (min-width: $medium)
+    padding: .75rem 1.5rem

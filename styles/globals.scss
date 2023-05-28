@@ -54,11 +54,8 @@ button, input {
 }
 
 .slick-slide {
-  min-height: 250px;
-  transition: opacity 1.5s ease-in;
   &:not(.slick-active) {
     visibility: hidden;
-    opacity: 0;
   }
 }
 
