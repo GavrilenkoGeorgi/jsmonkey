@@ -2,7 +2,7 @@ import { FC } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import ProjectSlider from '../layout/Carousel/ProjectSlider'
+import ProjectSlider from '../layout/Slider/ProjectSlider'
 import FadeIn from '../layout/Animation/FadeIn'
 import { projectSectionProps } from '../../types'
 
