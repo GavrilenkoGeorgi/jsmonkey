@@ -13,8 +13,11 @@
   margin: 0 auto
   cursor: pointer
   transition: color .25s ease-in, border-color .25s ease-in
+  @media (prefers-color-scheme: dark)
+    border-color: $gray
+    background-color: $gray-font
   &:hover
     border-color: $highlight-color
     color: $highlight-color
   @media screen and (min-width: $medium)
-    padding: .75rem 1.5rem
+    padding: .75rem 2.5rem

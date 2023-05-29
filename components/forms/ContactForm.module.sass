@@ -1,9 +1,9 @@
 @import '../../styles/colors'
 @import '../../styles/variables'
 
-$form-font-size: .9rem
-$desktop-form-font-size: 1.4rem
-$field-padding: .8rem
+$form-font-size: 1rem
+$desktop-form-font-size: 1.3rem
+$field-padding: 1rem
 $form-ltr-spacing: 1.45px
 
 .title
@@ -30,6 +30,8 @@ $form-ltr-spacing: 1.45px
     letter-spacing: $form-ltr-spacing
     @media screen and (min-width: $large)
       font-size: $desktop-form-font-size
+    @media (prefers-color-scheme: dark)
+      color: inherit
   input::placeholder
     color: $light-gray
     font-size: $form-font-size
@@ -40,11 +42,13 @@ $form-ltr-spacing: 1.45px
     font-size: $form-font-size
     letter-spacing: $form-ltr-spacing
     padding: $field-padding
-    font-family: sans-serif
+    font-family: inherit //! next.js fonts in _app.tsx?
     color: $gray-font
     border: 1px solid $gray
     @media screen and (min-width: $large)
       font-size: $desktop-form-font-size
+    @media (prefers-color-scheme: dark)
+      color: inherit
 
   textarea::placeholder
     color: $light-gray

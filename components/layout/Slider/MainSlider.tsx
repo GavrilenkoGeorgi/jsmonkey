@@ -12,7 +12,7 @@ const MainSlider: FC = () => {
   const settings = {
     centerMode: true,
     slidesToShow: 1,
-    centerPadding: '30px',
+    centerPadding: '15px',
     infinite: false,
     speed: 1000,
     cssEase: 'ease-out'

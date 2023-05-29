@@ -11,7 +11,7 @@ import styles from '../../styles/Main.module.scss'
 
 const Footer:FC = () => {
   return <footer className={styles.footer}>
-    <div className={styles.logoContainer}>
+    <div>
       <Logo />
     </div>
     <div className={styles.socialLinksContainer}>
