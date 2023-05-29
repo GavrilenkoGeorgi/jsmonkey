@@ -38,7 +38,7 @@ const Home: NextPage = () => {
         <section className={styles.section}>
           <div className={styles.containerMd}>
             <p className={styles.leadParagraph}>
-              Hi, my name is George, and I am a Frontend Developer.
+              Hi, my name is Georgiy, and I am a Frontend Developer.
             </p>
 
             <p className={styles.pageParagraph}>
