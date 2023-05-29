@@ -23,8 +23,8 @@ const PostCTA: FC<postCardProps> = (props) => {
       </div>
 
       <div className={styles.postInfoContainer}>
-        <h2 className={styles.heading}>{title}</h2>
         <div className={styles.postMetaInfo}>
+        <h2 className={styles.heading}>{title}</h2>
           <span className={styles.timestamp}>{date}</span>
         </div>
       </div>

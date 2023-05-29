@@ -46,7 +46,7 @@ export default Blog
 // function directly in `getStaticProps`
 export const getStaticProps = async () => {
 
-  const filesInBlogs = fs.readdirSync('./content/blogs')
+  const filesInBlogs = fs.readdirSync('./content/blogs').reverse()
 
   const posts = filesInBlogs.map(filename => {
     const file = fs.readFileSync(`./content/blogs/${filename}`, 'utf8')
