@@ -18,7 +18,7 @@ const MainPageCTA: FC = () => {
 
   return <div className={styles.downloadResumeCTA}>
     <Link href="/pdf/gavrylenkoCV.pdf">
-      My resume in pdf
+      Resume in pdf
       {/* SVG Current color fill from css hover state */}
       <svg className={styles.svgIcon} width="35" height="35" viewBox="0 0 20 20">
         <path fill="currentColor" d="M17 12v5H3v-5H1v5a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5z"/>
@@ -29,7 +29,7 @@ const MainPageCTA: FC = () => {
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      Github account
+      My Github
       {/* SVG current color fill from component hover state, we can set arbitrary color on the fly */}
       <svg className={styles.svgIcon} width="35" height="35" viewBox="0 0 512 512">
         <path // inline to be able to control fill color of the path in next.js

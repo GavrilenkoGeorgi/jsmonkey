@@ -7,10 +7,8 @@
   display: flex
   align-items: center
   transition: opacity .25s ease-in
+  width: 28px
+  @media screen and (min-width: $medium)
+    width: 42px
   &:hover
     opacity: .5
-  img
-    height: 2rem
-    width: 100%
-    @media screen and (min-width: $large)
-      height: 2.25rem
