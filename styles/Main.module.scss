@@ -109,6 +109,9 @@
       justify-content: center;
     }
   }
+  @media (prefers-color-scheme: dark) {
+    background-color: #424242;
+  }
 }
 
 .footer a {
