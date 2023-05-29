@@ -59,11 +59,6 @@ button, input {
   }
 }
 
-.slick-dots li {
-  margin: .25rem;
-  transform: scale(2.5);
-}
-
 .slick-arrow {
   width: $slickNavArrowMobileSize;
   height: $slickNavArrowMobileSize;
@@ -90,6 +85,9 @@ button, input {
       background-size: $slickNavArrowDesktopSize $slickNavArrowDesktopSize;
       height: $slickNavArrowDesktopSize;
     }
+    @media (prefers-color-scheme: dark) {
+      background-color: #424242;
+    }
   }
 }
 
@@ -106,6 +104,6 @@ button, input {
 }
 
 .slick-disabled {
-  opacity: 0;
+  // opacity: 0;
   visibility: hidden;
 }

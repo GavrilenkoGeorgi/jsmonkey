@@ -21,6 +21,8 @@
     padding: 0 4rem
   @media screen and (min-width: $xlarge)
     font-size: 133%
+  @media (prefers-color-scheme: dark)
+    background-color: #424242
 
 .hiddenNav
   top: -$navbarHeight
@@ -49,6 +51,8 @@
   padding: 0 .5rem
   height: 100%
   color: $gray-font
+  @media (prefers-color-scheme: dark)
+    color: inherit
   letter-spacing: 1.35px
   transition: color .25s ease-in
   transition: border-color .25s ease-in
