@@ -49,7 +49,7 @@ const Home: NextPage = () => {
               of C and Java.
               My primary focus at work is performance and simplicity. English
               is Upper Intermediate (B2), I speak Ukrainian and Russian.
-              I'm currently living in Kyiv, can relocate.
+              I&apos;m currently living in Kyiv, can relocate.
             </p>
             <MainPageCTA />
           </div>
