@@ -15,7 +15,7 @@ const Projects: NextPage<projectSectionProps> = () => {
     <NextSeoHead
       title='Projects list'
       description='List of things that I am working on.'
-      canonical='https://jsmonkey.dev'
+      canonical='https://jsmonkey.dev/projects'
       openGraph={{
         url: 'https://jsmonkey.dev/projects',
         title: 'Projects list',
