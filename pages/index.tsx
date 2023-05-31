@@ -43,12 +43,13 @@ const Home: NextPage = () => {
 
             <p className={styles.pageParagraph}>
               Most of my experience is with Typescript, ECMAScript 6/ES2015,
-              Next.js, React, Redux, Node.js, Express, MongoDB, Webpack 5,
+              Next.js, Node.js, Express, Webpack 5, React, Redux, MongoDB,
               HTML5, CSS3, SASS/SCSS. I am testing using Jest and Cypress.
               My prior experience includes PHP7, MySQL and basic knowledge
               of C and Java.
-              My English is Upper Intermediate (B2), I speak Ukrainian and Russian.
-              Currently living in Kyiv, can relocate.
+              My primary focus at work is performance and simplicity. English
+              is Upper Intermediate (B2), I speak Ukrainian and Russian.
+              I'm currently living in Kyiv, can relocate.
             </p>
             <MainPageCTA />
           </div>
