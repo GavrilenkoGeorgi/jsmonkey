@@ -16,7 +16,7 @@ const Blog: NextPage<blogProps> = ({ posts }) => {
     <NextSeoHead
       title='My Blog'
       description='Mostly random thoughts about things that interest me.'
-      canonical='https://jsmonkey.dev'
+      canonical='https://jsmonkey.dev/blog'
       openGraph={{
         url: 'https://jsmonkey.dev/blog',
         title: 'My Blog',

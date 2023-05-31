@@ -4,7 +4,7 @@ import Link from 'next/link'
 import styles from './Logo.module.sass'
 
 const Logo:FC = () => {
-  return <Link href="/" className={styles.logo}>
+  return <Link href="/" className={styles.logo} aria-label="Main page">
     <svg id="site-logo"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg">
