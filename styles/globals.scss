@@ -55,7 +55,9 @@ button, input {
 
 .slick-slide {
   &:not(.slick-active) {
-    visibility: hidden;
+    article { // descr text under the slide
+      visibility: hidden;
+    }
   }
 }
 
@@ -103,7 +105,7 @@ button, input {
   }
 }
 
-.slick-disabled {
-  // opacity: 0;
-  visibility: hidden;
+.slick-dots li button:before {
+  // border: 1px solid pink;
+  font-size: .75rem;
 }

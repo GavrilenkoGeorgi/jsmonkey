@@ -11,6 +11,9 @@ import items from '../../data/projects.json'
 import styles from '../../styles/Main.module.scss'
 
 const Projects: NextPage<projectSectionProps> = () => {
+
+  const itemsToShow = items.slice(0, 2)
+
   return <div className={styles.container}>
     <NextSeoHead
       title='Projects list'
@@ -34,7 +37,7 @@ const Projects: NextPage<projectSectionProps> = () => {
     />
     <main className={styles.main}>
       <HeroSection heading="Projects" image={heroImg}/>
-      {items.map((item) => (
+      {itemsToShow.map((item) => (
         <ProjectSection key={item.id} project={item}/>
       ))}
     </main>

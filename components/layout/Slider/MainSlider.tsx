@@ -9,18 +9,18 @@ import styles from './MainSlider.module.sass'
 
 const MainSlider: FC = () => {
 
+  const itemsToShow = items.slice(0, 2)
+
   const settings = {
-    centerMode: true,
-    slidesToShow: 1,
-    centerPadding: '15px',
-    infinite: false,
-    speed: 1000,
-    cssEase: 'ease-out'
+    infinite: true,
+    speed: 1000
   }
 
   const navSettings = {
     arrows: false,
     fade: true,
+    infinite: true,
+    slidesToShow: 1,
     speed: 1000
   }
 
@@ -29,7 +29,7 @@ const MainSlider: FC = () => {
 
   return <>
     <Slider {...settings} asNavFor={navSlider} ref={(slider: Slider) => setImgSlider(slider)}>
-      {items.map((item) => (
+      {itemsToShow.map(item => (
         <div key={item.id} className={styles.swipeItem}>
           <div className={styles.imgBox}>
             <Image
@@ -46,7 +46,7 @@ const MainSlider: FC = () => {
       {...navSettings}
       asNavFor={imgSlider}
       ref={(slider: Slider) => setNavSlider(slider)}>
-      {items.map((item) => (
+      {itemsToShow.map(item => (
         <article className={styles.slideDetails} key={item.id}>
           <p className={styles.slideText}>{item.text}</p>
           <Button
