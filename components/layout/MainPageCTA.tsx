@@ -17,7 +17,7 @@ const MainPageCTA: FC = () => {
   }, [isHovering])
 
   return <div className={styles.downloadResumeCTA}>
-    <Link href="/pdf/gavrylenkoCV.pdf">
+    <Link href="/pdf/GavrilenkoCV.pdf">
       Resume in pdf
       {/* SVG Current color fill from css hover state */}
       <svg className={styles.svgIcon} width="35" height="35" viewBox="0 0 20 20">

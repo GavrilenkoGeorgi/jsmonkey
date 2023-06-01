@@ -38,15 +38,13 @@ const Home: NextPage = () => {
         <section className={styles.section}>
           <div className={styles.containerMd}>
             <p className={styles.leadParagraph}>
-              Hi, my name is Georgiy, and I am a Frontend Developer.
+              Hi, my name is Georgiy, and I am a Full Stack Web Developer.
             </p>
 
             <p className={styles.pageParagraph}>
               Most of my experience is with Typescript, ECMAScript 6/ES2015,
               Next.js, Node.js, Express, Webpack 5, React, Redux, MongoDB,
               HTML5, CSS3, SASS/SCSS. I am testing using Jest and Cypress.
-              My prior experience includes PHP7, MySQL and basic knowledge
-              of C and Java.
               My primary focus at work is performance and simplicity. English
               is Upper Intermediate (B2), I speak Ukrainian and Russian.
               I&apos;m currently living in Kyiv, can relocate.
