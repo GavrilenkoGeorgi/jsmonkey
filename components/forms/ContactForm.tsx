@@ -62,7 +62,7 @@ const ContactForm:FC = () => {
     }
     setSubmitting(false)
 
-  }, [executeRecaptcha])
+  }, [executeRecaptcha, setToastMsg])
 
   return <div className={globalStyles.containerMd}>
     <h2 className={styles.title}>Send me a message</h2>
