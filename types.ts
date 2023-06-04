@@ -122,14 +122,18 @@ export type btnProps = {
 // ---------------------
 // Error Message Context
 // ---------------------
-export type MsgDataType = {
-  name: string,
-  code: string
+
+export enum toastTypes {
+  error = 'error',
+  success = 'success'
 }
 
-export interface MsgContextProps {
-  errorMsg: string,
-  setErrorMsg: Dispatch<SetStateAction<string>>,
-  data: MsgDataType[],
-  setData: Dispatch<SetStateAction<MsgDataType[]>>
+export type ToastMsgDataType = {
+  message: string,
+  type: string
+}
+
+export interface ToastMsgContextProps {
+  toastMsg: ToastMsgDataType,
+  setToastMsg: Dispatch<SetStateAction<ToastMsgDataType>>
 }

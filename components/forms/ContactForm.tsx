@@ -4,17 +4,17 @@ import { useReCaptcha } from 'next-recaptcha-v3'
 import { sendContactMsg } from '../../utils/mailSender'
 import { validateToken } from '../../utils/reCaptcha'
 import { isError } from '../../utils'
-import { contactFormMessage } from '../../types'
+import { contactFormMessage, toastTypes } from '../../types'
 
 import Button from '../layout/Button'
 import styles from './ContactForm.module.sass'
 import globalStyles from '../../styles/Main.module.scss'
 
-import { useMsgContext } from '../../context/msgStore'
+import { useToastMsgContext } from '../../context/toastMsgStore'
 
 const ContactForm:FC = () => {
 
-  const { setErrorMsg } = useMsgContext()
+  const { setToastMsg } = useToastMsgContext()
 
   const { executeRecaptcha } = useReCaptcha()
   const [submitting, setSubmitting] = useState(false)
@@ -29,22 +29,36 @@ const ContactForm:FC = () => {
     const formProps = Object.fromEntries(formData)
 
     const token = await executeRecaptcha('submit')
-    const result = await validateToken(token)
+    const tokenScore = await validateToken(token)
 
-    if (isError(result)) {
-      setErrorMsg(result.message)
-    } else if (result.score < 0.5) {
-      setErrorMsg(`reCaptcha score is too low ${result.score}`)
-    } else {
+    // submit and show errors
+    if (isError(tokenScore)) { // i guess we can move this somewhere
+      setToastMsg({
+        message: tokenScore.message,
+        type: toastTypes.error
+      })
+    } else if (tokenScore.score < 0.5) {
+      setToastMsg({
+        message: `reCaptcha score is too low ${tokenScore.score}`,
+        type: toastTypes.error
+      })
+    } else { // all ok
       const msg: contactFormMessage = {
         email: String(formProps.email),
         message: String(formProps.message)
       }
       const submit = await sendContactMsg(msg)
-      if (isError(submit)) {
-        setErrorMsg(submit.message)
+      if (isError(submit)) { // can't send email
+        setToastMsg({
+          message: submit.message,
+          type: toastTypes.error
+        })
       }
       form.reset()
+      setToastMsg({
+        message: 'Nice! )',
+        type: toastTypes.success
+      })
     }
     setSubmitting(false)
 

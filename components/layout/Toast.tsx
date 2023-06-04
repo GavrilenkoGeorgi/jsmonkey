@@ -1,19 +1,24 @@
 import { FC } from 'react'
-import { useMsgContext } from '../../context/msgStore'
+import { useToastMsgContext } from '../../context/toastMsgStore'
 
 import styles from './Toast.module.sass'
 
 const Toast: FC = () => {
 
-  const { errorMsg, setErrorMsg } = useMsgContext()
-  const closeToast = () => setErrorMsg('')
+  const { toastMsg, setToastMsg } = useToastMsgContext()
+  const closeToast = () => setToastMsg({
+    message: '',
+    type: ''
+  })
+
+  const firstMsg = toastMsg
 
   return <div
     id={styles.toast}
-    className={errorMsg && styles.show}
+    className={firstMsg?.message && `${styles.show} ${styles[firstMsg.type]}` }
     onClick={closeToast}
   >
-    {errorMsg}
+    {firstMsg?.message}
   </div>
 }
 

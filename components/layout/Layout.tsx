@@ -2,7 +2,7 @@ import { FC } from 'react'
 import Navbar from '../navigation/NavBar'
 import Footer from '../layout/Footer'
 
-import { MsgContextProvider } from '../../context/msgStore'
+import { ToastMsgContextProvider } from '../../context/toastMsgStore'
 import Toast from './Toast'
 
 import { layoutProps } from '../../types'
@@ -15,10 +15,10 @@ const Layout:FC<layoutProps> = ({ children }) => {
 
   return <div className={styles.layout}>
     <Navbar />
-    <MsgContextProvider>
+    <ToastMsgContextProvider>
       {children}
       <Toast />
-    </MsgContextProvider>
+    </ToastMsgContextProvider>
     <Footer />
   </div>
 }
