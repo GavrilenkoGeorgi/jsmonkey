@@ -12,8 +12,7 @@ export const validateToken = async (token: string) => {
     const score = await axios.post(url, data)
     const result: reCaptchaScore = score.data
     return result
-  } catch (error) {
-    // TODO: handle recaptcha errors
-    console.log(error)
+  } catch (error: any) {
+    return error
   }
 }

@@ -3,13 +3,18 @@ import { useReCaptcha } from 'next-recaptcha-v3'
 
 import { sendContactMsg } from '../../utils/mailSender'
 import { validateToken } from '../../utils/reCaptcha'
+import { isError } from '../../utils'
 import { contactFormMessage } from '../../types'
 
 import Button from '../layout/Button'
 import styles from './ContactForm.module.sass'
 import globalStyles from '../../styles/Main.module.scss'
 
+import { useMsgContext } from '../../context/msgStore'
+
 const ContactForm:FC = () => {
+
+  const { setErrorMsg } = useMsgContext()
 
   const { executeRecaptcha } = useReCaptcha()
   const [submitting, setSubmitting] = useState(false)
@@ -26,17 +31,22 @@ const ContactForm:FC = () => {
     const token = await executeRecaptcha('submit')
     const result = await validateToken(token)
 
-    if (result && result.score < .5) { // minify this
-      console.log('Sorry, score is too low.')
+    if (isError(result)) {
+      setErrorMsg(result.message)
+    } else if (result.score < 0.5) {
+      setErrorMsg(`reCaptcha score is too low ${result.score}`)
     } else {
       const msg: contactFormMessage = {
         email: String(formProps.email),
         message: String(formProps.message)
       }
-      sendContactMsg(msg)
+      const submit = await sendContactMsg(msg)
+      if (isError(submit)) {
+        setErrorMsg(submit.message)
+      }
       form.reset()
-      setSubmitting(false)
     }
+    setSubmitting(false)
 
   }, [executeRecaptcha])
 

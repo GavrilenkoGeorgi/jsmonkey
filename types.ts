@@ -1,11 +1,10 @@
-import { ReactNode } from 'react'
+import { ReactNode, Dispatch, SetStateAction } from 'react'
 
 export type reCaptchaScore = {
   action: string,
   challenge_ts: string,
   hostname: string,
   score: number,
-  success: true
 }
 
 export type contactFormMessage = {
@@ -118,4 +117,19 @@ export type btnProps = {
   type?: string,
   link?: string,
   submitting?: boolean
+}
+
+// ---------------------
+// Error Message Context
+// ---------------------
+export type MsgDataType = {
+  name: string,
+  code: string
+}
+
+export interface MsgContextProps {
+  errorMsg: string,
+  setErrorMsg: Dispatch<SetStateAction<string>>,
+  data: MsgDataType[],
+  setData: Dispatch<SetStateAction<MsgDataType[]>>
 }
