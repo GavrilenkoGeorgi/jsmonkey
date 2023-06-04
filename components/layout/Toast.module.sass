@@ -1,0 +1,82 @@
+@import '../../styles/colors'
+
+/* The toast - position it at the bottom and in the middle of the screen
+#toast
+  /* Hidden by default. Visible on click
+  visibility: hidden
+  // opacity: 0
+  font-size: .8rem
+  cursor: pointer
+  /* Set a default minimum width
+  min-width: 250px
+  max-width: 250px
+  /* Divide value of min-width by 2
+  margin-left: -125px
+  /* Black background color
+  background-color: $gray-font
+  /* White text color
+  color: #fff
+  /* Centered text
+  text-align: center
+  /* Rounded borders
+  border-radius: 2px
+  /* Padding
+  padding: 16px
+  /* Sit on top of the screen
+  position: fixed
+  /* Add a z-index if needed
+  z-index: 1
+  /* Center the toast
+  left: 50%
+  /* 30px from the bottom
+  bottom: 30px
+  &.show
+    /* Show the toast
+    visibility: visible
+    /* Add animation: Take 0.5 seconds to fade in and out the toast.
+     *However, delay the fade out process for 2.5 seconds
+    // -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s
+    // animation: fadein 0.5s, fadeout 0.5s 2.5s
+    -webkit-animation: fadein 0.5s
+    animation: fadein 0.5s
+  &.error
+    background-color: $error
+  &.success
+    background-color: $success
+
+/* Animations to fade the toast in and out
+@-webkit-keyframes fadein
+  from
+    bottom: 0
+    opacity: 0
+
+  to
+    bottom: 30px
+    opacity: 1
+
+@keyframes fadein
+  from
+    bottom: 0
+    opacity: 0
+
+  to
+    bottom: 30px
+    opacity: 1
+
+@-webkit-keyframes fadeout
+  from
+    bottom: 30px
+    opacity: 1
+
+  to
+    bottom: 0
+    opacity: 0
+
+@keyframes fadeout
+  from
+    bottom: 30px
+    opacity: 1
+
+  to
+    bottom: 0
+    opacity: 0

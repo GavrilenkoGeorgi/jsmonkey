@@ -6,3 +6,7 @@ export const getRandomColor = () => {
   }
   return color
 }
+
+export const isError = (error: Error): boolean => {
+  return error instanceof Error
+}
