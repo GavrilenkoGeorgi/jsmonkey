@@ -1,40 +1,46 @@
 @import '../../styles/colors'
+@import '../../styles/variables'
 
-/* The toast - position it at the bottom and in the middle of the screen
+$mobileWidth: 250px
+$desktopWidth: 400px
+$bottomPos: 30px
+
+// The toast - position is at the bottom, in the middle of the screen
 #toast
-  /* Hidden by default. Visible on click
+  // Position and size
   visibility: hidden
-  // opacity: 0
-  font-size: .8rem
-  cursor: pointer
-  /* Set a default minimum width
-  min-width: 250px
-  max-width: 250px
-  /* Divide value of min-width by 2
-  margin-left: -125px
-  /* Black background color
-  background-color: $gray-font
-  /* White text color
-  color: #fff
-  /* Centered text
-  text-align: center
-  /* Rounded borders
-  border-radius: 2px
-  /* Padding
-  padding: 16px
-  /* Sit on top of the screen
+  // Sit on top of the screen
   position: fixed
-  /* Add a z-index if needed
+  // Add a z-index if needed
   z-index: 1
-  /* Center the toast
+  // Center the toast
   left: 50%
-  /* 30px from the bottom
-  bottom: 30px
+  // 30px from the bottom
+  bottom: $bottomPos
+  // Width
+  max-width: $mobileWidth
+  min-width: $mobileWidth
+  /* Divide value of min-width by 2
+  margin-left: (-$mobileWidth) / 2
+  @media screen and ( min-width: $medium)
+    max-width: $desktopWidth
+    min-width: $desktopWidth
+    margin-left: (-$desktopWidth) / 2
+  // Styles
+  color: #fff
+  text-align: left
+  font-size: .8rem
+  padding: 1rem
+  background-color: $toast-bkgrnd
+  display: flex
+  justify-content: space-between
+  align-content: center
+  align-items: center
   &.show
-    /* Show the toast
+    // Show the toast
     visibility: visible
-    /* Add animation: Take 0.5 seconds to fade in and out the toast.
-     *However, delay the fade out process for 2.5 seconds
+    // Add animation: Take 0.5 seconds to fade in and out the toast.
+    // However, delay the fade out process for 2.5 seconds
     // -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s
     // animation: fadein 0.5s, fadeout 0.5s 2.5s
     -webkit-animation: fadein 0.5s
@@ -44,14 +50,22 @@
   &.success
     background-color: $success
 
-/* Animations to fade the toast in and out
+.iconContainer
+  font-size: 0
+  opacity: .5
+  transition: opacity .5s ease-in
+  &:hover
+    opacity: 1
+    cursor: pointer
+
+// Animations to fade the toast in and out
 @-webkit-keyframes fadein
   from
     bottom: 0
     opacity: 0
 
   to
-    bottom: 30px
+    bottom: $bottomPos
     opacity: 1
 
 @keyframes fadein
@@ -60,12 +74,12 @@
     opacity: 0
 
   to
-    bottom: 30px
+    bottom: $bottomPos
     opacity: 1
 
 @-webkit-keyframes fadeout
   from
-    bottom: 30px
+    bottom: $bottomPos
     opacity: 1
 
   to
@@ -74,7 +88,7 @@
 
 @keyframes fadeout
   from
-    bottom: 30px
+    bottom: $bottomPos
     opacity: 1
 
   to
