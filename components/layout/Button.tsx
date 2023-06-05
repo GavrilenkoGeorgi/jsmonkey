@@ -15,7 +15,11 @@ const Button:FC<btnProps> = (props) => {
     else return false //?
   }
 
-  return <button type={btnType} className={styles.btn} onClick={handleOnClick}>
+  return <button
+    type={btnType}
+    className={styles.btn}
+    onClick={handleOnClick}
+  >
     {submitting
       ? <Image src={submIcon} alt='Submit indicator.' width={24} height={24}/>
       : label
