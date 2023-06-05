@@ -1,5 +1,6 @@
 import { FC, useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import Slider from 'react-slick'
 
 import items from '../../../data/projects.json'
@@ -13,7 +14,8 @@ const MainSlider: FC = () => {
 
   const settings = {
     infinite: true,
-    speed: 1000
+    speed: 1000,
+    draggable: false
   }
 
   const navSettings = {
@@ -30,6 +32,7 @@ const MainSlider: FC = () => {
   return <>
     <Slider {...settings} asNavFor={navSlider} ref={(slider: Slider) => setImgSlider(slider)}>
       {itemsToShow.map(item => (
+        <Link href={`/projects#${item.title}`} key={item.id}>
         <div key={item.id} className={styles.swipeItem}>
           <div className={styles.imgBox}>
             <Image
@@ -40,7 +43,8 @@ const MainSlider: FC = () => {
             />
           </div>
         </div>
-        ))}
+      </Link>
+      ))}
     </Slider>
     <Slider
       {...navSettings}
@@ -49,10 +53,6 @@ const MainSlider: FC = () => {
       {itemsToShow.map(item => (
         <article className={styles.slideDetails} key={item.id}>
           <p className={styles.slideText}>{item.text}</p>
-          <Button
-            link={`/projects#${item.title}`}
-            label='More info'
-          />
         </article>
       ))}
     </Slider>
