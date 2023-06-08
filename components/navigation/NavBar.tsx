@@ -1,16 +1,29 @@
-import { FC } from 'react'
+import { FC, useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { navLink } from '../../types'
-import { useScrollDirection } from '../../hooks'
+import { useScrollDirection, useComponentVisible } from '../../hooks'
 
 import Logo from '../layout/Logo'
+import { MenuToggleBtn } from './MenuToggleBtn'
 import styles from './NavBar.module.sass'
 
 const NavBar:FC = () => {
 
   const { pathname } = useRouter()
   const scrollDirection = useScrollDirection()
+
+  // mobile menu
+  const { ref, isComponentVisible } = useComponentVisible(false)
+  const [ open, setOpen ] = useState(false)
+
+  const toggleMenu = () => {
+    setOpen(!open)
+  }
+
+  useEffect(() => {
+    if(!isComponentVisible) setOpen(false)
+  }, [isComponentVisible])
 
   const navigation: Array<navLink> = [
     {
@@ -28,7 +41,7 @@ const NavBar:FC = () => {
       key={link.url}
       legacyBehavior // check this again later
     >
-      <span className={pathname === link.url
+      <span onClick={toggleMenu} className={pathname === link.url
         ? `${styles.navLink} ${styles.current}`
         : styles.navLink}
       >
@@ -39,11 +52,20 @@ const NavBar:FC = () => {
 
   const navbarStyle = `${styles.nav} ${ scrollDirection === 'down' ? styles.hiddenNav : styles.visibleNav }`
 
-  return <nav className={navbarStyle}>
+
+  return <nav className={navbarStyle} ref={ref}>
     <div className={styles.navigationContainer}>
       <Logo />
-      <div className={styles.linksContainer}>
+      <div
+        className={`${styles.linksContainer} ${ open ? styles.open : null }`}
+      >
         {navLinks}
+      </div>
+      <div
+        className={styles.toggleBtnContainer}
+        onClick={toggleMenu}
+      >
+        <MenuToggleBtn />
       </div>
     </div>
   </nav>

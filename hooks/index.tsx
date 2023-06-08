@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 
 export function useScrollDirection() {
   const [scrollDirection, setScrollDirection] = useState('')
@@ -21,4 +21,25 @@ export function useScrollDirection() {
   }, [scrollDirection])
 
   return scrollDirection
+}
+
+export function useComponentVisible(initialIsVisible: boolean) {
+
+  const [isComponentVisible, setIsComponentVisible] = useState(initialIsVisible)
+  const ref = useRef<any>(null) // any?
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (ref.current && !ref.current.contains(event.target)) {
+      setIsComponentVisible(false)
+    } else { setIsComponentVisible(true) }
+  }
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside, true)
+    return () => {
+      document.removeEventListener('click', handleClickOutside, true)
+    }
+  }, [])
+
+  return { ref, isComponentVisible, setIsComponentVisible }
 }
