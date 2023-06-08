@@ -137,3 +137,8 @@ export interface ToastMsgContextProps {
   toastMsg: ToastMsgDataType,
   setToastMsg: Dispatch<SetStateAction<ToastMsgDataType>>
 }
+
+// Navbar
+export type ToggleBtnProps = {
+  open: boolean
+}

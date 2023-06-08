@@ -4,7 +4,7 @@
 .nav
   height: $navbarHeight // TODO: mobile navbar height
   width: 100%
-  padding: 0 2rem
+  padding: 0 1.5rem
   display: flex
   justify-content: flex-end
   align-items: center
@@ -80,28 +80,29 @@
   display: flex
   align-items: center
   width: 100%
-  margin: 0 .3rem
-  padding: 0 .5rem
-  height: 100%
+  margin: .3rem 0
+  min-height: 2.5rem
   color: $gray-font
   @media (prefers-color-scheme: dark)
     color: inherit
   letter-spacing: 1.35px
   transition: color .25s ease-in
   transition: border-color .25s ease-in
-  border-top: 4px solid transparent
-  border-bottom: 4px solid transparent
+  border-top: 2px solid transparent
+  border-bottom: 2px solid transparent
+  @media screen and (min-width: $medium)
+    height: 100%
+    padding: 0 1.33rem
+    border-bottom: 4px solid transparent
   &:hover
     cursor: pointer
     color: $highlight-color
-    border-bottom: 4px solid $highlight-color
-  @media screen and (min-width: $medium)
-    padding: 0 1.33rem
-  // mobile menu
-  @media screen and (max-width: $medium)
-    height: inherit
-    margin: .5rem auto
+    border-bottom: 2px solid $highlight-color
+    @media screen and (min-width: $medium)
+      border-bottom: 4px solid $highlight-color
 
 .current
   color: $highlight-color
-  border-bottom: 4px solid $highlight-color
+  border-bottom: 2px solid $highlight-color
+  @media screen and (min-width: $medium)
+    border-bottom: 4px

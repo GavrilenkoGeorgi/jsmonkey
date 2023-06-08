@@ -52,7 +52,6 @@ const NavBar:FC = () => {
 
   const navbarStyle = `${styles.nav} ${ scrollDirection === 'down' ? styles.hiddenNav : styles.visibleNav }`
 
-
   return <nav className={navbarStyle} ref={ref}>
     <div className={styles.navigationContainer}>
       <Logo />
@@ -65,7 +64,7 @@ const NavBar:FC = () => {
         className={styles.toggleBtnContainer}
         onClick={toggleMenu}
       >
-        <MenuToggleBtn />
+        <MenuToggleBtn open={open}/>
       </div>
     </div>
   </nav>
