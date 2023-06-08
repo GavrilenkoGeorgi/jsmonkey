@@ -4,7 +4,7 @@
 .nav
   height: $navbarHeight // TODO: mobile navbar height
   width: 100%
-  padding: 0 2rem
+  padding: 0 1.5rem
   display: flex
   justify-content: flex-end
   align-items: center
@@ -41,30 +41,69 @@
 
 .linksContainer
   display: flex
-  height: 100%
+  justify-content: flex-start
+  flex-wrap: wrap
+  align-content: flex-start
+  text-align: right
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  z-index: -1
+  margin-left: auto
+  padding: 0 2rem
+  width: 60vw
+  transform: translate(60vw)
+  transition: transform 1s ease-out
+  background-color: #fff
+  margin-top: $navbarHeight
+  &.open
+    transform: translate(0vw)
+  @media screen and (min-width: $medium)
+    transform: translate(0vw)
+    flex-wrap: nowrap
+    padding: 0
+    margin: 0
+    position: static
+    flex-direction: row
+    z-index: inherit
+    height: 100%
+    width: auto
+
+.toggleBtnContainer
+  @media screen and (min-width: $medium)
+    background-color: red
+    display: none
+    visibility: hidden
 
 .navLink
   display: flex
   align-items: center
-  margin: 0 .3rem
-  padding: 0 .5rem
-  height: 100%
+  width: 100%
+  margin: .3rem 0
+  min-height: 2.5rem
   color: $gray-font
   @media (prefers-color-scheme: dark)
     color: inherit
   letter-spacing: 1.35px
   transition: color .25s ease-in
   transition: border-color .25s ease-in
-  border-top: 4px solid transparent
-  border-bottom: 4px solid transparent
+  border-top: 2px solid transparent
+  border-bottom: 2px solid transparent
+  @media screen and (min-width: $medium)
+    height: 100%
+    padding: 0 1.33rem
+    border-bottom: 4px solid transparent
+    margin: 0
   &:hover
     cursor: pointer
     color: $highlight-color
-    border-bottom: 4px solid $highlight-color
-  @media screen and (min-width: $medium)
-    padding: 0 1.33rem
-
+    border-bottom: 2px solid $highlight-color
+    @media screen and (min-width: $medium)
+      border-bottom: 4px solid $highlight-color
 
 .current
   color: $highlight-color
-  border-bottom: 4px solid $highlight-color
+  border-bottom: 2px solid $highlight-color
+  @media screen and (min-width: $medium)
+    border-bottom: 4px

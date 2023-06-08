@@ -1,0 +1,42 @@
+@import '../../styles/colors'
+
+.button
+  padding: 0
+  border: none
+  background-color: transparent
+  cursor: pointer
+
+.toggleIcon
+  display: inline-block
+  vertical-align: middle
+  height: 2px
+  width: 22px
+  background-color: $gray-font
+  transform: translateY(-100%)
+  &:before,
+  &:after
+    background-color: $gray-font
+    display: inline-block
+    position: absolute
+    right: 0px
+    content: ""
+    height: 2px
+    width: 22px
+    transition: top 0.3s 0.5s ease, transform 0.3s ease, background-color 0.3s ease
+  &:before
+    top: -7px
+  &:after
+    top: 7px
+
+  &.active
+    visibility: hidden
+    &:before,
+    &:after
+      visibility: visible
+      color: black
+      transition: top 0.3s ease, transform 0.3s 0.5s ease, background-color 0.3s ease
+      top: 0
+    &:before
+      transform: rotate3d(0, 0, 1, 45deg)
+    &:after
+      transform: rotate3d(0, 0, 1, -45deg)
