@@ -3,41 +3,65 @@
     "id": 1,
     "title": "ArtViva",
     "url": "https://artviva.school",
-    "text": "Children's art school website and custom backend used to handle school tuition fees using LiqPay API.",
+    "text": [
+      "Artviva School's all-in-one online solution, seamlessly integrating tuition payments, application submissions, and informative pages.",
+      "Powered by React and Node.js, this comprehensive web platform offers a holistic experience, enhanced by Google Analytics insights. Experience convenience, functionality, and a captivating user interface, all within Artviva School's integrated digital hub."
+    ],
     "imageUrl": "/img/artviva-desktop.webp",
     "images": [ "/img/projects/artviva/artviva-1.webp", "/img/projects/artviva/artviva-2.webp", "/img/projects/artviva/artviva-3.webp", "/img/projects/artviva/artviva-4.webp" ],
     "logoImgs": ["react", "bootstrap", "axios", "node-js", "jest", "cypress", "eslint"],
-    "description": "Children's art school website and custom backend used to handle school tuition fees using LiqPay API. Frontend for ArtViva school. Client side form validation is done using Formik and Yup. Integrated google maps with the list of all school departments. School facebook group on a separate page. Parents can pay tuition fees directly from the site using liqpay.",
+    "description": [
+      "Artviva School's integrated web platform, built with React on the front-end and powered by Node.js on the backend, combines a range of functionalities to provide a seamless online experience. Students can conveniently make tuition payments using our secure payment system, Liqpay, seamlessly integrated into the backend deployed on Heroku. Additionally, prospective students can effortlessly submit their applications through the website, streamlining the enrollment process for both students and the school.",
+      "To ensure an optimal user experience and continuously enhance the website, Artviva School utilizes Google Analytics. This powerful tool enables detailed tracking and analysis of website traffic, user behavior, and performance metrics. By gaining insights into visitor demographics, popular pages, and user engagement, Artviva School can make data-driven decisions to improve the website's content, design, and functionality. Google Analytics empowers Artviva School to provide an up-to-date and user-centric website that meets the evolving needs of students, parents, and the wider community.",
+      "With a user-friendly interface designed with React and Bootstrap, Artviva School's platform ensures a smooth and responsive experience. In addition to these interactive features, the website also includes informative pages like 'About', 'Team', and 'Contacts', offering visitors a deeper understanding of Artviva School's mission, faculty, and contact information. Experience a holistic online solution that combines functionality, convenience, and an engaging user experience, all within Artviva School's integrated web platform."
+    ],
     "techStack": ["React", "Redux", "Redux", "Thunk", "React router", "Axios", "Bootstrap 4", "Cypress", "Jest", "ESLint"]
   },
   {
     "id": 4,
     "title": "huma.com",
     "url": "https://huma.com",
-    "text": "Telemedicine company. Frontend, form handling, page templates and reusable components. Webpack v5 setup tuned for performance.",
+    "text": [
+      "Experience the power of Next.js in our performance-optimized website project. By leveraging the latest advancements in Webpack 5 and Next.js, we've achieved lightning-fast UI and build/load times.",
+      "With the migration to Next.js and the use of TypeScript, our website delivers exceptional performance and developer-friendly workflows. The integration of Netlify CMS streamlines content management, empowering editors with easy updates.",
+      "Embrace a high-performing website that is easily maintainable for developers and provides an effortless content management experience for editors."
+    ],
     "imageUrl": "/img/huma-desktop.webp",
     "images": [ "/img/projects/huma/huma-1.webp", "/img/projects/huma/huma-2.webp", "/img/projects/huma/huma-3.webp" ],
     "logoImgs": ["es6", "html5", "handlebars", "webpack", "sass"],
-    "description": "Telemedicine company. Frontend, form handling, page templates and reusable components. Webpack v5 setup tuned for performance."
+    "description": [
+      "Our project began with the goal of enhancing performance in both UI and build/load times. Initially built using Handlebars and Webpack 4, we later upgraded to the more efficient Webpack 5 to achieve significant performance improvements. However, to further optimize the website and enhance development experience, we rebuilt the entire project using Next.js and Typescript.",
+      "By leveraging Next.js, a powerful React framework, we achieved remarkable performance enhancements, thanks to its server-side rendering capabilities and built-in optimizations. This allowed for faster page load times and improved user experience. The integration of Typescript ensured type safety, enhanced code quality, and streamlined development workflows.",
+      "To simplify content management and ensure easy updates, we implemented Netlify CMS, a headless CMS solution. This allowed editors to seamlessly manage site content, reducing reliance on developers for routine content updates. The result is a website that is easily maintainable by developers and user-friendly for editors, fostering collaboration and efficient content management.",
+      "With Next.js, Typescript, and Netlify CMS at the core, our project delivers exceptional performance, developer-friendliness, and a streamlined content management experience. Embrace a high-performing website that strikes the perfect balance between speed, maintainability, and ease of use."
+    ]
   },
   {
     "id": 2,
     "title": "Sharlushka",
     "url": "https://sharlushka.netlify.app",
-    "text": "Famous dice game from the previous century. Also called 'Yahtzee'. Build using Vue to test some things out, I would like to redo this using React someday ;)",
+    "text": [
+      "Famous dice game from the previous century. Also called 'Yahtzee'. Build using Vue to test some things out, I would like to redo this using React someday ;)"
+    ],
     "imageUrl": "/img/sharlushka-desktop.webp",
     "images": [ "/img/projects/sharlushka/sharlushka-1.webp", "/img/projects/sharlushka/sharlushka-2.webp", "/img/projects/sharlushka/sharlushka-3.webp", "/img/projects/sharlushka/sharlushka-4.webp" ],
     "logoImgs": ["vue", "axios", "eslint"],
-    "description": "Famous dice game from the previous century. Also called 'Yahtzee'. Build using Vue to test some things out, I would like to redo this using React someday ;)"
+    "description": [
+      "Famous dice game from the previous century. Also called 'Yahtzee'. Build using Vue to test some things out, I would like to redo this using React someday ;)"
+    ]
   },
   {
     "id": 3,
     "title": "maxdog.com.ua",
     "url": "https://maxdog.com.ua",
-    "text": "Local animals training and grooming bussiness. Just a couple of pages with overcomplicated price update system. Looks kinda nice though.",
+    "text": [
+      "Local animals training and grooming bussiness. Just a couple of pages with overcomplicated price update system. Looks kinda nice though."
+    ],
     "imageUrl": "/img/maxdog-desktop.webp",
     "images": [ "/img/projects/maxdog/maxdog-1.webp", "/img/projects/maxdog/maxdog-2.webp", "/img/projects/maxdog/maxdog-3.webp" ],
     "logoImgs": ["vue", "webpack"],
-    "description": "Local animals training and grooming bussiness. Just a couple of pages with overcomplicated price update system. Looks kinda nice though."
+    "description": [
+      "Local animals training and grooming bussiness. Just a couple of pages with overcomplicated price update system. Looks kinda nice though."
+    ]
   }
 ]

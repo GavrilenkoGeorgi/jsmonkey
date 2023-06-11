@@ -4,7 +4,6 @@ import Link from 'next/link'
 import Slider from 'react-slick'
 
 import items from '../../../data/projects.json'
-import Button from '../Button'
 
 import styles from './MainSlider.module.sass'
 
@@ -52,7 +51,25 @@ const MainSlider: FC = () => {
       ref={(slider: Slider) => setNavSlider(slider)}>
       {itemsToShow.map(item => (
         <article className={styles.slideDetails} key={item.id}>
-          <p className={styles.slideText}>{item.text}</p>
+          <Link href={`/projects#${item.title}`} key={item.id}>
+            {item.text.map((par, index) => (
+              <p
+                key={index}
+                className={styles.slideText}
+              >
+                {par}
+              </p>
+            ))}
+            <div className={styles.ctaWrap}>
+              <div className={styles.ctaContainer}>
+                <div className={styles.cta}>
+                  Learn more ❯❯❯
+                </div>
+                <div className={styles.underline}>
+                </div>
+              </div>
+            </div>
+          </Link>
         </article>
       ))}
     </Slider>

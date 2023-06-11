@@ -19,8 +19,16 @@ const ProjectSection:FC<projectSectionProps> = ({ project }) => {
       </aside>
 
       <div className={styles.description}>
-        <h2 className={styles.projectTitle}>{title}</h2>
-        <p className={styles.projectInfo}>{description}</p>
+        <h2 className={styles.projectTitle}>
+          {title}
+        </h2>
+
+        {description.map((par, index) =>
+        <p key={index} className={styles.projectInfo}>
+          {par}
+        </p>
+        )}
+
         <Link href={url}>
           <p className={styles.projectURL}>{url}</p>
         </Link>
