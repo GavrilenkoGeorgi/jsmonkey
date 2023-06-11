@@ -6,7 +6,7 @@ tags:
   - dev
 author: jsmonkey
 authorImage: /uploads/author-placeholder.svg
-image: /uploads/post-image-placeholder.svg
+image: /uploads/code-passion-pattern.webp
 share: false
 type: post
 ---
