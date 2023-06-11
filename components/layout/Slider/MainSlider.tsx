@@ -18,6 +18,7 @@ const MainSlider: FC = () => {
   }
 
   const navSettings = {
+    draggable: false,
     arrows: false,
     fade: true,
     infinite: true,
@@ -31,7 +32,6 @@ const MainSlider: FC = () => {
   return <>
     <Slider {...settings} asNavFor={navSlider} ref={(slider: Slider) => setImgSlider(slider)}>
       {itemsToShow.map(item => (
-        <Link href={`/projects#${item.title}`} key={item.id}>
         <div key={item.id} className={styles.swipeItem}>
           <div className={styles.imgBox}>
             <Image
@@ -42,7 +42,6 @@ const MainSlider: FC = () => {
             />
           </div>
         </div>
-      </Link>
       ))}
     </Slider>
     <Slider
@@ -51,15 +50,15 @@ const MainSlider: FC = () => {
       ref={(slider: Slider) => setNavSlider(slider)}>
       {itemsToShow.map(item => (
         <article className={styles.slideDetails} key={item.id}>
-          <Link href={`/projects#${item.title}`} key={item.id}>
-            {item.text.map((par, index) => (
-              <p
-                key={index}
-                className={styles.slideText}
-              >
-                {par}
-              </p>
-            ))}
+          {item.text.map((par, index) => (
+            <p
+              key={index}
+              className={styles.slideText}
+            >
+              {par}
+            </p>
+          ))}
+          <Link href={`/projects#${item.title}`}>
             <div className={styles.ctaWrap}>
               <div className={styles.ctaContainer}>
                 <div className={styles.cta}>
