@@ -15,9 +15,11 @@ const HeroSection: FC<heroSectionProps> = (props) => {
       priority
       fill
     />
-    <h1 className={styles.heroHeading}>
-      {heading}
-    </h1>
+    <div className={styles.headingContainer}>
+      <h1 className={styles.heroHeading}>
+        {heading}
+      </h1>
+    </div>
   </section>
 }
 
