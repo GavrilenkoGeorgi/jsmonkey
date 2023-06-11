@@ -1,14 +1,14 @@
 @import '../../styles/_variables'
 
 .heroSection
-  height: 13rem
+  height: 20rem
   position: relative
   overflow: hidden
   // hero height
   @media screen and (min-width: $medium)
-    height: 18rem
+    height: 30rem
   @media screen and (min-width: $large)
-    height: 32rem
+    height: 36rem
   // span
     // remove white space after image (this span mimics the real img behaviour)
     // https://github.com/vercel/next.js/issues/18915
@@ -17,19 +17,21 @@
     object-fit: cover
     height: auto
 
-.heroHeading
+.headingContainer
   position: absolute
-  width: 100%
-  padding: 1rem
-  margin: 0
   bottom: 0
-  letter-spacing: .3rem
-  font-weight: 400
+  right: 0
+  width: 100%
   color: #fff
-  text-align: right
   background-image: linear-gradient(to bottom, #00000000, #000000)
-  @media screen and (min-width: $medium)
-    font-size: 2rem
-    padding: 2rem
-  @media screen and (min-width: $large)
-    font-size: 3.5rem
+  h1
+    margin-left: auto
+    letter-spacing: .3rem
+    font-weight: 400
+    text-align: right
+    padding-right: 2rem
+    @media screen and (min-width: $medium)
+      max-width: 60%
+      font-size: 1.8rem
+    @media screen and (min-width: $large)
+      font-size: 3rem
