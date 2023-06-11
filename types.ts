@@ -28,11 +28,11 @@ export type projectSectionProps = {
   project: {
     id: number,
     title: string,
-    url: string
-    text: string
-    imageUrl: string
+    url: string,
+    text: string[],
+    imageUrl: string,
     images: string[],
-    description: string,
+    description: string[],
     logoImgs: string[]
   }
 }
