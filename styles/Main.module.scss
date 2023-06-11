@@ -39,14 +39,14 @@
 }
 
 .containerMd {
-  max-width: 960px;
+  max-width: $mdContMaxWidth;
   padding: 0;
 }
 
 .h2Header {
   text-align: center;
   @media screen and (min-width: $medium) {
-    font-size: 300%;
+    font-size: 3rem;
     margin-bottom: 4rem;
   }
 }

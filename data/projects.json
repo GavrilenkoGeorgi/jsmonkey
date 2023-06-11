@@ -3,7 +3,10 @@
     "id": 1,
     "title": "ArtViva",
     "url": "https://artviva.school",
-    "text": "Children's art school website and custom backend used to handle school tuition fees using LiqPay API.",
+    "text": [
+      "Artviva School's all-in-one online solution, seamlessly integrating tuition payments, application submissions, and informative pages.",
+      "Powered by React and Node.js, this comprehensive web platform offers a holistic experience, enhanced by Google Analytics insights. Experience convenience, functionality, and a captivating user interface, all within Artviva School's integrated digital hub."
+    ],
     "imageUrl": "/img/artviva-desktop.webp",
     "images": [ "/img/projects/artviva/artviva-1.webp", "/img/projects/artviva/artviva-2.webp", "/img/projects/artviva/artviva-3.webp", "/img/projects/artviva/artviva-4.webp" ],
     "logoImgs": ["react", "bootstrap", "axios", "node-js", "jest", "cypress", "eslint"],
@@ -14,7 +17,9 @@
     "id": 4,
     "title": "huma.com",
     "url": "https://huma.com",
-    "text": "Telemedicine company. Frontend, form handling, page templates and reusable components. Webpack v5 setup tuned for performance.",
+    "text": [
+      "Telemedicine company. Frontend, form handling, page templates and reusable components. Webpack v5 setup tuned for performance."
+    ],
     "imageUrl": "/img/huma-desktop.webp",
     "images": [ "/img/projects/huma/huma-1.webp", "/img/projects/huma/huma-2.webp", "/img/projects/huma/huma-3.webp" ],
     "logoImgs": ["es6", "html5", "handlebars", "webpack", "sass"],
@@ -24,7 +29,9 @@
     "id": 2,
     "title": "Sharlushka",
     "url": "https://sharlushka.netlify.app",
-    "text": "Famous dice game from the previous century. Also called 'Yahtzee'. Build using Vue to test some things out, I would like to redo this using React someday ;)",
+    "text": [
+      "Famous dice game from the previous century. Also called 'Yahtzee'. Build using Vue to test some things out, I would like to redo this using React someday ;)"
+    ],
     "imageUrl": "/img/sharlushka-desktop.webp",
     "images": [ "/img/projects/sharlushka/sharlushka-1.webp", "/img/projects/sharlushka/sharlushka-2.webp", "/img/projects/sharlushka/sharlushka-3.webp", "/img/projects/sharlushka/sharlushka-4.webp" ],
     "logoImgs": ["vue", "axios", "eslint"],
@@ -34,7 +41,9 @@
     "id": 3,
     "title": "maxdog.com.ua",
     "url": "https://maxdog.com.ua",
-    "text": "Local animals training and grooming bussiness. Just a couple of pages with overcomplicated price update system. Looks kinda nice though.",
+    "text": [
+      "Local animals training and grooming bussiness. Just a couple of pages with overcomplicated price update system. Looks kinda nice though."
+    ],
     "imageUrl": "/img/maxdog-desktop.webp",
     "images": [ "/img/projects/maxdog/maxdog-1.webp", "/img/projects/maxdog/maxdog-2.webp", "/img/projects/maxdog/maxdog-3.webp" ],
     "logoImgs": ["vue", "webpack"],

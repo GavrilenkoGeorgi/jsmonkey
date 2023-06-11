@@ -9,15 +9,12 @@
   overflow: hidden
   margin-bottom: 10rem
 
-.swipeItem
-  text-align: center
-
 .swipeItem .imgBox
   max-width: 60rem
-  padding: 0 1rem
-  @media screen and (min-width: $medium )
-    padding: 0
   margin: auto
+  padding: 0 1rem
+  @media screen and (min-width: $medium)
+    padding: 0
 
 .swipeItem .imgBox img
   width: 100%
@@ -28,12 +25,39 @@
     box-shadow: none
 
 .slideDetails
-  text-align: center
+  margin-top: 3rem
 
 .slideText
   line-height: 1.5
-  max-width: 28rem
-  margin: 1.5rem auto
-  @media screen and (min-width: $large)
-    margin-top: 2.5rem
-    font-size: 1.3rem
+  text-indent: 2rem
+  max-width: $mdContMaxWidth
+  margin: 1rem auto
+  @media screen and (min-width: $medium)
+    font-size: 1.8rem
+
+.ctaWrap
+  display: flex
+  justify-content: flex-end
+  max-width: $mdContMaxWidth
+  margin: auto
+
+.ctaContainer
+  color: $gray
+  transition: color .5s ease-out
+  &:hover
+    color: $highlight-color
+    .underline
+      width: 100%
+      background-color: $highlight-color
+
+.cta
+  margin-top: 1.3rem
+  @media screen and (min-width: $medium)
+    font-size: 1.8rem
+    margin-top: 2rem
+
+.underline
+  transition: width .5s ease-out, background-color .5s ease-out
+  height: 2px
+  width: 0%
+  background-color: $gray
