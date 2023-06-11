@@ -22,13 +22,18 @@
     "title": "huma.com",
     "url": "https://huma.com",
     "text": [
-      "Telemedicine company. Frontend, form handling, page templates and reusable components. Webpack v5 setup tuned for performance."
+      "Experience the power of Next.js in our performance-optimized website project. By leveraging the latest advancements in Webpack 5 and Next.js, we've achieved lightning-fast UI and build/load times.",
+      "With the migration to Next.js and the use of TypeScript, our website delivers exceptional performance and developer-friendly workflows. The integration of Netlify CMS streamlines content management, empowering editors with easy updates.",
+      "Embrace a high-performing website that is easily maintainable for developers and provides an effortless content management experience for editors."
     ],
     "imageUrl": "/img/huma-desktop.webp",
     "images": [ "/img/projects/huma/huma-1.webp", "/img/projects/huma/huma-2.webp", "/img/projects/huma/huma-3.webp" ],
     "logoImgs": ["es6", "html5", "handlebars", "webpack", "sass"],
     "description": [
-      "Telemedicine company. Frontend, form handling, page templates and reusable components. Webpack v5 setup tuned for performance."
+      "Our project began with the goal of enhancing performance in both UI and build/load times. Initially built using Handlebars and Webpack 4, we later upgraded to the more efficient Webpack 5 to achieve significant performance improvements. However, to further optimize the website and enhance development experience, we rebuilt the entire project using Next.js and Typescript.",
+      "By leveraging Next.js, a powerful React framework, we achieved remarkable performance enhancements, thanks to its server-side rendering capabilities and built-in optimizations. This allowed for faster page load times and improved user experience. The integration of Typescript ensured type safety, enhanced code quality, and streamlined development workflows.",
+      "To simplify content management and ensure easy updates, we implemented Netlify CMS, a headless CMS solution. This allowed editors to seamlessly manage site content, reducing reliance on developers for routine content updates. The result is a website that is easily maintainable by developers and user-friendly for editors, fostering collaboration and efficient content management.",
+      "With Next.js, Typescript, and Netlify CMS at the core, our project delivers exceptional performance, developer-friendliness, and a streamlined content management experience. Embrace a high-performing website that strikes the perfect balance between speed, maintainability, and ease of use."
     ]
   },
   {
