@@ -6,19 +6,17 @@
   margin: 0
   font-weight: 400
   font-size: 1rem
-  @media screen and (min-width: $xlarge)
+  @media screen and (min-width: $large)
     font-size: 1.4rem
   @media (prefers-color-scheme: dark)
     color: inherit
 
-
 .cardContainer
-  margin-bottom: 1.5rem
-  width: 90vw
-  max-width: 25rem
-  min-height: 15rem
-  &:hover .imgContainer
-    filter: sepia(60%)
+  transition: all .25s ease-in
+  &:hover
+    transform: scale(1.02)
+    .imgContainer
+      filter: sepia(60%)
 
 .imgContainer
   position: relative
@@ -26,6 +24,8 @@
   transition: filter 1s
   @media screen and (min-width: $medium)
     height: 12rem
+  @media screen and (min-width: $large)
+    height: 16rem
 
 .postInfoContainer
   padding: 1rem 0

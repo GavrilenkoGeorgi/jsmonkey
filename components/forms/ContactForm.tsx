@@ -65,7 +65,7 @@ const ContactForm:FC = () => {
   }, [executeRecaptcha, setToastMsg])
 
   return <div className={globalStyles.containerMd}>
-    <h2 className={styles.title}>Send me a message</h2>
+    <h2 className={styles.title}>Get in Touch</h2>
     <form
       onSubmit={handleSubmit}
       method='post'
