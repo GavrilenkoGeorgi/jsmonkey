@@ -5,6 +5,7 @@ import HeroSection from '../components/layout/HeroSection'
 import heroImg from '../assets/images/main-page-pattern.webp'
 import MainSlider from '../components/layout/Slider/MainSlider'
 import ContactForm from '../components/forms/ContactForm'
+import MainPageIntro from '../components/layout/Text/MainPageIntro'
 import MainPageCTA from '../components/layout/MainPageCTA'
 import FadeIn from '../components/layout/Animation/FadeIn'
 
@@ -35,38 +36,29 @@ const Home: NextPage = () => {
 
     <main className={styles.main}>
       <HeroSection heading='JSMonkey.dev' image={heroImg} />
-        <section className={styles.section}>
-          <div className={styles.containerMd}>
-            <p className={styles.leadParagraph}>
-              Hi, my name is Georgiy, and I am a Full Stack Web Developer.
-            </p>
+      <section className={styles.section}>
+        <div className={styles.containerMd}>
+          <MainPageIntro />
+          <MainPageCTA />
+        </div>
+      </section>
 
-            <p className={styles.pageParagraph}>
-              Most of my experience is with Typescript, ECMAScript 6/ES2015,
-              Next.js, Node.js, Express, Webpack 5, React, Redux, MongoDB,
-              HTML5, CSS3, SASS/SCSS. I am testing using Jest and Cypress.
-              My primary focus at work is performance and simplicity. English
-              is Upper Intermediate (B2), I speak Ukrainian and Russian.
-              I&apos;m currently living in Kyiv, can relocate.
-            </p>
-            <MainPageCTA />
-          </div>
-        </section>
+      <section className={styles.section}>
+        <FadeIn>
+          <h2 className={styles.h2Header}>
+            Featured Works
+          </h2>
+          <article className={styles.sliderContainer}>
+            <MainSlider />
+          </article>
+        </FadeIn>
+      </section>
 
-        <section className={styles.section}>
-          <FadeIn>
-            <h2 className={styles.h2Header}>Featured Works</h2>
-            <article className={styles.sliderContainer}>
-              <MainSlider />
-            </article>
-          </FadeIn>
-        </section>
-
-        <section className={styles.section}>
-          <FadeIn>
-            <ContactForm />
-          </FadeIn>
-        </section>
+      <section className={styles.section}>
+        <FadeIn>
+          <ContactForm />
+        </FadeIn>
+      </section>
     </main>
   </div>
 }

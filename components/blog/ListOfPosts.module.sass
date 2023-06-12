@@ -2,18 +2,20 @@
 
 .postsListSection
   display: flex
-  flex-direction: column
-  align-items: center
+  justify-content: center
 
 .listContainer
-  display: flex
-  flex-direction: column
-  align-items: center
-  margin: 2rem auto
+  display: inline-grid
+  grid-template-columns: 1fr
+  grid-gap: 2rem
+  max-width: $mdContMaxWidth
+  margin: 4rem auto
+  padding: 1rem
   @media screen and (min-width: $medium)
-    margin: 4rem auto
-    flex-direction: row
-    flex-wrap: wrap
-    justify-content: space-evenly
-    max-width: 1000px
-    width: 100%
+    grid-template-columns: 1fr 1fr
+    grid-gap: 4rem
+    margin: 8rem 0
+    padding: 0
+  @media screen and (min-width: $large)
+    grid-gap: 6rem
+    max-width: $lgContMaxWidth

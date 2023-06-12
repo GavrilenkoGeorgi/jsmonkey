@@ -19,11 +19,11 @@ const ListOfPosts: FC<blogProps> = ({ posts }) => {
     />
   )
 
-  return <section className={styles.postsListSection}>
+  return <aside className={styles.postsListSection}>
     <div className={styles.listContainer}>
       {listOfPosts}
     </div>
-  </section>
+  </aside>
 }
 
 export default ListOfPosts

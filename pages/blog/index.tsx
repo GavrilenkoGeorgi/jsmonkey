@@ -35,7 +35,23 @@ const Blog: NextPage<blogProps> = ({ posts }) => {
     />
     <main className={styles.main}>
       <HeroSection heading="Blog" image={heroImg}/>
-      <ListOfPosts posts={posts} />
+      <section className={styles.section}>
+        <article className={styles.containerMd}>
+          <p className={styles.pageParagraph}>
+            Here I plan (ha-ha) to share my passion for software development,
+            explore the world of technology, show you my travel adventures,
+            and delve into the realms of my other beloved hobbies.
+            As a software developer, I find solace in lines of code,
+            but my interests extend far beyond the digital realm.
+          </p>
+          <p className={styles.pageParagraph}>
+            Join me as I blend my technical expertise with tales of wanderlust,
+            insights into the latest tech trends, and musings on various hobbies
+            that bring joy and balance to my life.
+          </p>
+        </article>
+        <ListOfPosts posts={posts} />
+      </section>
     </main>
   </>
 }
