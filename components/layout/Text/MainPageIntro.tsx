@@ -7,7 +7,7 @@ const MainPageIntro:FC = () => {
       Hi, my name is Georgiy, and I am a Web Developer.
     </p>
     <p className={styles.pageParagraph}>
-      I'm a passionate software developer with expertise in a wide
+      I&apos;m a passionate software developer with expertise in a wide
       range of modern technologies and frameworks. With a strong focus
       on front-end development, my toolkit includes TypeScript, ECMAScript 6/ES2015,
       Next.js, React, and Redux, allowing me to craft engaging and
@@ -19,7 +19,7 @@ const MainPageIntro:FC = () => {
       always striving to create efficient and elegant solutions.
     </p>
     <p className={styles.pageParagraph}>
-      In addition to my technical skills, I'm an advocate for testing,
+      In addition to my technical skills, I&apos;m an advocate for testing,
       employing Jest and Cypress to ensure the reliability and stability
       of my applications. I believe that quality assurance is an
       integral part of the development process.
