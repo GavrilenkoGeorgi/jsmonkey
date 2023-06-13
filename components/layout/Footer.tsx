@@ -7,7 +7,7 @@ import facebookIcon from '../../assets/icons/icon-facebook.svg'
 import instagramIcon from '../../assets/icons/icon-instagram.svg'
 import githubIcon from '../../assets/icons/icon-github.svg'
 
-import styles from '../../styles/Main.module.scss'
+import styles from './Footer.module.sass'
 
 const Footer:FC = () => {
   return <footer className={styles.footer}>
@@ -26,8 +26,16 @@ const Footer:FC = () => {
         link="https://facebook.com/gavrilenko.georgi"
         altText="Facebook icon."
       />
-      <SocialIcon image={instagramIcon} link="https://www.instagram.com/keypuncherfromouterspace/" altText="Instagram icon." />
-      <SocialIcon image={githubIcon} link="https://github.com/GavrilenkoGeorgi" altText="Github icon." />
+      <SocialIcon
+        image={instagramIcon}
+        link="https://www.instagram.com/keypuncherfromouterspace/"
+        altText="Instagram icon."
+      />
+      <SocialIcon
+        image={githubIcon}
+        link="https://github.com/GavrilenkoGeorgi"
+        altText="Github icon."
+      />
     </div>
   </footer>
 }
