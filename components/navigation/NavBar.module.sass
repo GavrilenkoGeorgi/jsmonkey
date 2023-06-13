@@ -13,13 +13,13 @@
   z-index: 1
   background-color: white
   box-shadow: 0px 0px 11px 0px #0000003a
-  transition: opacity .5s ease-in, top .5s ease-in
+  transition: opacity $defaultAnimLength, top $defaultAnimLength
   @media screen and (min-width: $small)
-    font-size: 115%
+    font-size: 1.2rem
   @media screen and (min-width: $medium)
     padding: 0 3rem
   @media screen and (min-width: $xlarge)
-    font-size: 133%
+    font-size: 1.3rem
   @media (prefers-color-scheme: dark)
     background-color: #424242
 
@@ -51,10 +51,10 @@
   bottom: 0
   z-index: -1
   margin-left: auto
-  padding: 0 2rem
+  padding: 1rem 2rem
   width: 60vw
   transform: translate(60vw)
-  transition: transform 1s ease-out
+  transition: transform $defaultAnimLength
   background-color: #fff
   margin-top: $navbarHeight
   &.open

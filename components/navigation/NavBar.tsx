@@ -41,12 +41,12 @@ const NavBar:FC = () => {
       key={link.url}
       legacyBehavior // check this again later
     >
-      <span onClick={toggleMenu} className={pathname === link.url
+      <a onClick={toggleMenu} className={pathname === link.url
         ? `${styles.navLink} ${styles.current}`
         : styles.navLink}
       >
         {link.label}
-      </span>
+      </a>
     </Link>
   )
 
@@ -56,15 +56,15 @@ const NavBar:FC = () => {
     <div className={styles.navigationContainer}>
       <Logo />
       <div
-        className={`${styles.linksContainer} ${ open ? styles.open : null }`}
-      >
-        {navLinks}
-      </div>
-      <div
         className={styles.toggleBtnContainer}
         onClick={toggleMenu}
       >
         <MenuToggleBtn open={open}/>
+      </div>
+      <div
+        className={`${styles.linksContainer} ${ open ? styles.open : null }`}
+      >
+        {navLinks}
       </div>
     </div>
   </nav>

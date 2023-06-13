@@ -11,8 +11,8 @@ const HeroSection: FC<heroSectionProps> = (props) => {
   return <section className={styles.heroSection}>
     <Image
       src={image.src}
-      alt="Decorative pattern"
-      // priority
+      alt='Decorative pattern'
+      priority
       fill
     />
     <div className={styles.headingContainer}>
