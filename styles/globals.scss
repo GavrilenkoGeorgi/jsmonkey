@@ -94,18 +94,19 @@ button, input {
 }
 
 .slick-prev {
+  left: -1rem;
   &:before {
     background-image: url('../assets/icons/icon-arrow-left.svg');
   }
 }
 
 .slick-next {
+  right: -1rem;
   &:before {
     background-image: url('../assets/icons/icon-arrow-right.svg');
   }
 }
 
 .slick-dots li button:before {
-  // border: 1px solid pink;
   font-size: .75rem;
 }

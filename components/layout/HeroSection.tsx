@@ -12,7 +12,7 @@ const HeroSection: FC<heroSectionProps> = (props) => {
     <Image
       src={image.src}
       alt="Decorative pattern"
-      priority
+      // priority
       fill
     />
     <div className={styles.headingContainer}>
