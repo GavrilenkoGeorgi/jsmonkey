@@ -45,10 +45,7 @@ button, input {
   font-family: inherit;
 }
 
-.text-center {
-  text-align: center;
-}
-
+// Global slider settings
 .slick-slider {
   cursor: pointer;
 }
@@ -65,9 +62,10 @@ button, input {
   width: $slickNavArrowMobileSize;
   height: $slickNavArrowMobileSize;
   z-index: 2;
-  transition: opacity .5s ease-in;
+  transition: opacity $defaultAnimLength ease-in;
+  opacity: .5;
   &:hover {
-    opacity: .35;
+    opacity: 1;
   }
   @media screen and (min-width: $medium) {
     width: $slickNavArrowDesktopSize;
