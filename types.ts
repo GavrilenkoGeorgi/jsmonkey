@@ -101,9 +101,11 @@ export type Data = {
   result?: any // TODO Define this later?
 }
 
+// individual post page props
 export type postProps = {
-  frontmatter: any,
-  markdown: any
+  frontmatter: any, //?
+  markdown: any, //?
+  slug: string
 }
 
 export type staticPropsParams = {

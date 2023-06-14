@@ -10,3 +10,7 @@ export const getRandomColor = () => {
 export const isError = (error: Error): boolean => {
   return error instanceof Error
 }
+
+export const getFileExt = (filename: string) => {
+  return filename.split('.').pop()
+}
