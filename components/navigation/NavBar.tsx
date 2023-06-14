@@ -1,4 +1,4 @@
-import { FC, useState, useEffect, useRef } from 'react'
+import { FC, useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { navLink } from '../../types'
@@ -21,9 +21,15 @@ const NavBar:FC = () => {
     setOpen(!open)
   }
 
+  // hide on outside click
   useEffect(() => {
     if(!isComponentVisible) setOpen(false)
   }, [isComponentVisible])
+
+  // close mobile menu and hide overlay on scroll
+  useEffect(() => {
+    if (open) setOpen(!open)
+  }, [scrollDirection])
 
   const navigation: Array<navLink> = [
     {
@@ -52,22 +58,25 @@ const NavBar:FC = () => {
 
   const navbarStyle = `${styles.nav} ${ scrollDirection === 'down' ? styles.hiddenNav : styles.visibleNav }`
 
-  return <nav className={navbarStyle} ref={ref}>
-    <div className={styles.navigationContainer}>
-      <Logo />
-      <div
-        className={styles.toggleBtnContainer}
-        onClick={toggleMenu}
-      >
-        <MenuToggleBtn open={open}/>
+  return <>
+    <nav className={navbarStyle} ref={ref}>
+      <div className={styles.navigationContainer}>
+        <Logo />
+        <div
+          className={styles.toggleBtnContainer}
+          onClick={toggleMenu}
+        >
+          <MenuToggleBtn open={open}/>
+        </div>
+        <div
+          className={`${styles.linksContainer} ${open && styles.open}`}
+        >
+          {navLinks}
+        </div>
       </div>
-      <div
-        className={`${styles.linksContainer} ${ open ? styles.open : null }`}
-      >
-        {navLinks}
-      </div>
-    </div>
-  </nav>
+    </nav>
+    {open && <div className={styles.overlay}></div>}
+  </>
 }
 
 export default NavBar
