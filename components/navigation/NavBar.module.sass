@@ -10,7 +10,7 @@
   align-items: center
   position: sticky
   top: 0px
-  z-index: 1
+  z-index: 2
   background-color: white
   box-shadow: 0px 0px 11px 0px #0000003a
   transition: opacity $defaultAnimLength, top $defaultAnimLength
@@ -30,6 +30,13 @@
 .visibleNav
   top: 0px
   opacity: 1
+
+.overlay
+  background-color: $overlayColor
+  z-index: 1
+  width: 100vw
+  height: 100vh
+  position: fixed
 
 .navigationContainer
   width: 100%

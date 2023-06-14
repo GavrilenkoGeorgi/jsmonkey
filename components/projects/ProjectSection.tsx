@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import ProjectSlider from '../layout/Slider/ProjectSlider'
-import FadeIn from '../layout/Animation/FadeIn'
+// import FadeIn from '../layout/Animation/FadeIn'
 import { projectSectionProps } from '../../types'
 
 import styles from './ProjectSection.module.sass'
@@ -13,7 +13,7 @@ const ProjectSection:FC<projectSectionProps> = ({ project }) => {
   const { title, description, images, logoImgs, url } = project
 
   return <section className={styles.container} id={title}>
-    <FadeIn>
+    {/* <FadeIn> */}
       <aside className={styles.carousel}>
         <ProjectSlider images={images}/>
       </aside>
@@ -46,7 +46,7 @@ const ProjectSection:FC<projectSectionProps> = ({ project }) => {
       </div>
     {/* Fix this! */}
     <div className={`${styles.divider} ${styles.divTransparent} ${styles.divStopper}`}></div>
-    </FadeIn>
+    {/* </FadeIn> */}
   </section>
 }
 
