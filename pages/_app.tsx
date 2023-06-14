@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
-import { Noto_Sans } from '@next/font/google'
 import type { AppProps } from 'next/app'
 import { ReCaptchaProvider } from 'next-recaptcha-v3'
 import * as gtag from '../utils/gtag'
@@ -10,12 +9,6 @@ import 'slick-carousel/slick/slick-theme.css'
 
 import '../styles/globals.scss'
 import Layout from '../components/layout/Layout'
-
-const font = Noto_Sans({
-  subsets: ['latin'],
-  weight: ['400', '600'],
-  display: 'swap'
-})
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
@@ -32,7 +25,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     }
   }, [router.events])
 
-  return <div className={font.className}>
+  return <>
     <Script strategy='afterInteractive' src='https://www.googletagmanager.com/gtag/js?id=G-NHDRDGHWQ9'></Script>
     <Script
       id='google-analytics'
@@ -45,7 +38,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           gtag('config', 'G-NHDRDGHWQ9', {
             page_path: window.location.pathname,
           });
-        `,
+        `
       }}
     />
      <ReCaptchaProvider reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}>
@@ -53,7 +46,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
       </Layout>
     </ReCaptchaProvider>
-  </div>
+  </>
 }
 
 export default MyApp

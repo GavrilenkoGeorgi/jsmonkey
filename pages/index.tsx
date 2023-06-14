@@ -12,7 +12,7 @@ import FadeIn from '../components/layout/Animation/FadeIn'
 import styles from '../styles/Main.module.scss'
 
 const Home: NextPage = () => {
-  return <div className={styles.container}>
+  return <>
     <NextSeoHead
       title='Home page: jsmonkey.dev'
       description='Some more info about me and what I do.'
@@ -60,7 +60,7 @@ const Home: NextPage = () => {
         </FadeIn>
       </section>
     </main>
-  </div>
+  </>
 }
 
 export default Home
