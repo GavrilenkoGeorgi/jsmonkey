@@ -28,7 +28,9 @@ const NavBar:FC = () => {
 
   // close mobile menu and hide overlay on scroll
   useEffect(() => {
-    if (open) setOpen(!open)
+    setOpen(prevState => {
+      return prevState && false
+    })
   }, [scrollDirection])
 
   const navigation: Array<navLink> = [
