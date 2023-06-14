@@ -15,11 +15,11 @@
   box-shadow: 0px 0px 11px 0px #0000003a
   transition: opacity $defaultAnimLength, top $defaultAnimLength
   @media screen and (min-width: $small)
-    font-size: 1.2rem
+    font-size: 1.25rem
   @media screen and (min-width: $medium)
     padding: 0 3rem
   @media screen and (min-width: $xlarge)
-    font-size: 1.3rem
+    font-size: 1.7rem
   @media (prefers-color-scheme: dark)
     background-color: #424242
 
@@ -38,6 +38,9 @@
   align-items: center
   height: 100%
   border: none
+  @media screen and (min-width: $xxlarge)
+    margin: 0 auto
+    max-width: $mdContMaxWidth
 
 .linksContainer
   display: flex
