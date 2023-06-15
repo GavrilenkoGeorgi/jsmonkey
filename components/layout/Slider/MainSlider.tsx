@@ -39,6 +39,7 @@ const MainSlider: FC = () => {
               alt="Slide"
               width={4368}
               height={2892}
+              sizes='(max-width: 768px) 100vw'
             />
           </div>
         </div>
