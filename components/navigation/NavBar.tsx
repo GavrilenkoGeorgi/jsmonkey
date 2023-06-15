@@ -10,7 +10,7 @@ import styles from './NavBar.module.sass'
 
 const NavBar:FC = () => {
 
-  const { pathname } = useRouter()
+  const router = useRouter()
   const scrollDirection = useScrollDirection()
 
   // mobile menu
@@ -20,6 +20,12 @@ const NavBar:FC = () => {
   const toggleMenu = () => {
     setOpen(!open)
   }
+
+  // hide on route change
+  useEffect(() => {
+    router.events.on('routeChangeStart', () => setOpen(false))
+    return () => router.events.off('routeChangeStart', setOpen)
+  }, [])
 
   // hide on outside click
   useEffect(() => {
@@ -49,7 +55,7 @@ const NavBar:FC = () => {
       key={link.url}
       legacyBehavior // check this again later
     >
-      <a onClick={toggleMenu} className={pathname === link.url
+      <a className={router.pathname === link.url
         ? `${styles.navLink} ${styles.current}`
         : styles.navLink}
       >
