@@ -1,5 +1,6 @@
 import { FC } from 'react'
-import { Parallax } from 'react-parallax'
+import Image from 'next/image'
+import { ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax'
 import { heroSectionProps } from '../../types'
 
 import styles from './HeroSection.module.sass'
@@ -8,20 +9,26 @@ const HeroSection: FC<heroSectionProps> = (props) => {
 
   const { heading, image } = props
 
-  return <Parallax
-    strength={500}
-    bgImage={image.src}
-    bgImageAlt='Main page pattern.'
-    className={styles.heroSection}
-    renderLayer={() => (
-      <div className={styles.headingContainer}>
-        <h1 className={styles.heroHeading}>
-          {heading}
-        </h1>
-      </div>
-    )}
+  return <ParallaxBanner
+    className={styles.parallax}
   >
-  </Parallax>
+    <ParallaxBannerLayer
+      speed={-20}
+    >
+      <Image
+        src={image.src}
+        priority
+        width={3840}
+        height={2160}
+        alt='Hero parallax pattern.'
+      />
+    </ParallaxBannerLayer>
+    <div className={styles.headingContainer}>
+      <h1>
+        {heading}
+      </h1>
+    </div>
+  </ParallaxBanner>
 }
 
 export default HeroSection

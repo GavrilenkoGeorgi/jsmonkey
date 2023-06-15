@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import { ParallaxProvider } from 'react-scroll-parallax'
 import { Noto_Sans } from '@next/font/google'
 import { ToastMsgContextProvider } from '../../context/toastMsgStore'
 import { layoutProps } from '../../types'
@@ -22,7 +23,9 @@ const Layout:FC<layoutProps> = ({ children }) => {
   return <div className={`${styles.layout} ${font.className}`}>
     <Navbar />
     <ToastMsgContextProvider>
-      {children}
+      <ParallaxProvider>
+        {children}
+      </ParallaxProvider>
       <Toast />
     </ToastMsgContextProvider>
     <Footer />
