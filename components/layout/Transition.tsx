@@ -42,9 +42,10 @@ const Transition:FC<layoutProps> = ({ children }) => {
       <motion.div
         key={asPath}
         variants={variants}
-        initial="in"
-        animate="inactive"
-        exit="out"
+        initial='in'
+        animate='inactive'
+        exit='out'
+        layout='position'
       >
         {children}
       </motion.div>
