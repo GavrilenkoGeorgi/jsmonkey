@@ -11,18 +11,22 @@
   vertical-align: middle
   height: 2px
   width: 22px
-  background-color: $gray-font
   transform: translateY(-100%)
+  background-color: $gray-font
+  @media (prefers-color-scheme: dark)
+    background-color: white
   &:before,
   &:after
-    background-color: $gray-font
     display: inline-block
     position: absolute
     right: 0px
     content: ""
     height: 2px
     width: 22px
-    transition: top 0.3s 0.5s ease, transform 0.3s ease, background-color 0.3s ease
+    transition: top 0.2s 0.4s ease, transform 0.2s ease, background-color 0.2s ease
+    background-color: $gray-font
+    @media (prefers-color-scheme: dark)
+      background-color: white
   &:before
     top: -7px
   &:after
@@ -34,7 +38,7 @@
     &:after
       visibility: visible
       color: black
-      transition: top 0.3s ease, transform 0.3s 0.5s ease, background-color 0.3s ease
+      transition: top 0.2s, transform 0.2s 0.4s ease, background-color 0.2s ease
       top: 0
     &:before
       transform: rotate3d(0, 0, 1, 45deg)

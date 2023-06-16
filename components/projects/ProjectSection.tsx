@@ -15,20 +15,20 @@ const ProjectSection:FC<projectSectionProps> = ({ project }) => {
   return <section className={styles.container} id={title}>
     {/* <FadeIn> */}
       <aside className={styles.carousel}>
+      <h2 className={styles.projectTitle}>
+          {title}
+        </h2>
         <ProjectSlider images={images}/>
       </aside>
 
       <div className={styles.description}>
-        <h2 className={styles.projectTitle}>
-          {title}
-        </h2>
-
         {description.map((par, index) =>
         <p key={index} className={styles.projectInfo}>
           {par}
         </p>
         )}
 
+        <div className={`${styles.divider} ${styles.divTransparent} ${styles.divStopper}`}></div>
         <Link href={url}>
           <p className={styles.projectURL}>{url}</p>
         </Link>
@@ -44,8 +44,6 @@ const ProjectSection:FC<projectSectionProps> = ({ project }) => {
             />)}
         </div>
       </div>
-    {/* Fix this! */}
-    <div className={`${styles.divider} ${styles.divTransparent} ${styles.divStopper}`}></div>
     {/* </FadeIn> */}
   </section>
 }

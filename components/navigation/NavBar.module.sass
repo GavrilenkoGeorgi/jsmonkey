@@ -21,7 +21,7 @@
   @media screen and (min-width: $xlarge)
     font-size: 1.7rem
   @media (prefers-color-scheme: dark)
-    background-color: #424242
+    background-color: $darkModeGrayBkg
 
 .hiddenNav
   top: -$navbarHeight
@@ -64,9 +64,11 @@
   padding: 1rem 2rem
   width: 60vw
   transform: translate(60vw)
-  transition: transform $defaultAnimLength
-  background-color: #fff
+  transition: transform $navMenuOpenTime ease-out
   margin-top: $navbarHeight
+  background-color: white
+  @media (prefers-color-scheme: dark)
+    background-color: $darkModeGrayBkg
   &.open
     transform: translate(0vw)
   @media screen and (min-width: $medium)
@@ -95,8 +97,7 @@
   @media (prefers-color-scheme: dark)
     color: inherit
   letter-spacing: 1.35px
-  transition: color .25s ease-in
-  transition: border-color .25s ease-in
+  transition: color $defaultAnimLength ease-in, border-color $defaultAnimLength ease-in
   border-top: 2px solid transparent
   border-bottom: 2px solid transparent
   @media screen and (min-width: $medium)
