@@ -86,7 +86,7 @@ button, input {
       height: $slickNavArrowDesktopSize;
     }
     @media (prefers-color-scheme: dark) {
-      background-color: #424242;
+      background-color: $darkModeGrayBkg;
     }
   }
 }
@@ -102,6 +102,12 @@ button, input {
   right: -1rem;
   &:before {
     background-image: url('../assets/icons/icon-arrow-right.svg');
+  }
+}
+
+.slick-dots li {
+  @media (prefers-color-scheme: dark) {
+    filter: invert(1)
   }
 }
 

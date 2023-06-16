@@ -35,9 +35,9 @@
   max-width: $mdContMaxWidth
   margin: 1rem auto
   @media screen and (min-width: $medium)
-    font-size: 1.5rem
-  @media screen and (min-width: $large)
-    font-size: 1.8rem
+    font-size: $mediumFontSize
+  @media screen and (min-width: $xxlarge)
+    font-size: $xxlargeFontSize
 
 .ctaWrap
   display: flex
@@ -47,7 +47,7 @@
 
 .ctaContainer
   color: $gray
-  transition: color .5s ease-out
+  transition: color $defaultAnimLength ease-out
   z-index: 1
   &:hover
     color: $highlight-color
@@ -62,7 +62,7 @@
     margin-top: 2rem
 
 .underline
-  transition: width .5s ease-out, background-color .5s ease-out
+  transition: width $defaultAnimLength ease-out, background-color $defaultAnimLength ease-out
   height: 2px
   width: 0%
   background-color: $gray
