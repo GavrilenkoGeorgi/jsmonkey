@@ -25,7 +25,7 @@ const NavBar:FC = () => {
   useEffect(() => {
     router.events.on('routeChangeStart', () => setOpen(false))
     return () => router.events.off('routeChangeStart', setOpen)
-  }, [])
+  }, [router.events])
 
   // hide on outside click
   useEffect(() => {
