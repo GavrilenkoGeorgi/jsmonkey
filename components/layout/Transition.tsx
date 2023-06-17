@@ -8,35 +8,24 @@ const Transition:FC<layoutProps> = ({ children }) => {
   const { asPath } = useRouter()
 
   const variants = {
-    out: {
-      opacity: 0,
-      y: 40,
-      transition: {
-        duration: 0.75
-      }
-    },
-    in: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.75,
-        delay: 0.5
-      }
-    }
-  }
+    hidden: { opacity: 0, x: -200, y: 0 },
+    enter: { opacity: 1, x: 0, y: 0 },
+    exit: { opacity: 0, x: 0, y: -100 },
+}
 
   return <div className='transition'>
     <AnimatePresence
       initial={false}
       mode='wait'
+      onExitComplete={() => window.scrollTo(0, 0)}
     >
       <motion.div
         key={asPath}
         variants={variants}
-        animate='in'
-        initial='out'
-        exit='out'
-        layout='preserve-aspect'
+        initial='hidden'
+        animate='enter'
+        exit='exit'
+        transition={{type: 'linear'}}
       >
         {children}
       </motion.div>
