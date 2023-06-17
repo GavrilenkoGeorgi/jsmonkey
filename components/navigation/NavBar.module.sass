@@ -14,12 +14,8 @@
   background-color: white
   box-shadow: 0px 0px 11px 0px #0000003a
   transition: opacity $defaultAnimLength, top $defaultAnimLength
-  @media screen and (min-width: $small)
-    font-size: 1.25rem
   @media screen and (min-width: $medium)
     padding: 0 3rem
-  @media screen and (min-width: $xlarge)
-    font-size: 1.7rem
   @media (prefers-color-scheme: dark)
     background-color: $darkModeGrayBkg
 
@@ -51,10 +47,7 @@
 
 .linksContainer
   display: flex
-  justify-content: flex-start
-  flex-wrap: wrap
-  align-content: flex-start
-  text-align: right
+  flex-direction: column
   position: fixed
   top: 0
   right: 0
@@ -88,18 +81,25 @@
     visibility: hidden
 
 .navLink
-  display: flex
-  align-items: center
   width: 100%
   margin: .3rem 0
-  min-height: 2.5rem
+  min-height: 2rem
+  font-size: 1rem
+  text-align: left
   color: $gray-font
-  @media (prefers-color-scheme: dark)
-    color: inherit
   letter-spacing: 1.35px
-  transition: color $defaultAnimLength ease-in, border-color $defaultAnimLength ease-in
+  border-left: none
+  border-right: none
   border-top: 2px solid transparent
   border-bottom: 2px solid transparent
+  background-color: transparent
+  transition: color $defaultAnimLength ease-in, border-color $defaultAnimLength ease-in
+  @media screen and (min-width: $small)
+    font-size: 1.25rem
+  @media screen and (min-width: $xlarge)
+    font-size: 1.7rem
+  @media (prefers-color-scheme: dark)
+    color: inherit
   @media screen and (min-width: $medium)
     height: 100%
     padding: 0 1.33rem

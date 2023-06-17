@@ -52,15 +52,15 @@ const NavBar:FC = () => {
 
   const navLinks = navigation.map(link =>
     <Link href={link.url}
-      key={link.url}
-      legacyBehavior // check this again later
+    key={link.url}
+    scroll={false}
     >
-      <a className={router.pathname === link.url
+      <button className={router.pathname === link.url
         ? `${styles.navLink} ${styles.current}`
         : styles.navLink}
       >
         {link.label}
-      </a>
+      </button>
     </Link>
   )
 

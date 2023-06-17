@@ -36,7 +36,7 @@ const Transition:FC<layoutProps> = ({ children }) => {
         animate='in'
         initial='out'
         exit='out'
-        // layout='position'
+        layout='preserve-aspect'
       >
         {children}
       </motion.div>
