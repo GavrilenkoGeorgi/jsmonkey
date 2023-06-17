@@ -8,28 +8,19 @@ const Transition:FC<layoutProps> = ({ children }) => {
   const { asPath } = useRouter()
 
   const variants = {
-    inactive: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: .7,
-        ease: 'easeIn'
-      }
-    },
     out: {
       opacity: 0,
-      y: -100,
+      y: 40,
       transition: {
-        duration: .7,
-        ease: 'easeIn'
+        duration: 0.75
       }
     },
     in: {
-      y: 100,
-      opacity: 0,
+      opacity: 1,
+      y: 0,
       transition: {
-        duration: .7,
-        ease: 'easeIn'
+        duration: 0.75,
+        delay: 0.5
       }
     }
   }
@@ -42,10 +33,10 @@ const Transition:FC<layoutProps> = ({ children }) => {
       <motion.div
         key={asPath}
         variants={variants}
-        initial='in'
-        animate='inactive'
+        animate='in'
+        initial='out'
         exit='out'
-        layout='position'
+        // layout='position'
       >
         {children}
       </motion.div>
