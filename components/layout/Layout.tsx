@@ -4,7 +4,6 @@ import { Noto_Sans } from '@next/font/google'
 import { ToastMsgContextProvider } from '../../context/toastMsgStore'
 import { layoutProps } from '../../types'
 
-import Transition from './Transition'
 import Navbar from '../navigation/NavBar'
 import Footer from '../layout/Footer'
 import Toast from './Toast'
@@ -25,9 +24,7 @@ const Layout:FC<layoutProps> = ({ children }) => {
     <Navbar />
       <ToastMsgContextProvider>
         <ParallaxProvider>
-          <Transition>
-            {children}
-          </Transition>
+          {children}
         </ParallaxProvider>
         <Toast />
       </ToastMsgContextProvider>
