@@ -10,7 +10,12 @@ import 'slick-carousel/slick/slick-theme.css'
 import '../styles/globals.scss'
 import Layout from '../components/layout/Layout'
 
+// page transitions
+import PageTransition, { useAsPathWithoutHash } from '@madeinhaus/nextjs-page-transition'
+import '@madeinhaus/nextjs-page-transition/dist/index.css'
+
 function MyApp({ Component, pageProps }: AppProps) {
+  const key = useAsPathWithoutHash()
   const router = useRouter()
 
   useEffect(() => {
@@ -43,7 +48,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     />
      <ReCaptchaProvider reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}>
       <Layout>
-        <Component {...pageProps} />
+        <PageTransition>
+          <Component {...pageProps} key={key}/>
+        </PageTransition>
       </Layout>
     </ReCaptchaProvider>
   </>

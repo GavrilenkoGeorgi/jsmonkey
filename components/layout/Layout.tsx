@@ -22,12 +22,12 @@ const Layout:FC<layoutProps> = ({ children }) => {
 
   return <div className={`${styles.layout} ${font.className}`}>
     <Navbar />
-    <ToastMsgContextProvider>
-      <ParallaxProvider>
-        {children}
-      </ParallaxProvider>
-      <Toast />
-    </ToastMsgContextProvider>
+      <ToastMsgContextProvider>
+        <ParallaxProvider>
+          {children}
+        </ParallaxProvider>
+        <Toast />
+      </ToastMsgContextProvider>
     <Footer />
   </div>
 }
