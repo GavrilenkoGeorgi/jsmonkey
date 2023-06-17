@@ -23,14 +23,14 @@ const Layout:FC<layoutProps> = ({ children }) => {
 
   return <div className={`${styles.layout} ${font.className}`}>
     <Navbar />
-      <Transition>
-        <ToastMsgContextProvider>
-          <ParallaxProvider>
+      <ToastMsgContextProvider>
+        <ParallaxProvider>
+          <Transition>
             {children}
-          </ParallaxProvider>
-          <Toast />
-        </ToastMsgContextProvider>
-      </Transition>
+          </Transition>
+        </ParallaxProvider>
+        <Toast />
+      </ToastMsgContextProvider>
     <Footer />
   </div>
 }
