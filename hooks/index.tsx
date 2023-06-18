@@ -43,3 +43,13 @@ export function useComponentVisible(initialIsVisible: boolean) {
 
   return { ref, isComponentVisible, setIsComponentVisible }
 }
+
+export const useNextImageImageFade = (_className: string) => {
+  const [className, setClassName] = useState(`${_className} opacity-0`)
+  return {
+    className,
+    onLoad: () => {
+      setClassName(`${_className} opacity-1`)
+    }
+  }
+}
