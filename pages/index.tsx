@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import { ReCaptchaProvider } from 'next-recaptcha-v3'
 
 import NextSeoHead from '../components/layout/NextSeoHead'
 import HeroSection from '../components/layout/HeroSection'
@@ -56,7 +57,12 @@ const Home: NextPage = () => {
 
       <section className={styles.section}>
         <FadeIn>
-          <ContactForm />
+          <ReCaptchaProvider
+            async
+            reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+          >
+            <ContactForm />
+          </ReCaptchaProvider>
         </FadeIn>
       </section>
     </main>

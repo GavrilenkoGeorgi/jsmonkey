@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import type { AppProps } from 'next/app'
-import { ReCaptchaProvider } from 'next-recaptcha-v3'
 import * as gtag from '../utils/gtag'
 import Script from 'next/script'
 import 'slick-carousel/slick/slick.css'
@@ -34,10 +33,13 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [router.events])
 
   return <>
-    <Script strategy='afterInteractive' src='https://www.googletagmanager.com/gtag/js?id=G-NHDRDGHWQ9'></Script>
+    <Script
+      strategy="lazyOnload"
+      src='https://www.googletagmanager.com/gtag/js?id=G-NHDRDGHWQ9'
+    />
     <Script
       id='google-analytics'
-      strategy='afterInteractive'
+      strategy="lazyOnload"
       dangerouslySetInnerHTML={{
         __html: `
           window.dataLayer = window.dataLayer || [];
@@ -49,17 +51,15 @@ function MyApp({ Component, pageProps }: AppProps) {
         `
       }}
     />
-     <ReCaptchaProvider reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}>
-      <Layout>
-        <PageTransition
-          as='div'
-          inPhaseDuration={animLength}
-          outPhaseDuration={animLength}
-        >
-          <Component {...pageProps} key={key}/>
-        </PageTransition>
-      </Layout>
-    </ReCaptchaProvider>
+    <Layout>
+      <PageTransition
+        as='div'
+        inPhaseDuration={animLength}
+        outPhaseDuration={animLength}
+      >
+        <Component {...pageProps} key={key}/>
+      </PageTransition>
+    </Layout>
   </>
 }
 
