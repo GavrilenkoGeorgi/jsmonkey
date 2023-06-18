@@ -131,9 +131,9 @@ button, input {
 
 .opacity-1 {
   animation-name: opacity;
-  animation-duration: .6s; // this needs to be in sync with page transition duration
+  animation-duration: $defaultAnimLength;
   animation-iteration-count: 1;
-  animation-timing-function: ease-out;
+  animation-timing-function: linear;
 }
 
 .opacity-0 {
