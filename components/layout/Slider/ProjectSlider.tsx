@@ -2,7 +2,6 @@ import type { FC } from 'react'
 import Image from 'next/image'
 import Slider from 'react-slick'
 
-import { useNextImageImageFade } from '../../../hooks'
 import { projectCarouselProps } from '../../../types'
 import { SLIDER_IMG_SIZES } from '../../../utils/constants'
 import styles from './ProjectSlider.module.sass'
@@ -25,7 +24,7 @@ const ProjectSlider: FC<projectCarouselProps> = ({ title, images, priority }) =>
             height={2532}
             priority={priority}
             sizes={SLIDER_IMG_SIZES}
-            {...useNextImageImageFade(styles.slide)}
+            className={styles.slide}
           />
         </div>
       </div>

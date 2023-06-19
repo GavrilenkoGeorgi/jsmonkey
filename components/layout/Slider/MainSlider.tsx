@@ -3,7 +3,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Slider from 'react-slick'
 
-import { useNextImageImageFade } from '../../../hooks'
 import { SLIDER_IMG_SIZES } from '../../../utils/constants'
 import items from '../../../data/projects.json'
 import styles from './MainSlider.module.sass'
@@ -41,7 +40,6 @@ const MainSlider: FC = () => {
               width={4368}
               height={2892}
               sizes={SLIDER_IMG_SIZES}
-              {...useNextImageImageFade('')}
             />
           </div>
         </div>
