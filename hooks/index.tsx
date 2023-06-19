@@ -26,10 +26,10 @@ export function useScrollDirection() {
 export function useComponentVisible(initialIsVisible: boolean) {
 
   const [isComponentVisible, setIsComponentVisible] = useState(initialIsVisible)
-  const ref = useRef<any>(null) // any?
+  const ref = useRef<HTMLInputElement>(null)
 
   const handleClickOutside = (event: MouseEvent) => {
-    if (ref.current && !ref.current.contains(event.target)) {
+    if (ref.current && !ref.current.contains(event.target as HTMLInputElement)) {
       setIsComponentVisible(false)
     } else { setIsComponentVisible(true) }
   }
@@ -42,4 +42,14 @@ export function useComponentVisible(initialIsVisible: boolean) {
   }, [])
 
   return { ref, isComponentVisible, setIsComponentVisible }
+}
+
+export const useNextImageImageFade = (_className: string) => {
+  const [className, setClassName] = useState(`${_className} opacity-0`)
+  return {
+    className,
+    onLoad: () => {
+      setClassName(`${_className} opacity-1`)
+    }
+  }
 }

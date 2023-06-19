@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax'
 import { heroSectionProps } from '../../types'
 
+import { useNextImageImageFade } from '../../hooks'
 import styles from './HeroSection.module.sass'
 
 const HeroSection: FC<heroSectionProps> = (props) => {
@@ -20,7 +21,9 @@ const HeroSection: FC<heroSectionProps> = (props) => {
         priority
         width={3840}
         height={2160}
+        sizes='100vw' //full width on all resolutions
         alt='Hero parallax pattern.'
+        {...useNextImageImageFade(styles.heroImg)}
       />
     </ParallaxBannerLayer>
     <div className={styles.headingContainer}>

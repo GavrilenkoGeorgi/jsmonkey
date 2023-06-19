@@ -26,7 +26,7 @@ const Toast: FC = () => {
       className={styles.iconContainer}
       onClick={closeToast}
     >
-      <Image src={closeIcon} alt="Close icon." />
+      <Image src={closeIcon} alt='Close icon.' />
     </div>
   </div>
 }
