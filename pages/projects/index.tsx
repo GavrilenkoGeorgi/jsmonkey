@@ -36,9 +36,13 @@ const Projects: NextPage<projectSectionProps> = () => {
       }}
     />
     <main className={styles.main}>
-      <HeroSection heading="Projects" image={heroImg}/>
-      {itemsToShow.map((item) => (
-        <ProjectSection key={item.id} project={item}/>
+      <HeroSection heading='Projects' image={heroImg}/>
+      {itemsToShow.map((item, index) => (
+        <ProjectSection
+          key={item.id}
+          project={item}
+          animate={index > 0 ? true : false} // can't think of anything better right now (
+        />
       ))}
     </main>
   </div>

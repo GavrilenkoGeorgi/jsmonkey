@@ -7,6 +7,7 @@ import { postProps, staticPropsParams } from '../../types'
 
 import NextSeoHead from '../../components/layout/NextSeoHead'
 import HeroSection from '../../components/layout/HeroSection'
+import FadeIn from '../../components/layout/Animation/FadeIn'
 import styles from '../../styles/Main.module.scss'
 import blogStyles from '../../styles/Blog.module.sass'
 import markdownStyles from '../../styles/Markdown.module.sass'
@@ -42,11 +43,13 @@ const Post: NextPage<postProps> = ({ frontmatter, markdown, slug }) => {
         <article className={blogStyles.article}>
           <p className={blogStyles.timestamp}>{frontmatter.date}</p>
           <hr className={blogStyles.hr} />
-          <ReactMarkdown
-            className={markdownStyles.reactMarkDown}
-          >
-            {markdown}
-          </ReactMarkdown>
+          <FadeIn>
+            <ReactMarkdown
+              className={markdownStyles.reactMarkDown}
+            >
+              {markdown}
+            </ReactMarkdown>
+          </FadeIn>
         </article>
       </section>
     </main>

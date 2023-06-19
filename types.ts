@@ -25,6 +25,7 @@ export type sliderNavArrowProps = {
 }
 
 export type projectSectionProps = {
+  animate: boolean,
   project: {
     id: number,
     title: string,
@@ -38,6 +39,8 @@ export type projectSectionProps = {
 }
 
 export type projectCarouselProps = {
+  title: string,
+  priority: boolean,
   images: string[]
 }
 

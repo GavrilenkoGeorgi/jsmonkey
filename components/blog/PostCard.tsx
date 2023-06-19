@@ -2,6 +2,8 @@ import { FC } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
+import { useNextImageImageFade } from '../../hooks'
+import { POSTCARD_IMG_SIZES } from '../../utils/constants'
 import { postCardProps } from '../../types'
 import styles from './PostCard.module.sass'
 
@@ -16,9 +18,10 @@ const PostCTA: FC<postCardProps> = (props) => {
           src={`${image}`}
           // but not this
           // src={image}
-          alt="Decorative pattern"
-          className={styles.cardImg}
+          alt='Decorative pattern.'
           fill
+          sizes={POSTCARD_IMG_SIZES}
+          {...useNextImageImageFade(styles.cardImg)}
         />
       </div>
 

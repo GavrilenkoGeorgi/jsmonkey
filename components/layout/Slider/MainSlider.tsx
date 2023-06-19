@@ -3,8 +3,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Slider from 'react-slick'
 
+import { useNextImageImageFade } from '../../../hooks'
+import { SLIDER_IMG_SIZES } from '../../../utils/constants'
 import items from '../../../data/projects.json'
-
 import styles from './MainSlider.module.sass'
 
 const MainSlider: FC = () => {
@@ -36,10 +37,11 @@ const MainSlider: FC = () => {
           <div className={styles.imgBox}>
             <Image
               src={item.imageUrl}
-              alt="Slide"
+              alt={`${item.title} slide.`}
               width={4368}
               height={2892}
-              sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+              sizes={SLIDER_IMG_SIZES}
+              {...useNextImageImageFade('')}
             />
           </div>
         </div>

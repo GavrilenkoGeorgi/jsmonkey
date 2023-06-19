@@ -2,11 +2,12 @@ import type { FC } from 'react'
 import Image from 'next/image'
 import Slider from 'react-slick'
 
+import { useNextImageImageFade } from '../../../hooks'
 import { projectCarouselProps } from '../../../types'
-
+import { SLIDER_IMG_SIZES } from '../../../utils/constants'
 import styles from './ProjectSlider.module.sass'
 
-const ProjectSlider: FC<projectCarouselProps> = ({ images }) => {
+const ProjectSlider: FC<projectCarouselProps> = ({ title, images, priority }) => {
 
   const settings = {
     dots: true,
@@ -14,15 +15,17 @@ const ProjectSlider: FC<projectCarouselProps> = ({ images }) => {
   }
 
   return <Slider {...settings}>
-    {images.map((url) => (
+    {images.map((url, index) => (
       <div key={url} className={styles.swipeItem}>
         <div className={styles.imgBox}>
           <Image
-            className={styles.slide}
             src={url}
-            alt="Project slide."
+            alt={`${title} slide ${index}`}
             width={1170}
             height={2532}
+            priority={priority}
+            sizes={SLIDER_IMG_SIZES}
+            {...useNextImageImageFade(styles.slide)}
           />
         </div>
       </div>
