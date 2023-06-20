@@ -7,7 +7,6 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
 import '../styles/globals.scss'
-import sassVars from '../styles/variables.module.sass'
 import Layout from '../components/layout/Layout'
 
 // page transitions
@@ -18,7 +17,6 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   const key = useAsPathWithoutHash()
   const router = useRouter()
-  const animLength = parseFloat(sassVars.defaultAnimLength)
 
   useEffect(() => {
     const handleRouteChange = (url: string) => {
@@ -54,8 +52,8 @@ function MyApp({ Component, pageProps }: AppProps) {
     <Layout>
       <PageTransition
         as='div'
-        inPhaseDuration={animLength}
-        outPhaseDuration={animLength}
+        inPhaseDuration={700}
+        outPhaseDuration={700}
       >
         <Component {...pageProps} key={key}/>
       </PageTransition>
