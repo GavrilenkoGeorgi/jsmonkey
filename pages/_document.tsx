@@ -11,10 +11,12 @@ class MyDocument extends Document {
           <NextScript />
           {/* Netlify Widget */}
           <Script
+            id='netlify-widget'
             strategy='lazyOnload'
             src='https://identity.netlify.com/v1/netlify-identity-widget.js'
             />
           <Script
+            id='gtag-manager'
             strategy='lazyOnload'
             src='https://www.googletagmanager.com/gtag/js?id=G-NHDRDGHWQ9'
           />
@@ -33,6 +35,7 @@ class MyDocument extends Document {
             }}
           />
           <Script
+            id='netlify-ident'
             strategy='lazyOnload'
             dangerouslySetInnerHTML={{
               __html: `
