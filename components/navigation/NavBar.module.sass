@@ -27,12 +27,25 @@
   top: 0px
   opacity: 1
 
+.overlay:empty:before
+   content: 'Empty overlay div.'
+
 .overlay
-  background-color: $overlayColor
+  position: fixed
   z-index: 1
   width: 100vw
+  height: 0
+  opacity: 0
+  overflow: hidden
+  // delay!
+  transition: height 0s $navMenuOpenTime, opacity $navMenuOpenTime
+  background: $overlayColor
+
+
+.openOverlay
   height: 100vh
-  position: fixed
+  opacity: 1
+  transition: height 0s, opacity $navMenuOpenTime
 
 .navigationContainer
   width: 100%
