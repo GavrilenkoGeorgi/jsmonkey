@@ -2,23 +2,20 @@ import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import type { AppProps } from 'next/app'
 import * as gtag from '../utils/gtag'
-import Script from 'next/script'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
 import '../styles/globals.scss'
-import sassVars from '../styles/variables.module.sass'
 import Layout from '../components/layout/Layout'
 
 // page transitions
 import PageTransition, { useAsPathWithoutHash } from '@madeinhaus/nextjs-page-transition'
 import '@madeinhaus/nextjs-page-transition/dist/index.css'
 
-function MyApp({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
 
   const key = useAsPathWithoutHash()
   const router = useRouter()
-  const animLength = parseFloat(sassVars.defaultAnimLength)
 
   useEffect(() => {
     const handleRouteChange = (url: string) => {
@@ -33,29 +30,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [router.events])
 
   return <>
-    <Script
-      strategy="lazyOnload"
-      src='https://www.googletagmanager.com/gtag/js?id=G-NHDRDGHWQ9'
-    />
-    <Script
-      id='google-analytics'
-      strategy="lazyOnload"
-      dangerouslySetInnerHTML={{
-        __html: `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-NHDRDGHWQ9', {
-            page_path: window.location.pathname,
-          });
-        `
-      }}
-    />
     <Layout>
       <PageTransition
         as='div'
-        inPhaseDuration={animLength}
-        outPhaseDuration={animLength}
+        inPhaseDuration={700}
+        outPhaseDuration={700}
       >
         <Component {...pageProps} key={key}/>
       </PageTransition>
@@ -63,4 +42,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   </>
 }
 
-export default MyApp
+export default App

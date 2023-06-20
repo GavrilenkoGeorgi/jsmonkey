@@ -83,7 +83,8 @@ const NavBar:FC = () => {
         </div>
       </div>
     </nav>
-    {open && <div className={styles.overlay}></div>}
+    <div className={`${styles.overlay} ${open ? styles.openOverlay : ''}`}>
+    </div>
   </>
 }
 

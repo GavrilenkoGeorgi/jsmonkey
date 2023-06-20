@@ -21,7 +21,7 @@ const HeroSection: FC<heroSectionProps> = (props) => {
         priority
         width={3840}
         height={2160}
-        sizes='100vw' //full width on all resolutions
+        sizes='(max-width: 600px) 640vw, (max-width: 900px) 1200vw, 3840vw'
         alt='Hero parallax pattern.'
         {...useNextImageImageFade(styles.heroImg)}
       />
