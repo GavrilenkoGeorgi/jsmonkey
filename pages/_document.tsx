@@ -2,27 +2,23 @@ import Document, { Html, Head, Main, NextScript } from 'next/document'
 import Script from 'next/script'
 
 class MyDocument extends Document {
-  render() {
+  render(): JSX.Element {
     return (
       <Html lang='en'>
-        <Head />
-        <body>
-          <Main />
-          <NextScript />
-          {/* Netlify Widget */}
-          <Script
+        <Head>
+          <script
             id='netlify-widget'
-            strategy='lazyOnload'
+            async
             src='https://identity.netlify.com/v1/netlify-identity-widget.js'
             />
-          <Script
+          <script
             id='gtag-manager'
-            strategy='lazyOnload'
+            async
             src='https://www.googletagmanager.com/gtag/js?id=G-NHDRDGHWQ9'
           />
-          <Script
+          <script
             id='google-analytics'
-            strategy='lazyOnload'
+            async
             dangerouslySetInnerHTML={{
               __html: `
                 window.dataLayer = window.dataLayer || [];
@@ -34,9 +30,9 @@ class MyDocument extends Document {
               `
             }}
           />
-          <Script
+          <script
             id='netlify-ident'
-            strategy='lazyOnload'
+            async
             dangerouslySetInnerHTML={{
               __html: `
                 if (window.netlifyIdentity) {
@@ -50,6 +46,10 @@ class MyDocument extends Document {
                 }
             `}}
           />
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
         </body>
       </Html>
     )
