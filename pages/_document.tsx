@@ -5,21 +5,23 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang='en'>
-        <Head>
-          {/* Netlify Widget */}
-          <script async src="https://identity.netlify.com/v1/netlify-identity-widget.js" />
-        </Head>
+        <Head />
         <body>
           <Main />
           <NextScript />
-          {/* <Script
+          <script
+            id='netlify-manager'
+            async
+            src="https://identity.netlify.com/v1/netlify-identity-widget.js"
+          />
+          <script
             id='gtag-manager'
-            strategy='lazyOnload'
+            async
             src='https://www.googletagmanager.com/gtag/js?id=G-NHDRDGHWQ9'
           />
-          <Script
+          <script
             id='google-analytics'
-            strategy='lazyOnload'
+            async
             dangerouslySetInnerHTML={{
               __html: `
                 window.dataLayer = window.dataLayer || [];
@@ -30,8 +32,11 @@ class MyDocument extends Document {
                 });
               `
             }}
-          /> */}
-          <script dangerouslySetInnerHTML={{
+          />
+          <script
+            id='netlify-ident'
+            async
+            dangerouslySetInnerHTML={{
             __html: `
               if (window.netlifyIdentity) {
                 window.netlifyIdentity.on("init", user => {
