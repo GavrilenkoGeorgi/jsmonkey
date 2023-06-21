@@ -39,7 +39,7 @@ const ProjectSection:FC<projectSectionProps> = ({ project, animate }) => {
         {logoImgs.map(logo =>
           <Image
             key={logo}
-            src={`/img/logos/${logo}.svg`}
+            src={`/img/logos/${logo.toLowerCase()}.svg`}
             className={styles.logo}
             alt={`${logo} icon.`}
             width={45}

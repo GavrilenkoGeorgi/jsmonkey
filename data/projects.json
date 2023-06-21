@@ -9,7 +9,7 @@
     ],
     "imageUrl": "/img/artviva-desktop.webp",
     "images": [ "/img/projects/artviva/artviva-1.webp", "/img/projects/artviva/artviva-2.webp", "/img/projects/artviva/artviva-3.webp", "/img/projects/artviva/artviva-4.webp" ],
-    "logoImgs": ["react", "bootstrap", "axios", "node-js", "jest", "cypress", "eslint"],
+    "logoImgs": ["React", "Bootstrap", "Axios", "Node-js", "Jest", "Cypress", "Eslint"],
     "description": [
       "Artviva School's integrated web platform, built with React on the front-end and powered by Node.js on the backend, combines a range of functionalities to provide a seamless online experience. Students can conveniently make tuition payments using our secure payment system, Liqpay, seamlessly integrated into the backend deployed on Heroku. Additionally, prospective students can effortlessly submit their applications through the website, streamlining the enrollment process for both students and the school.",
       "To ensure an optimal user experience and continuously enhance the website, Artviva School utilizes Google Analytics. This powerful tool enables detailed tracking and analysis of website traffic, user behavior, and performance metrics. By gaining insights into visitor demographics, popular pages, and user engagement, Artviva School can make data-driven decisions to improve the website's content, design, and functionality. Google Analytics empowers Artviva School to provide an up-to-date and user-centric website that meets the evolving needs of students, parents, and the wider community.",
@@ -28,7 +28,7 @@
     ],
     "imageUrl": "/img/huma-desktop.webp",
     "images": [ "/img/projects/huma/huma-1.webp", "/img/projects/huma/huma-2.webp", "/img/projects/huma/huma-3.webp" ],
-    "logoImgs": ["es6", "html5", "handlebars", "webpack", "sass"],
+    "logoImgs": ["ES6", "HTML5", "Handlebars", "Webpack", "SASS"],
     "description": [
       "Our project began with the goal of enhancing performance in both UI and build/load times. Initially built using Handlebars and Webpack 4, we later upgraded to the more efficient Webpack 5 to achieve significant performance improvements. However, to further optimize the website and enhance development experience, we rebuilt the entire project using Next.js and Typescript.",
       "By leveraging Next.js, a powerful React framework, we achieved remarkable performance enhancements, thanks to its server-side rendering capabilities and built-in optimizations. This allowed for faster page load times and improved user experience. The integration of Typescript ensured type safety, enhanced code quality, and streamlined development workflows.",
