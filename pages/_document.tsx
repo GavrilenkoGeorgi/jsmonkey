@@ -1,5 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
-// import Script from 'next/script'
+import Script from 'next/script'
 
 class MyDocument extends Document {
   render() {
@@ -9,19 +9,20 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <script
+          <Script
             id='netlify-manager'
-            async
+            strategy='afterInteractive'
             src="https://identity.netlify.com/v1/netlify-identity-widget.js"
           />
-          <script
+          <Script
             id='gtag-manager'
+            strategy='afterInteractive'
             async
             src='https://www.googletagmanager.com/gtag/js?id=G-NHDRDGHWQ9'
           />
-          <script
+          <Script
             id='google-analytics'
-            async
+            strategy='afterInteractive'
             dangerouslySetInnerHTML={{
               __html: `
                 window.dataLayer = window.dataLayer || [];
@@ -33,16 +34,16 @@ class MyDocument extends Document {
               `
             }}
           />
-          <script
+          <Script
             id='netlify-ident'
-            async
+            strategy='afterInteractive'
             dangerouslySetInnerHTML={{
             __html: `
               if (window.netlifyIdentity) {
-                window.netlifyIdentity.on("init", user => {
+                window.netlifyIdentity.on('init', user => {
                   if (!user) {
-                    window.netlifyIdentity.on("login", () => {
-                      document.location.href = "/admin/";
+                    window.netlifyIdentity.on('login', () => {
+                      document.location.href = '/admin/';
                     });
                   }
                 });
