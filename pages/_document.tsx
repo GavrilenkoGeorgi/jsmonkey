@@ -11,17 +11,17 @@ class MyDocument extends Document {
           <NextScript />
           <Script
             id='netlify-widget'
-            async
+            // async
             src='https://identity.netlify.com/v1/netlify-identity-widget.js'
             />
           <Script
             id='gtag-manager'
-            async
+            // async
             src='https://www.googletagmanager.com/gtag/js?id=G-NHDRDGHWQ9'
           />
           <Script
             id='google-analytics'
-            async
+            // async
             dangerouslySetInnerHTML={{
               __html: `
                 window.dataLayer = window.dataLayer || [];
@@ -35,7 +35,7 @@ class MyDocument extends Document {
           />
           <Script
             id='netlify-ident'
-            async
+            // async
             dangerouslySetInnerHTML={{
               __html: `
                 if (window.netlifyIdentity) {
