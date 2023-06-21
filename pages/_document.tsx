@@ -12,9 +12,10 @@ class MyDocument extends Document {
           {/* Netlify Widget */}
           <Script
             id='netlify-widget'
-            strategy='lazyOnload'
+            // strategy='lazyOnload'
+            async
             src='https://identity.netlify.com/v1/netlify-identity-widget.js'
-            />
+          />
           <Script
             id='gtag-manager'
             strategy='lazyOnload'
