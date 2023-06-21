@@ -9,19 +9,20 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+          {/* Netlify Widget */}
           <Script
             id='netlify-widget'
-            // async
+            strategy='lazyOnload'
             src='https://identity.netlify.com/v1/netlify-identity-widget.js'
             />
           <Script
             id='gtag-manager'
-            // async
+            strategy='lazyOnload'
             src='https://www.googletagmanager.com/gtag/js?id=G-NHDRDGHWQ9'
           />
           <Script
             id='google-analytics'
-            // async
+            strategy='lazyOnload'
             dangerouslySetInnerHTML={{
               __html: `
                 window.dataLayer = window.dataLayer || [];
@@ -35,7 +36,7 @@ class MyDocument extends Document {
           />
           <Script
             id='netlify-ident'
-            // async
+            strategy='lazyOnload'
             dangerouslySetInnerHTML={{
               __html: `
                 if (window.netlifyIdentity) {
