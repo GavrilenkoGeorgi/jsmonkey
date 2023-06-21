@@ -5,18 +5,21 @@ class MyDocument extends Document {
   render(): JSX.Element {
     return (
       <Html lang='en'>
-        <Head>
-          <script
+        <Head />
+        <body>
+          <Main />
+          <NextScript />
+          <Script
             id='netlify-widget'
             async
             src='https://identity.netlify.com/v1/netlify-identity-widget.js'
             />
-          <script
+          <Script
             id='gtag-manager'
             async
             src='https://www.googletagmanager.com/gtag/js?id=G-NHDRDGHWQ9'
           />
-          <script
+          <Script
             id='google-analytics'
             async
             dangerouslySetInnerHTML={{
@@ -30,7 +33,7 @@ class MyDocument extends Document {
               `
             }}
           />
-          <script
+          <Script
             id='netlify-ident'
             async
             dangerouslySetInnerHTML={{
@@ -46,10 +49,6 @@ class MyDocument extends Document {
                 }
             `}}
           />
-        </Head>
-        <body>
-          <Main />
-          <NextScript />
         </body>
       </Html>
     )
