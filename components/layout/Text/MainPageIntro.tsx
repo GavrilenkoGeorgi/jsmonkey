@@ -4,7 +4,7 @@ import styles from '../../../styles/Main.module.scss'
 const MainPageIntro:FC = () => {
   return <>
     <p className={styles.leadParagraph}>
-      Hi, my name is Georgiy, and I am a Web Developer.
+      Hi, my name is Gosha, and I am a Web Developer.
     </p>
     <p className={styles.pageParagraph}>
       I&apos;m a passionate software developer with expertise in a wide
