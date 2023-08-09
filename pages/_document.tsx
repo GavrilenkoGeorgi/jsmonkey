@@ -5,10 +5,7 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang='en'>
-        <Head />
-        <body>
-          <Main />
-          <NextScript />
+        <Head>
           <Script
             id='netlify-manager'
             strategy='afterInteractive'
@@ -49,6 +46,10 @@ class MyDocument extends Document {
                 });
               }
           `}}/>
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
         </body>
       </Html>
     )
