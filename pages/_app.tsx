@@ -33,8 +33,8 @@ function App({ Component, pageProps }: AppProps) {
     <Layout>
       <PageTransition
         as='div'
-        inPhaseDuration={700}
-        outPhaseDuration={700}
+        inPhaseDuration={250}
+        outPhaseDuration={250}
       >
         <Component {...pageProps} key={key}/>
       </PageTransition>
