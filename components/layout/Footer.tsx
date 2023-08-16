@@ -28,7 +28,7 @@ const Footer:FC = () => {
       />
       <SocialIcon
         image={instagramIcon}
-        link="https://www.instagram.com/keypuncherfromouterspace/"
+        link="https://www.instagram.com/gosha_x86/"
         altText="Instagram icon."
       />
       <SocialIcon
