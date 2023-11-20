@@ -19,7 +19,7 @@ const Footer:FC = () => {
         href="/"
         className={styles.textLink}
       >
-        It ain&apos;t much but it&apos;s honest work.
+        I build things.
       </Link>
       <SocialIcon
         image={facebookIcon}
