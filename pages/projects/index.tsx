@@ -12,7 +12,7 @@ import styles from '../../styles/Main.module.scss'
 
 const Projects: NextPage<projectSectionProps> = () => {
 
-  const itemsToShow = items.slice(0, 2)
+  const itemsToShow = items.sort((a, b) => a.id - b.id)
 
   return <div className={styles.container}>
     <NextSeoHead
