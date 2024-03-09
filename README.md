@@ -1,5 +1,5 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/040f5a15-1020-473c-8f0c-de44f6ec5d03/deploy-status)](https://app.netlify.com/sites/jsmonkey/deploys)
-## [jsmonkey.dev](https://jsmonkey.dev)
+## [https://jsmonkey.netlify.app/](https://jsmonkey.netlify.app/)
 
 To run the development server:
 
