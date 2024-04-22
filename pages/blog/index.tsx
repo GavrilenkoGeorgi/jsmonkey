@@ -17,14 +17,14 @@ const Blog: NextPage<blogProps> = ({ posts }) => {
     <NextSeoHead
       title='My Blog'
       description='Mostly random thoughts about things that interest me.'
-      canonical='https://jsmonkey.dev/blog'
+      canonical='https://jsmonkey.netlify.app/blog'
       openGraph={{
-        url: 'https://jsmonkey.dev/blog',
+        url: 'https://jsmonkey.netlify.app/blog',
         title: 'My Blog',
         description: 'Mostly random thoughts about things that interest me.',
         images: [
           {
-            url: 'https://jsmonkey.dev/img/og/jsmonkey-blog-og-img.png',
+            url: 'https://jsmonkey.netlify.app/img/og/jsmonkey-blog-og-img.png',
             width: 1200,
             height: 630,
             alt: 'JSMonkey blog page pattern.',

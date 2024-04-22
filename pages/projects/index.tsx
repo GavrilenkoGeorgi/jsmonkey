@@ -18,14 +18,14 @@ const Projects: NextPage<projectSectionProps> = () => {
     <NextSeoHead
       title='Projects list'
       description='List of things that I am working on.'
-      canonical='https://jsmonkey.dev/projects'
+      canonical='https://jsmonkey.netlify.app/projects'
       openGraph={{
-        url: 'https://jsmonkey.dev/projects',
+        url: 'https://jsmonkey.netlify.app/projects',
         title: 'Projects list',
         description: 'List of things that I am working on.',
         images: [
           {
-            url: 'https://jsmonkey.dev/img/og/jsmonkey-projects-og-img.png',
+            url: 'https://jsmonkey.netlify.app/img/og/jsmonkey-projects-og-img.png',
             width: 1200,
             height: 630,
             alt: 'JSMonkey projects page pattern.',

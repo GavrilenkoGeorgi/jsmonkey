@@ -15,16 +15,16 @@ import styles from '../styles/Main.module.scss'
 const Home: NextPage = () => {
   return <>
     <NextSeoHead
-      title='Home page: jsmonkey.dev'
+      title='Home page: jsmonkey.netlify.app'
       description='Some more info about me and what I do.'
-      canonical='https://jsmonkey.dev'
+      canonical='https://jsmonkey.netlify.app'
       openGraph={{
-        url: 'https://jsmonkey.dev',
-        title: 'Home page: jsmonkey.dev',
+        url: 'https://jsmonkey.netlify.app',
+        title: 'Home page: jsmonkey.netlify.app',
         description: 'Some more info about me and what I do.',
         images: [
           {
-            url: 'https://jsmonkey.dev/img/og/jsmonkey-og-img.png',
+            url: 'https://jsmonkey.netlify.app/img/og/jsmonkey-og-img.png',
             width: 1200,
             height: 630,
             alt: 'JSMonkey home page pattern.',
@@ -36,7 +36,7 @@ const Home: NextPage = () => {
     />
 
     <main className={styles.main}>
-      <HeroSection heading='JSMonkey.dev' image={heroImg} />
+      <HeroSection heading='JSMonkey' image={heroImg} />
       <section className={styles.section}>
         <div className={styles.containerMd}>
           <MainPageIntro />
