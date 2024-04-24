@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { ParallaxProvider } from 'react-scroll-parallax'
-import { Noto_Sans } from '@next/font/google'
+import { Noto_Sans } from "next/font/google"
 import { ToastMsgContextProvider } from '../../context/toastMsgStore'
 import { layoutProps } from '../../types'
 
