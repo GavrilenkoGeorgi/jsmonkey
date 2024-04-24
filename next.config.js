@@ -6,7 +6,13 @@ const nextConfig = {
     API_HOST: 'localhost:3000',
   },
   images: {
-    domains: ['jsmonkey.netlify.app', 'localhost']
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'jsmonkey.netlify.app',
+        pathname: '**',
+      },
+    ],
   }
 }
 
