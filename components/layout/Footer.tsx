@@ -27,11 +27,6 @@ const Footer:FC = () => {
         altText="Facebook icon."
       />
       <SocialIcon
-        image={instagramIcon}
-        link="https://www.instagram.com/gosha_x86/"
-        altText="Instagram icon."
-      />
-      <SocialIcon
         image={githubIcon}
         link="https://github.com/GavrilenkoGeorgi"
         altText="Github icon."

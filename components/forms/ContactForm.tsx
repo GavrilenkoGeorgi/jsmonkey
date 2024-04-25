@@ -80,9 +80,10 @@ const ContactForm:FC = () => {
         required
         minLength={2}
         maxLength={33}
+        autoComplete='true'
       />
       <p className={styles.errorMsg}>This one is requred</p>
-      <label htmlFor='last'>Message</label>
+      <label htmlFor='message'>Message</label>
       <textarea
         rows={5}
         id='message'
