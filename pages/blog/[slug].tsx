@@ -17,8 +17,9 @@ function extractExcerpt(markdown: string, maxLength: number = 160): string {
   const plainText =
     markdown
       .replace(/^#+\s+/gm, "") // Remove headers
+      .replace(/!\[([^\]]*)\]\([^)]+\)/g, "") // Remove images ![alt](url)
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1") // Replace links [text](url) with text
       .replace(/[*_`]/g, "") // Remove markdown formatting
-      .replace(/\[([^\]]+)\]/g, "$1") // Replace links with text
       .split("\n")
       .find((line) => line.trim().length > 0) || "";
 
@@ -82,7 +83,7 @@ export const getStaticProps = async ({
   const fileContent = matter(
     fs.readFileSync(`./content/blogs/${slug}.md`, "utf8"),
   );
-  let frontmatter = fileContent.data;
+  const frontmatter = fileContent.data;
   const markdown = fileContent.content;
 
   return {

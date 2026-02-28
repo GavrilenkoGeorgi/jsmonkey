@@ -13,11 +13,11 @@ export type contactFormMessage = {
 };
 
 export type blogProps = {
-  posts: [postCardProps];
+  posts: postCardProps[];
 };
 
 export type sliderNavArrowProps = {
-  clickHandler: void;
+  clickHandler: () => void;
   hasPrev: boolean;
   label: string;
 };

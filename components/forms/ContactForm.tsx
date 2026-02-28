@@ -48,19 +48,19 @@ const ContactForm: FC = () => {
     let error: string | null = null;
 
     if (name === "email") {
-      error = validateEmail(value);
+      const error = validateEmail(value);
+      setErrors((prev) => ({ ...prev, email: error }));
     } else if (name === "message") {
-      error = validateMessage(value);
+      const error = validateMessage(value);
+      setErrors((prev) => ({ ...prev, message: error }));
     }
-
-    setErrors((prev) => ({ ...prev, [name]: error }));
   };
 
   const handleSubmit = useCallback(
-    async (event: React.ChangeEvent<HTMLFormElement>) => {
+    async (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
 
-      const form = event.target;
+      const form = event.target as HTMLFormElement; // TODO: is this as absolutely necessary?
       const formData = new FormData(form);
       const formProps = Object.fromEntries(formData);
 
@@ -75,43 +75,46 @@ const ContactForm: FC = () => {
 
       setSubmitting(true);
 
-      const token = await executeRecaptcha("submit");
-      const tokenScore = await validateToken(token);
+      try {
+        const token = await executeRecaptcha("submit");
+        const tokenScore = await validateToken(token);
 
-      // submit and show errors
-      if (isError(tokenScore)) {
-        setToastMsg({
-          message: tokenScore.message,
-          type: toastTypes.error,
-        });
-      } else if (tokenScore.score < 0.5) {
-        setToastMsg({
-          message: `reCaptcha score is too low ${tokenScore.score}`,
-          type: toastTypes.error,
-        });
-      } else {
-        // all ok
-        const msg: contactFormMessage = {
-          email: String(formProps.email),
-          message: String(formProps.message),
-        };
-        const submit = await sendContactMsg(msg);
-        if (isError(submit)) {
-          // can't send email
+        // submit and show errors
+        if (isError(tokenScore)) {
           setToastMsg({
-            message: submit.message,
+            message: tokenScore.message,
+            type: toastTypes.error,
+          });
+        } else if (tokenScore.score < 0.5) {
+          setToastMsg({
+            message: `reCaptcha score is too low ${tokenScore.score}`,
             type: toastTypes.error,
           });
         } else {
-          form.reset();
-          setErrors({ email: null, message: null });
-          setToastMsg({
-            message: "Nice! )",
-            type: toastTypes.success,
-          });
+          // all ok
+          const msg: contactFormMessage = {
+            email: String(formProps.email),
+            message: String(formProps.message),
+          };
+          const submit = await sendContactMsg(msg);
+          if (isError(submit)) {
+            // can't send email
+            setToastMsg({
+              message: submit.message,
+              type: toastTypes.error,
+            });
+          } else {
+            form.reset();
+            setErrors({ email: null, message: null });
+            setToastMsg({
+              message: "Nice! )",
+              type: toastTypes.success,
+            });
+          }
         }
+      } finally {
+        setSubmitting(false);
       }
-      setSubmitting(false);
     },
     [executeRecaptcha, setToastMsg],
   );
@@ -119,26 +122,33 @@ const ContactForm: FC = () => {
   return (
     <div className={globalStyles.containerMd}>
       <h2 className={styles.title}>Get in Touch</h2>
-      <form onSubmit={handleSubmit} method="post" className={styles.form}>
-        <label htmlFor="email">Your email</label>
+      <form
+        onSubmit={handleSubmit}
+        method="post"
+        className={styles.form}
+        noValidate
+      >
+        <label htmlFor="email">Email</label>
         <input
           type="email"
           id="email"
           name="email"
           placeholder="Your email*"
-          required
           minLength={2}
           maxLength={33}
-          autoComplete="true"
+          autoComplete="email"
           onBlur={handleFieldBlur}
           aria-invalid={!!errors.email}
           aria-describedby={errors.email ? "email-error" : undefined}
         />
-        {errors.email && (
-          <p id="email-error" className={styles.errorMsg}>
+        <div className={styles.errorWrapper}>
+          <p
+            id="email-error"
+            className={`${styles.errorMsg} ${errors.email ? styles.errorMsgVisible : ""}`}
+          >
             {errors.email}
           </p>
-        )}
+        </div>
 
         <label htmlFor="message">Message</label>
         <textarea
@@ -146,18 +156,20 @@ const ContactForm: FC = () => {
           id="message"
           name="message"
           placeholder="Message*"
-          required
           minLength={2}
           maxLength={500}
           onBlur={handleFieldBlur}
           aria-invalid={!!errors.message}
           aria-describedby={errors.message ? "message-error" : undefined}
         />
-        {errors.message && (
-          <p id="message-error" className={styles.errorMsg}>
+        <div className={styles.errorWrapper}>
+          <p
+            id="message-error"
+            className={`${styles.errorMsg} ${errors.message ? styles.errorMsgVisible : ""}`}
+          >
             {errors.message}
           </p>
-        )}
+        </div>
 
         <Button type="submit" label="Submit" submitting={submitting} />
       </form>

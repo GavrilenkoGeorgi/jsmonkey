@@ -1,8 +1,6 @@
 import type { NextPage } from "next";
-import type { Metadata } from "next";
+import Head from "next/head";
 import { ReCaptchaProvider } from "next-recaptcha-v3";
-
-import { buildMetadata } from "../utils/metadata";
 import HeroSection from "../components/layout/HeroSection";
 import heroImg from "../assets/images/main-page-pattern.webp";
 import MainSlider from "../components/layout/Slider/MainSlider";
@@ -13,19 +11,29 @@ import FadeIn from "../components/layout/Animation/FadeIn";
 
 import styles from "../styles/Main.module.scss";
 
-export async function generateMetadata(): Promise<Metadata> {
-  return buildMetadata({
-    title: "Home page: jsmonkey.netlify.app",
-    description: "Some more info about me and what I do.",
-    canonicalPath: "https://jsmonkey.netlify.app",
-    ogImageUrl: "https://jsmonkey.netlify.app/img/og/jsmonkey-og-img.png",
-    ogImageAlt: "JSMonkey home page pattern.",
-  });
-}
-
 const Home: NextPage = () => {
+  const title = "Home page: jsmonkey.netlify.app";
+  const description = "Some more info about me and what I do.";
+  const canonicalUrl = "https://jsmonkey.netlify.app";
+  const ogImageUrl = "https://jsmonkey.netlify.app/img/og/jsmonkey-og-img.png";
+
   return (
     <>
+      <Head>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={ogImageUrl} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="JSMonkey home page pattern." />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:site_name" content="JSMonkey" />
+        <link rel="canonical" href={canonicalUrl} />
+      </Head>
       <main className={styles.main}>
         <HeroSection heading="JSMonkey" image={heroImg} />
         <section className={styles.section}>

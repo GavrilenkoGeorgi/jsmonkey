@@ -1,10 +1,8 @@
 import fs from "fs";
 import matter from "gray-matter";
 import type { NextPage } from "next";
-import type { Metadata } from "next";
+import Head from "next/head";
 import { blogProps } from "../../types";
-
-import { buildMetadata } from "../../utils/metadata";
 import HeroSection from "../../components/layout/HeroSection";
 import ListOfPosts from "../../components/blog/ListOfPosts";
 import FadeIn from "../../components/layout/Animation/FadeIn";
@@ -12,19 +10,30 @@ import heroImg from "../../assets/images/blog-hero-image.webp";
 
 import styles from "../../styles/Main.module.scss";
 
-export async function generateMetadata(): Promise<Metadata> {
-  return buildMetadata({
-    title: "My Blog",
-    description: "Mostly random thoughts about things that interest me.",
-    canonicalPath: "https://jsmonkey.netlify.app/blog",
-    ogImageUrl: "https://jsmonkey.netlify.app/img/og/jsmonkey-blog-og-img.png",
-    ogImageAlt: "JSMonkey blog page pattern.",
-  });
-}
-
 const Blog: NextPage<blogProps> = ({ posts }) => {
+  const title = "My Blog";
+  const description = "Mostly random thoughts about things that interest me.";
+  const canonicalUrl = "https://jsmonkey.netlify.app/blog";
+  const ogImageUrl =
+    "https://jsmonkey.netlify.app/img/og/jsmonkey-blog-og-img.png";
+
   return (
     <>
+      <Head>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={ogImageUrl} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="JSMonkey blog page pattern." />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:site_name" content="JSMonkey" />
+        <link rel="canonical" href={canonicalUrl} />
+      </Head>
       <main className={styles.main}>
         <HeroSection heading="Blog" image={heroImg} />
         <section className={styles.section}>

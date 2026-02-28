@@ -3,10 +3,9 @@
 
 $form-font-size: 1rem
 $desktop-form-font-size: 1.3rem
-$field-padding: 1rem
+$field-padding: .75rem
 $form-ltr-spacing: 1.45px
 $input-background: rgba($highlight-color, 0.03)
-$input-border-radius: 0.5rem
 
 .title
   text-align: center
@@ -15,7 +14,6 @@ $input-border-radius: 0.5rem
   margin-bottom: 2rem
   @media screen and (min-width: $medium)
     font-size: 3rem
-    margin-bottom: 3rem
 
 .form
   display: flex
@@ -31,7 +29,7 @@ $input-border-radius: 0.5rem
     font-size: $form-font-size
     padding: $field-padding
     color: $gray-font
-    border: 2px solid $gray
+    border: 1px solid $gray
     letter-spacing: $form-ltr-spacing
     background-color: $input-background
     transition: border-color $defaultAnimLength ease, background-color $defaultAnimLength ease, box-shadow $defaultAnimLength ease
@@ -75,7 +73,17 @@ $input-border-radius: 0.5rem
         background-color: rgba(white, 0.08)
 
       &:focus
+        border-color: lighten($highlight-color, 10%)
         background-color: rgba($highlight-color, 0.12)
+        box-shadow: 0 0 0 3px rgba($highlight-color, 0.2)
+
+      &[aria-invalid="true"]
+        border-color: rgba(lighten($error, 10%), 0.5)
+        background-color: rgba($error, 0.05)
+
+        &:focus
+          border-color: lighten($error, 10%)
+          box-shadow: 0 0 0 3px rgba($error, 0.15)
 
   input::placeholder,
   textarea::placeholder
@@ -92,29 +100,28 @@ $input-border-radius: 0.5rem
     min-height: calc(5 * $field-padding + 1em)
 
   label
-    visibility: hidden
-    line-height: 0
-
-  > label + input,
-  > label + textarea
     margin-bottom: 0.5rem
 
+.errorWrapper
+  position: relative
+  height: 1.5rem
+  margin-top: 0.25rem
+  margin-bottom: 0.5rem
+
 .errorMsg
+  position: absolute
+  top: 0
+  left: 0
+  margin: 0
   font-size: 80%
   color: $error
-  margin-top: 0.25rem
-  margin-bottom: 1rem
   display: flex
   align-items: center
-  animation: slideDown $defaultAnimLength ease-out
+  opacity: 0
+  transition: opacity $defaultAnimLength ease-out
 
   @media (prefers-color-scheme: dark)
     color: lighten($error, 10%)
 
-@keyframes slideDown
-  from
-    opacity: 0
-    transform: translateY(-0.5rem)
-  to
-    opacity: 1
-    transform: translateY(0)
+.errorMsgVisible
+  opacity: 1

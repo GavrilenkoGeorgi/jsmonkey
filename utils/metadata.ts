@@ -3,7 +3,8 @@ import { Metadata } from "next";
 export interface MetadataParams {
   title: string;
   description: string;
-  canonicalPath: string;
+  siteUrl: string; // Site origin/base URL (e.g., https://jsmonkey.netlify.app)
+  canonicalPath: string; // Full canonical URL
   ogImageUrl: string;
   ogImageWidth?: number;
   ogImageHeight?: number;
@@ -16,6 +17,7 @@ export function buildMetadata(params: MetadataParams): Metadata {
   const {
     title,
     description,
+    siteUrl,
     canonicalPath,
     ogImageUrl,
     ogImageWidth = 1200,
@@ -28,7 +30,7 @@ export function buildMetadata(params: MetadataParams): Metadata {
   return {
     title,
     description,
-    metadataBase: new URL(canonicalPath),
+    metadataBase: new URL(siteUrl),
     openGraph: {
       title,
       description,
