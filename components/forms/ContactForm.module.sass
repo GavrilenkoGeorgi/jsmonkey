@@ -3,8 +3,9 @@
 
 $form-font-size: 1rem
 $desktop-form-font-size: 1.3rem
-$field-padding: 1rem
+$field-padding: .75rem
 $form-ltr-spacing: 1.45px
+$input-background: rgba($highlight-color, 0.03)
 
 .title
   text-align: center
@@ -13,7 +14,6 @@ $form-ltr-spacing: 1.45px
   margin-bottom: 2rem
   @media screen and (min-width: $medium)
     font-size: 3rem
-    margin-bottom: 3rem
 
 .form
   display: flex
@@ -23,46 +23,105 @@ $form-ltr-spacing: 1.45px
   margin: auto
   @media screen and (min-width: $large)
     max-width: 35rem
-  input
-    font-size: $form-font-size
-    padding: $field-padding
-    color: $gray-font
-    border: 1px solid $gray
-    letter-spacing: $form-ltr-spacing
-    @media screen and (min-width: $large)
-      font-size: $desktop-form-font-size
-    @media (prefers-color-scheme: dark)
-      color: inherit
-  input::placeholder
-    color: $light-gray
-    font-size: $form-font-size
-    @media screen and (min-width: $large)
-      font-size: $desktop-form-font-size
 
+  input,
   textarea
     font-size: $form-font-size
-    letter-spacing: $form-ltr-spacing
     padding: $field-padding
-    font-family: inherit //! next.js fonts in _app.tsx?
     color: $gray-font
     border: 1px solid $gray
+    letter-spacing: $form-ltr-spacing
+    background-color: $input-background
+    transition: border-color $defaultAnimLength ease, background-color $defaultAnimLength ease, box-shadow $defaultAnimLength ease
+    accent-color: $highlight-color
+
+    &:hover:not(:disabled)
+      border-color: darken($gray, 10%)
+      background-color: rgba($highlight-color, 0.06)
+
+    &:focus
+      outline: none
+      border-color: $highlight-color
+      background-color: rgba($highlight-color, 0.08)
+      box-shadow: 0 0 0 3px rgba($highlight-color, 0.1)
+
+    &:active
+      border-color: darken($highlight-color, 10%)
+
+    &[aria-invalid="true"]
+      border-color: rgba($error, 0.4)
+      background-color: rgba($error, 0.01)
+
+      &:focus
+        border-color: $error
+        box-shadow: 0 0 0 3px rgba($error, 0.1)
+
+    &:disabled
+      opacity: 0.6
+      cursor: not-allowed
+      background-color: darken($input-background, 5%)
+
     @media screen and (min-width: $large)
       font-size: $desktop-form-font-size
+
     @media (prefers-color-scheme: dark)
       color: inherit
+      border-color: darken($gray, 10%)
+      background-color: rgba(white, 0.05)
 
+      &:hover:not(:disabled)
+        background-color: rgba(white, 0.08)
+
+      &:focus
+        border-color: lighten($highlight-color, 10%)
+        background-color: rgba($highlight-color, 0.12)
+        box-shadow: 0 0 0 3px rgba($highlight-color, 0.2)
+
+      &[aria-invalid="true"]
+        border-color: rgba(lighten($error, 10%), 0.5)
+        background-color: rgba($error, 0.05)
+
+        &:focus
+          border-color: lighten($error, 10%)
+          box-shadow: 0 0 0 3px rgba($error, 0.15)
+
+  input::placeholder,
   textarea::placeholder
     color: $light-gray
     font-size: $form-font-size
     @media screen and (min-width: $large)
       font-size: $desktop-form-font-size
+    @media (prefers-color-scheme: dark)
+      color: rgba(white, 0.5)
+
+  textarea
+    font-family: inherit
+    resize: vertical
+    min-height: calc(5 * $field-padding + 1em)
 
   label
-    visibility: hidden
-    line-height: 0
+    margin-bottom: 0.5rem
+
+.errorWrapper
+  position: relative
+  height: 1.5rem
+  margin-top: 0.25rem
+  margin-bottom: 0.5rem
 
 .errorMsg
-  visibility: hidden
+  position: absolute
+  top: 0
+  left: 0
+  margin: 0
   font-size: 80%
   color: $error
-  margin-top: 0
+  display: flex
+  align-items: center
+  opacity: 0
+  transition: opacity $defaultAnimLength ease-out
+
+  @media (prefers-color-scheme: dark)
+    color: lighten($error, 10%)
+
+.errorMsgVisible
+  opacity: 1
