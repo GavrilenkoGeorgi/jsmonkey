@@ -2,14 +2,12 @@
 @import '../../styles/colors'
 
 .heading
-  color: $gray-font
+  color: var(--text)
   margin: 0
   font-weight: 400
   font-size: 1rem
   @media screen and (min-width: $large)
     font-size: 1.4rem
-  @media (prefers-color-scheme: dark)
-    color: inherit
 
 .cardContainer
   transition: all $defaultAnimLength ease-in
@@ -40,5 +38,5 @@
 
 .timestamp
   margin-top: .5rem
-  color: $light-gray
+  color: var(--text-muted)
   font-size: 80%

@@ -28,7 +28,7 @@ $input-background: rgba($highlight-color, 0.03)
   textarea
     font-size: $form-font-size
     padding: $field-padding
-    color: $gray-font
+    color: var(--text)
     border: 1px solid $gray
     letter-spacing: $form-ltr-spacing
     background-color: $input-background
@@ -64,35 +64,12 @@ $input-background: rgba($highlight-color, 0.03)
     @media screen and (min-width: $large)
       font-size: $desktop-form-font-size
 
-    @media (prefers-color-scheme: dark)
-      color: inherit
-      border-color: darken($gray, 10%)
-      background-color: rgba(white, 0.05)
-
-      &:hover:not(:disabled)
-        background-color: rgba(white, 0.08)
-
-      &:focus
-        border-color: lighten($highlight-color, 10%)
-        background-color: rgba($highlight-color, 0.12)
-        box-shadow: 0 0 0 3px rgba($highlight-color, 0.2)
-
-      &[aria-invalid="true"]
-        border-color: rgba(lighten($error, 10%), 0.5)
-        background-color: rgba($error, 0.05)
-
-        &:focus
-          border-color: lighten($error, 10%)
-          box-shadow: 0 0 0 3px rgba($error, 0.15)
-
   input::placeholder,
   textarea::placeholder
-    color: $light-gray
+    color: var(--text-muted)
     font-size: $form-font-size
     @media screen and (min-width: $large)
       font-size: $desktop-form-font-size
-    @media (prefers-color-scheme: dark)
-      color: rgba(white, 0.5)
 
   textarea
     font-family: inherit
@@ -120,8 +97,32 @@ $input-background: rgba($highlight-color, 0.03)
   opacity: 0
   transition: opacity $defaultAnimLength ease-out
 
-  @media (prefers-color-scheme: dark)
-    color: lighten($error, 10%)
-
 .errorMsgVisible
   opacity: 1
+
+// Dark theme overrides for form inputs
+:global([data-theme="dark"])
+  .form
+    input,
+    textarea
+      border-color: darken($gray, 10%)
+      background-color: rgba(white, 0.05)
+
+      &:hover:not(:disabled)
+        background-color: rgba(white, 0.08)
+
+      &:focus
+        border-color: lighten($highlight-color, 10%)
+        background-color: rgba($highlight-color, 0.12)
+        box-shadow: 0 0 0 3px rgba($highlight-color, 0.2)
+
+      &[aria-invalid="true"]
+        border-color: rgba(lighten($error, 10%), 0.5)
+        background-color: rgba($error, 0.05)
+
+        &:focus
+          border-color: lighten($error, 10%)
+          box-shadow: 0 0 0 3px rgba($error, 0.15)
+
+  .errorMsg
+    color: lighten($error, 10%)

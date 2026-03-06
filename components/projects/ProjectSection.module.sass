@@ -90,9 +90,7 @@
     right: 5%
     width: 90%
     height: 1px
-    background-image: linear-gradient(to right, transparent, rgb(48,49,51), transparent)
-    @media (prefers-color-scheme: dark)
-      background-image: linear-gradient(to right, transparent, rgb(255, 255, 255), transparent)
+    background-image: linear-gradient(to right, transparent, var(--divider-line), transparent)
 
 .divStopper
   &::after
@@ -103,9 +101,6 @@
     left: calc(50% - 7px)
     width: 14px
     height: 12px
-    background-color: white
-    border-left: 1px solid rgb(48,49,51)
-    border-right: 1px solid rgb(48,49,51)
-    @media (prefers-color-scheme: dark)
-      background-color: black
-      border-color: white
+    background-color: var(--divider-stop-bg)
+    border-left: 1px solid var(--divider-stop-border)
+    border-right: 1px solid var(--divider-stop-border)
