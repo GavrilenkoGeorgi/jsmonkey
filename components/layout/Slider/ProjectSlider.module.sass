@@ -1,8 +1,15 @@
 @import '../../../styles/colors'
 @import '../../../styles/variables'
 
-.swipeItem
-  width: 100%
+.viewport
+  overflow: hidden
+
+.slideContainer
+  display: flex
+
+.slide
+  flex: 0 0 100%
+  min-width: 0
 
 .imgBox
   padding: 1.5rem
@@ -10,10 +17,32 @@
     padding: 0
     margin-bottom: 1rem
 
-.slide
+.slideImg
   margin: 0rem auto
   width: 100%
   height: 100%
   box-shadow: var(--img-shadow)
   @media screen and (min-width: $large)
     max-width: 400px
+
+.dots
+  display: flex
+  justify-content: center
+  gap: 0.5rem
+  margin-top: 1rem
+
+.dot
+  width: 0.75rem
+  height: 0.75rem
+  border-radius: 50%
+  border: none
+  padding: 0
+  cursor: pointer
+  background-color: var(--text-muted)
+  opacity: 0.5
+  transition: opacity $defaultAnimLength ease-in
+  &:hover
+    opacity: 0.75
+
+.dotActive
+  opacity: 1
