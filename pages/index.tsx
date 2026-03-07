@@ -8,6 +8,7 @@ import ContactForm from "../components/forms/ContactForm";
 import MainPageIntro from "../components/layout/Text/MainPageIntro";
 import MainPageCTA from "../components/layout/MainPageCTA";
 import FadeIn from "../components/layout/Animation/FadeIn";
+import clsx from "classnames";
 
 import styles from "../styles/Main.module.scss";
 
@@ -43,9 +44,9 @@ const Home: NextPage = () => {
           </div>
         </section>
 
-        <section className={styles.section}>
+        <section className={clsx(styles.section, styles.sliderSection)}>
           <FadeIn>
-            <h2 className={styles.h2Header}>Featured Works</h2>
+            <h2 className={styles.h2Header}>Things I&apos;ve done</h2>
             <article className={styles.sliderContainer}>
               <MainSlider />
             </article>

@@ -2,28 +2,89 @@
 @import '../../../styles/_variables'
 
 .container
-  display: flex
-  flex-direction: column
-  justify-content: center
-  align-items: center
-  overflow: hidden
-  margin-bottom: 10rem
-  margin: 0 2rem
+  margin: 0
 
-.swipeItem .imgBox
+.carouselWrapper
+  position: relative
+
+.viewport
+  overflow: hidden
+  cursor: grab
+  &:active
+    cursor: grabbing
+
+.slideContainer
+  display: flex
+
+.slide
+  flex: 0 0 100%
+  min-width: 0
+
+.imgBox
   padding: 0 1rem
   @media screen and (min-width: $small)
     padding: 0 2rem
   @media screen and (min-width: $medium)
     padding: 0 10rem
 
-.swipeItem .imgBox img
+.imgBox img
   width: 100%
   height: auto
   box-shadow: var(--img-shadow)
 
+.navButtons
+  display: none
+
+%navBtn
+  position: absolute
+  top: 50%
+  transform: translateY(-50%)
+  background: none
+  border: none
+  padding: 0
+  cursor: pointer
+  z-index: 1
+  width: $slickNavArrowMobileSize
+  height: $slickNavArrowMobileSize
+  color: var(--text)
+  opacity: 0.5
+  transition: opacity $defaultAnimLength ease-in
+  &:hover
+    opacity: 1
+  &::before
+    content: ""
+    display: block
+    mask-repeat: no-repeat
+    mask-size: $slickNavArrowMobileSize $slickNavArrowMobileSize
+    background-color: currentColor
+    height: $slickNavArrowMobileSize
+  @media screen and (min-width: $medium)
+    width: $slickNavArrowDesktopSize
+    height: $slickNavArrowDesktopSize
+    &::before
+      mask-size: $slickNavArrowDesktopSize $slickNavArrowDesktopSize
+      height: $slickNavArrowDesktopSize
+
+.prevBtn
+  @extend %navBtn
+  left: 1rem
+  @media screen and (max-width: $medium)
+    left: 0
+  &::before
+    mask-image: url('../../../assets/icons/icon-arrow-left.svg')
+
+.nextBtn
+  @extend %navBtn
+  right: 1rem
+  @media screen and (max-width: $medium)
+    right: 0
+  &::before
+    mask-image: url('../../../assets/icons/icon-arrow-right.svg')
+
 .slideDetails
   margin-top: 2rem
+  padding: 0 1rem
+  animation: fadeIn $defaultAnimLength ease-in
   @media screen and (min-width: $medium)
     margin-top: 3rem
 
@@ -44,8 +105,9 @@
   margin: auto
 
 .ctaContainer
-  color: $gray
+  color: var(--text-muted)
   transition: color $defaultAnimLength ease-out
+  position: relative
   z-index: 1
   &:hover
     color: $highlight-color
@@ -63,4 +125,10 @@
   transition: width $defaultAnimLength ease-out, background-color $defaultAnimLength ease-out
   height: 2px
   width: 0%
-  background-color: $gray
+  background-color: var(--text-muted)
+
+@keyframes fadeIn
+  from
+    opacity: 0
+  to
+    opacity: 1

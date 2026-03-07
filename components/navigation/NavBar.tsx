@@ -58,16 +58,15 @@ const SystemIcon = () => (
     strokeLinecap="round"
     strokeLinejoin="round"
   >
-    <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-    <line x1="8" y1="21" x2="16" y2="21" />
-    <line x1="12" y1="17" x2="12" y2="21" />
+    <circle cx="12" cy="12" r="9" />
+    <path d="M12 3v18A9 9 0 0 1 12 3z" fill="currentColor" stroke="none" />
   </svg>
 );
 
 const NavBar: FC = () => {
   const router = useRouter();
   const scrollDirection = useScrollDirection();
-  const { theme, setTheme } = useTheme();
+  const { theme, resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => setMounted(true), []);
@@ -81,27 +80,31 @@ const NavBar: FC = () => {
   };
 
   const cycleTheme = () => {
-    const next =
-      theme === "system" ? "light" : theme === "light" ? "dark" : "system";
-    setTheme(next);
+    if (theme === "system") {
+      setTheme(resolvedTheme === "light" ? "dark" : "light");
+    } else if (theme === "light") {
+      setTheme("dark");
+    } else {
+      setTheme("system");
+    }
   };
 
   const themeIcon = !mounted ? (
     <SystemIcon />
-  ) : theme === "light" ? (
-    <SunIcon />
-  ) : theme === "dark" ? (
-    <MoonIcon />
-  ) : (
+  ) : theme === "system" ? (
     <SystemIcon />
+  ) : resolvedTheme === "light" ? (
+    <SunIcon />
+  ) : (
+    <MoonIcon />
   );
   const themeLabel = !mounted
     ? "System"
-    : theme === "light"
-      ? "Light"
-      : theme === "dark"
-        ? "Dark"
-        : "System";
+    : theme === "system"
+      ? "System"
+      : resolvedTheme === "light"
+        ? "Light"
+        : "Dark";
 
   // hide on route change
   useEffect(() => {
@@ -157,7 +160,6 @@ const NavBar: FC = () => {
             <MenuToggleBtn open={open} />
           </div>
           <div className={`${styles.linksContainer} ${open && styles.open}`}>
-            {navLinks}
             <button
               className={styles.themeToggle}
               onClick={cycleTheme}
@@ -166,6 +168,7 @@ const NavBar: FC = () => {
             >
               {themeIcon}
             </button>
+            {navLinks}
           </div>
         </div>
       </nav>
