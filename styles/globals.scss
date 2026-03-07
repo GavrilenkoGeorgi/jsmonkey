@@ -108,7 +108,7 @@ input {
 .slick-arrow {
   width: $slickNavArrowMobileSize;
   height: $slickNavArrowMobileSize;
-  z-index: 2;
+  color: var(--text);
   transition: opacity $defaultAnimLength ease-in;
   opacity: 0.5;
   &:hover {
@@ -126,28 +126,28 @@ input {
     font-family: inherit;
     display: block;
     content: "";
-    background-size: $slickNavArrowMobileSize $slickNavArrowMobileSize;
-    background-repeat: no-repeat;
+    mask-size: $slickNavArrowMobileSize $slickNavArrowMobileSize;
+    mask-repeat: no-repeat;
+    background-color: var(--text);
     height: $slickNavArrowMobileSize;
     @media screen and (min-width: $medium) {
-      background-size: $slickNavArrowDesktopSize $slickNavArrowDesktopSize;
+      mask-size: $slickNavArrowDesktopSize $slickNavArrowDesktopSize;
       height: $slickNavArrowDesktopSize;
     }
-    background-color: var(--slider-arrow-bg);
   }
 }
 
 .slick-prev {
   left: -1rem;
   &:before {
-    background-image: url("../assets/icons/icon-arrow-left.svg");
+    mask-image: url("../assets/icons/icon-arrow-left.svg");
   }
 }
 
 .slick-next {
   right: -1rem;
   &:before {
-    background-image: url("../assets/icons/icon-arrow-right.svg");
+    mask-image: url("../assets/icons/icon-arrow-right.svg");
   }
 }
 
