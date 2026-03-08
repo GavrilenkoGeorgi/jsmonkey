@@ -64,6 +64,7 @@ export type postCardProps = {
   date: string;
   image?: string;
   author?: string;
+  tags?: string[];
 };
 
 export type heroSectionProps = {

@@ -5,7 +5,6 @@ import Head from "next/head";
 import { blogProps } from "../../types";
 import HeroSection from "../../components/layout/HeroSection";
 import ListOfPosts from "../../components/blog/ListOfPosts";
-import FadeIn from "../../components/layout/Animation/FadeIn";
 import heroImg from "../../assets/images/blog-hero-image.webp";
 
 import styles from "../../styles/Main.module.scss";
@@ -51,9 +50,7 @@ const Blog: NextPage<blogProps> = ({ posts }) => {
               various hobbies that bring joy and balance to my life.
             </p>
           </article>
-          <FadeIn>
-            <ListOfPosts posts={posts} />
-          </FadeIn>
+          <ListOfPosts posts={posts} />
         </section>
       </main>
     </>
