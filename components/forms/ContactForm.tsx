@@ -1,4 +1,4 @@
-import { FC, useCallback, useState } from "react";
+import { FC, useCallback, useRef, useState } from "react";
 import { useReCaptcha } from "next-recaptcha-v3";
 
 import { sendContactMsg } from "../../utils/mailSender";
@@ -6,6 +6,7 @@ import { validateToken } from "../../utils/reCaptcha";
 import { isError } from "../../utils";
 import { contactFormMessage, toastTypes } from "../../types";
 
+import * as gtag from "../../utils/gtag";
 import Button from "../layout/Button";
 import styles from "./ContactForm.module.sass";
 import globalStyles from "../../styles/Main.module.scss";
@@ -22,6 +23,7 @@ const ContactForm: FC = () => {
 
   const { executeRecaptcha } = useReCaptcha();
   const [submitting, setSubmitting] = useState(false);
+  const formStarted = useRef(false);
   const [errors, setErrors] = useState<FieldErrors>({
     email: null,
     message: null,
@@ -70,6 +72,13 @@ const ContactForm: FC = () => {
 
       if (emailError || messageError) {
         setErrors({ email: emailError, message: messageError });
+        gtag.event({
+          action: "contact_form_error",
+          category: "engagement",
+          label: [emailError && "email", messageError && "message"]
+            .filter(Boolean)
+            .join(","),
+        });
         return;
       }
 
@@ -106,6 +115,10 @@ const ContactForm: FC = () => {
           } else {
             form.reset();
             setErrors({ email: null, message: null });
+            gtag.event({
+              action: "contact_form_success",
+              category: "engagement",
+            });
             setToastMsg({
               message: "Nice! )",
               type: toastTypes.success,
@@ -127,6 +140,15 @@ const ContactForm: FC = () => {
         method="post"
         className={styles.form}
         noValidate
+        onFocus={() => {
+          if (!formStarted.current) {
+            formStarted.current = true;
+            gtag.event({
+              action: "contact_form_start",
+              category: "engagement",
+            });
+          }
+        }}
       >
         <label htmlFor="email">Email</label>
         <input
