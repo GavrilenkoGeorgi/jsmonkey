@@ -5,6 +5,7 @@ import { navLink } from "../../types";
 import { useScrollDirection, useComponentVisible } from "../../hooks";
 import { useTheme } from "../../context/ThemeContext";
 
+import * as gtag from "../../utils/gtag";
 import Logo from "../layout/Logo";
 import { MenuToggleBtn } from "./MenuToggleBtn";
 import styles from "./NavBar.module.sass";
@@ -76,17 +77,30 @@ const NavBar: FC = () => {
   const [open, setOpen] = useState(false);
 
   const toggleMenu = () => {
-    setOpen(!open);
+    const willOpen = !open;
+    setOpen(willOpen);
+    gtag.event({
+      action: "mobile_menu_toggle",
+      category: "engagement",
+      label: willOpen ? "open" : "close",
+    });
   };
 
   const cycleTheme = () => {
+    let newTheme: string;
     if (theme === "system") {
-      setTheme(resolvedTheme === "light" ? "dark" : "light");
+      newTheme = resolvedTheme === "light" ? "dark" : "light";
     } else if (theme === "light") {
-      setTheme("dark");
+      newTheme = "dark";
     } else {
-      setTheme("system");
+      newTheme = "system";
     }
+    setTheme(newTheme as "system" | "light" | "dark");
+    gtag.event({
+      action: "theme_change",
+      category: "engagement",
+      label: newTheme,
+    });
   };
 
   const themeIcon = !mounted ? (
