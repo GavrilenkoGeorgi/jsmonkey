@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import Logo from "./Logo";
 import SocialIcon from "./SocialIcon";
-import facebookIcon from "../../assets/icons/icon-facebook.svg";
+import linkedInIcon from "../../assets/icons/icon-linked-in.svg";
 import githubIcon from "../../assets/icons/icon-github.svg";
 
 import styles from "./Footer.module.sass";
@@ -20,12 +20,13 @@ const Footer: FC = () => {
           className={styles.textLink}
           title="Theo stole my slogan."
         >
-          <s>I build things.</s> <span>I build experiences.</span>
+          <s>I build things.</s>
+          <span>I build experiences.</span>
         </Link>
         <SocialIcon
-          image={facebookIcon}
-          link="https://facebook.com/gavrilenko.georgi"
-          altText="Facebook icon."
+          image={linkedInIcon}
+          link="https://www.linkedin.com/in/georgi-gavrilenko"
+          altText="LinkedIn icon."
         />
         <SocialIcon
           image={githubIcon}

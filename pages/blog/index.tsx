@@ -6,10 +6,15 @@ import { blogProps } from "../../types";
 import HeroSection from "../../components/layout/HeroSection";
 import ListOfPosts from "../../components/blog/ListOfPosts";
 import heroImg from "../../assets/images/blog-hero-image.webp";
+import BlogControls from "../../components/blog/BlogControls";
+import { useBlogFilters } from "../../hooks";
 
 import styles from "../../styles/Main.module.scss";
 
 const Blog: NextPage<blogProps> = ({ posts }) => {
+  const { filters, setFilters, allTags, displayedPosts } =
+    useBlogFilters(posts);
+
   const title = "My Blog";
   const description = "Mostly random thoughts about things that interest me.";
   const canonicalUrl = "https://jsmonkey.netlify.app/blog";
@@ -50,7 +55,12 @@ const Blog: NextPage<blogProps> = ({ posts }) => {
               various hobbies that bring joy and balance to my life.
             </p>
           </article>
-          <ListOfPosts posts={posts} />
+          <BlogControls
+            availableTags={allTags}
+            filters={filters}
+            onFiltersChange={setFilters}
+          />
+          <ListOfPosts posts={displayedPosts} />
         </section>
       </main>
     </>
