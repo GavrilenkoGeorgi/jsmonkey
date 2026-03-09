@@ -27,9 +27,10 @@ const ListOfPosts: FC<blogProps> = ({ posts }) => {
 
   useEffect(() => {
     if (inView) {
+      controls.set("hidden");
       controls.start("visible");
     }
-  }, [controls, inView]);
+  }, [controls, inView, posts]);
 
   return (
     <section className={styles.postsListSection}>
