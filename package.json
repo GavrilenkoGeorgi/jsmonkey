@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@madeinhaus/nextjs-page-transition": "^4.2.0",
     "axios": "^1.16.0",
     "classnames": "^2.5.1",
     "date-fns": "^4.1.0",

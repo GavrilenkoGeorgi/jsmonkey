@@ -17,18 +17,32 @@ const ProjectSlider: FC<projectCarouselProps> = ({
   useEffect(() => {
     if (!emblaApi) return;
     const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
+
+    onSelect();
+
     emblaApi.on("select", onSelect);
+    emblaApi.on("reInit", onSelect);
+
     return () => {
       emblaApi.off("select", onSelect);
+      emblaApi.off("reInit", onSelect);
     };
   }, [emblaApi]);
 
   return (
     <div>
-      <div className={styles.viewport} ref={emblaRef}>
-        <div className={styles.slideContainer}>
+      <div
+        className={styles.viewport}
+        ref={emblaRef}
+        style={{ overflow: "hidden" }}
+      >
+        <div className={styles.slideContainer} style={{ display: "flex" }}>
           {images.map((url, index) => (
-            <div key={url} className={styles.slide}>
+            <div
+              key={url}
+              className={styles.slide}
+              style={{ flex: "0 0 100%", minWidth: 0, overflow: "hidden" }}
+            >
               <div className={styles.imgBox}>
                 <Image
                   src={url}

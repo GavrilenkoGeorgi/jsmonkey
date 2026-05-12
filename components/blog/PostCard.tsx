@@ -13,7 +13,7 @@ const PostCTA: FC<postCardProps> = (props) => {
   return (
     <article className={styles.cardContainer}>
       <Link href={`/blog/${slug}`}>
-        <div className={styles.imgContainer}>
+        <div className={styles.imgContainer} style={{ position: "relative" }}>
           <Image
             src={`${image}`}
             // but not this

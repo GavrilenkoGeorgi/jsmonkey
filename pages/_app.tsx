@@ -7,15 +7,9 @@ import { ThemeProvider } from "../context/ThemeContext";
 
 import "../styles/globals.scss";
 import Layout from "../components/layout/Layout";
-
-// page transitions
-import PageTransition, {
-  useAsPathWithoutHash,
-} from "@madeinhaus/nextjs-page-transition";
-import "@madeinhaus/nextjs-page-transition/dist/index.css";
+import Transition from "../components/layout/Transition";
 
 function App({ Component, pageProps }: AppProps) {
-  const key = useAsPathWithoutHash();
   const router = useRouter();
 
   useEffect(() => {
@@ -75,9 +69,9 @@ function App({ Component, pageProps }: AppProps) {
       />
       <ThemeProvider>
         <Layout>
-          <PageTransition as="div" inPhaseDuration={250} outPhaseDuration={250}>
-            <Component {...pageProps} key={key} />
-          </PageTransition>
+          <Transition>
+            <Component {...pageProps} />
+          </Transition>
         </Layout>
       </ThemeProvider>
     </>

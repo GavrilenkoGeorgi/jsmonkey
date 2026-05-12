@@ -12,7 +12,7 @@ const Transition: FC<layoutProps> = ({ children }) => {
       x: 0,
       y: -50,
       transition: {
-        duration: 0.75,
+        duration: 0.5,
       },
     },
     enter: { opacity: 1, x: 0, y: 0 },
@@ -21,8 +21,7 @@ const Transition: FC<layoutProps> = ({ children }) => {
       x: 0,
       y: -50,
       transition: {
-        duration: 0.75,
-        delay: 1,
+        duration: 0.5,
       },
     },
   };
