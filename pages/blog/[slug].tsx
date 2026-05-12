@@ -64,9 +64,9 @@ const Post: NextPage<postProps> = ({ frontmatter, markdown, slug }) => {
             <p className={blogStyles.timestamp}>{frontmatter.date}</p>
             <hr className={blogStyles.hr} />
             <FadeIn>
-              <ReactMarkdown className={markdownStyles.reactMarkDown}>
-                {markdown}
-              </ReactMarkdown>
+              <div className={markdownStyles.reactMarkDown}>
+                <ReactMarkdown>{markdown}</ReactMarkdown>
+              </div>
             </FadeIn>
           </article>
         </section>

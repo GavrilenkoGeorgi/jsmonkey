@@ -65,7 +65,7 @@
   {
     "id": 1,
     "title": "Sharlushka",
-    "url": "https://sharlushka.net",
+    "url": "https://sharlushka.netlify.app",
     "text": [
       "PWA with push notifications. Dice game resembling Yahtzee. Built using React, Redux toolkit, Recharts, WebPack 5 and Workbox to handle app updates and caching. Has multiplayer mode built using websockets. Saves user stats to show them on user stats page and other cowbell."
     ],
