@@ -1,8 +1,5 @@
-@import '../../../styles/_colors'
-@import '../../../styles/_variables'
-
-.container
-  margin: 0
+@use '../../../styles/colors' as *
+@use '../../../styles/variables' as *
 
 .carouselWrapper
   position: relative
@@ -19,21 +16,20 @@
 .slide
   flex: 0 0 100%
   min-width: 0
+  overflow: hidden
 
 .imgBox
-  padding: 0 1rem
-  @media screen and (min-width: $small)
-    padding: 0 2rem
+  padding: .5rem 2rem
   @media screen and (min-width: $medium)
-    padding: 0 10rem
+    padding: .5rem 10rem
 
-.imgBox img
+.slideImg
+  display: block
   width: 100%
+  max-width: 1024px
+  margin: auto
   height: auto
   box-shadow: var(--img-shadow)
-
-.navButtons
-  display: none
 
 %navBtn
   position: absolute

@@ -1,8 +1,8 @@
-@import "variables";
-@import "colors";
+@use "variables" as *;
+@use "colors" as *;
 
 .main {
-  margin-top: -$navbarHeight;
+  margin-top: -($navbarHeight);
   display: flex;
   flex-direction: column;
 }

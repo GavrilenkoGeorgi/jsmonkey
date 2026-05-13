@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef, useMemo } from "react";
+import useEmblaCarousel from "embla-carousel-react";
 import { postCardProps } from "../types";
 import { BlogFilters, defaultFilters } from "../components/blog/BlogControls";
 
@@ -63,6 +64,27 @@ export const useNextImageImageFade = (_className: string) => {
     },
   };
 };
+
+export function useEmblaSelectedIndex() {
+  const [emblaRef, emblaApi] = useEmblaCarousel();
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
+
+    onSelect();
+    emblaApi.on("select", onSelect);
+    emblaApi.on("reInit", onSelect);
+
+    return () => {
+      emblaApi.off("select", onSelect);
+      emblaApi.off("reInit", onSelect);
+    };
+  }, [emblaApi]);
+
+  return { emblaRef, emblaApi, selectedIndex };
+}
 
 // Blog page filters deserve separate hook
 export function useBlogFilters(posts: postCardProps[]) {

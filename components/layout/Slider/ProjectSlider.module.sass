@@ -1,5 +1,4 @@
-@import '../../../styles/colors'
-@import '../../../styles/variables'
+@use '../../../styles/variables' as *
 
 .viewport
   overflow: hidden
@@ -10,6 +9,8 @@
 .slide
   flex: 0 0 100%
   min-width: 0
+  overflow: hidden
+  padding: 1rem 0
 
 .imgBox
   padding: 1.5rem
@@ -18,9 +19,10 @@
     margin-bottom: 1rem
 
 .slideImg
-  margin: 0rem auto
+  display: block
+  margin: 0 auto
   width: 100%
-  height: 100%
+  height: auto
   box-shadow: var(--img-shadow)
   @media screen and (min-width: $large)
     max-width: 400px

@@ -1,5 +1,5 @@
-@import '../../styles/colors'
-@import '../../styles/variables'
+@use '../../styles/colors' as *
+@use '../../styles/variables' as *
 
 $mobileWidth: 250px
 $desktopWidth: 400px
@@ -21,11 +21,11 @@ $bottomPos: 30px
   max-width: $mobileWidth
   min-width: $mobileWidth
   /* Divide value of min-width by 2
-  margin-left: (-$mobileWidth) / 2
+  margin-left: calc((-1 * ($mobileWidth)) / 2)
   @media screen and ( min-width: $medium)
     max-width: $desktopWidth
     min-width: $desktopWidth
-    margin-left: (-$desktopWidth) / 2
+    margin-left: calc((-1 * ($desktopWidth)) / 2)
   // Styles
   color: #fff
   text-align: left

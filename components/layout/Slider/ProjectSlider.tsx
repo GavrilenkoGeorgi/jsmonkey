@@ -1,7 +1,7 @@
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import Image from "next/image";
-import useEmblaCarousel from "embla-carousel-react";
 
+import { useEmblaSelectedIndex } from "../../../hooks";
 import { projectCarouselProps } from "../../../types";
 import { SLIDER_IMG_SIZES } from "../../../utils/constants";
 import styles from "./ProjectSlider.module.sass";
@@ -11,17 +11,7 @@ const ProjectSlider: FC<projectCarouselProps> = ({
   images,
   priority,
 }) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel();
-  const [selectedIndex, setSelectedIndex] = useState(0);
-
-  useEffect(() => {
-    if (!emblaApi) return;
-    const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
-    emblaApi.on("select", onSelect);
-    return () => {
-      emblaApi.off("select", onSelect);
-    };
-  }, [emblaApi]);
+  const { emblaRef, emblaApi, selectedIndex } = useEmblaSelectedIndex();
 
   return (
     <div>

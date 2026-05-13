@@ -1,11 +1,12 @@
-@import '../../styles/colors'
-@import '../../styles/variables'
+@use '../../styles/colors' as *
+@use '../../styles/variables' as *
+@use 'sass:color'
 
 $form-font-size: 1rem
 $desktop-form-font-size: 1.3rem
 $field-padding: .75rem
 $form-ltr-spacing: 1.45px
-$input-background: rgba($highlight-color, 0.03)
+$input-background: color.change($highlight-color, $alpha: 0.03)
 
 .title
   text-align: center
@@ -36,30 +37,30 @@ $input-background: rgba($highlight-color, 0.03)
     accent-color: $highlight-color
 
     &:hover:not(:disabled)
-      border-color: darken($gray, 10%)
-      background-color: rgba($highlight-color, 0.06)
+      border-color: color.adjust($gray, $lightness: -10%)
+      background-color: color.change($highlight-color, $alpha: 0.06)
 
     &:focus
       outline: none
       border-color: $highlight-color
-      background-color: rgba($highlight-color, 0.08)
-      box-shadow: 0 0 0 3px rgba($highlight-color, 0.1)
+      background-color: color.change($highlight-color, $alpha: 0.08)
+      box-shadow: 0 0 0 3px color.change($highlight-color, $alpha: 0.1)
 
     &:active
-      border-color: darken($highlight-color, 10%)
+      border-color: color.adjust($highlight-color, $lightness: -10%)
 
     &[aria-invalid="true"]
-      border-color: rgba($error, 0.4)
-      background-color: rgba($error, 0.01)
+      border-color: color.change($error, $alpha: 0.4)
+      background-color: color.change($error, $alpha: 0.01)
 
       &:focus
         border-color: $error
-        box-shadow: 0 0 0 3px rgba($error, 0.1)
+        box-shadow: 0 0 0 3px color.change($error, $alpha: 0.1)
 
     &:disabled
       opacity: 0.6
       cursor: not-allowed
-      background-color: darken($input-background, 5%)
+      background-color: color.adjust($input-background, $lightness: -5%)
 
     @media screen and (min-width: $large)
       font-size: $desktop-form-font-size
@@ -105,24 +106,24 @@ $input-background: rgba($highlight-color, 0.03)
   .form
     input,
     textarea
-      border-color: darken($gray, 10%)
-      background-color: rgba(white, 0.05)
+      border-color: color.adjust($gray, $lightness: -10%)
+      background-color: color.change(white, $alpha: 0.05)
 
       &:hover:not(:disabled)
-        background-color: rgba(white, 0.08)
+        background-color: color.change(white, $alpha: 0.08)
 
       &:focus
-        border-color: lighten($highlight-color, 10%)
-        background-color: rgba($highlight-color, 0.12)
-        box-shadow: 0 0 0 3px rgba($highlight-color, 0.2)
+        border-color: color.adjust($highlight-color, $lightness: 10%)
+        background-color: color.change($highlight-color, $alpha: 0.12)
+        box-shadow: 0 0 0 3px color.change($highlight-color, $alpha: 0.2)
 
       &[aria-invalid="true"]
-        border-color: rgba(lighten($error, 10%), 0.5)
-        background-color: rgba($error, 0.05)
+        border-color: color.change(color.adjust($error, $lightness: 10%), $alpha: 0.5)
+        background-color: color.change($error, $alpha: 0.05)
 
         &:focus
-          border-color: lighten($error, 10%)
-          box-shadow: 0 0 0 3px rgba($error, 0.15)
+          border-color: color.adjust($error, $lightness: 10%)
+          box-shadow: 0 0 0 3px color.change($error, $alpha: 0.15)
 
   .errorMsg
-    color: lighten($error, 10%)
+    color: color.adjust($error, $lightness: 10%)

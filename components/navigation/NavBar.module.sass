@@ -1,5 +1,5 @@
-@import '../../styles/colors'
-@import '../../styles/variables'
+@use '../../styles/colors' as *
+@use '../../styles/variables' as *
 
 .nav
   height: $navbarHeight // TODO: mobile navbar height
@@ -18,7 +18,7 @@
     padding: 0 3rem
 
 .hiddenNav
-  top: -$navbarHeight
+  top: -($navbarHeight)
   opacity: 0
 
 .visibleNav
