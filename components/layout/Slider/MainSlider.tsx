@@ -83,7 +83,7 @@ const MainSlider: FC = () => {
         <Link href={`/projects#${currentItem.title}`}>
           <div className={styles.ctaWrap}>
             <div className={styles.ctaContainer}>
-              <div className={styles.cta}>Learn more ❯❯❯</div>
+              <div className={styles.cta}>More info ❯❯❯</div>
               <div className={styles.underline} />
             </div>
           </div>
