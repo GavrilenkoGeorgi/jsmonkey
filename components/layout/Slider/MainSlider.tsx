@@ -1,8 +1,8 @@
-import { FC, useCallback, useEffect, useState } from "react";
+import { FC } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import useEmblaCarousel from "embla-carousel-react";
 
+import { useEmblaSelectedIndex } from "../../../hooks";
 import { SLIDER_IMG_SIZES } from "../../../utils/constants";
 import items from "../../../data/projects.json";
 import styles from "./MainSlider.module.sass";
@@ -10,44 +10,17 @@ import styles from "./MainSlider.module.sass";
 const itemsToShow = [...items].sort((a, b) => a.id - b.id);
 
 const MainSlider: FC = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel();
-  const [selectedIndex, setSelectedIndex] = useState(0);
-
-  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
-  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
-
-  useEffect(() => {
-    if (!emblaApi) return;
-    const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
-
-    onSelect();
-
-    emblaApi.on("select", onSelect);
-    emblaApi.on("reInit", onSelect);
-
-    return () => {
-      emblaApi.off("select", onSelect);
-      emblaApi.off("reInit", onSelect);
-    };
-  }, [emblaApi]);
+  const { emblaRef, emblaApi, selectedIndex } = useEmblaSelectedIndex();
 
   const currentItem = itemsToShow[selectedIndex];
 
   return (
-    <div className={styles.container}>
+    <div>
       <div className={styles.carouselWrapper}>
-        <div
-          className={styles.viewport}
-          ref={emblaRef}
-          style={{ overflow: "hidden" }}
-        >
-          <div className={styles.slideContainer} style={{ display: "flex" }}>
+        <div className={styles.viewport} ref={emblaRef}>
+          <div className={styles.slideContainer}>
             {itemsToShow.map((item) => (
-              <div
-                key={item.id}
-                className={styles.slide}
-                style={{ flex: "0 0 100%", minWidth: 0, overflow: "hidden" }}
-              >
+              <div key={item.id} className={styles.slide}>
                 <div className={styles.imgBox}>
                   <Image
                     src={item.imageUrl}
@@ -56,7 +29,6 @@ const MainSlider: FC = () => {
                     height={2892}
                     sizes={SLIDER_IMG_SIZES}
                     className={styles.slideImg}
-                    style={{ width: "100%", height: "auto" }}
                   />
                 </div>
               </div>
@@ -65,12 +37,12 @@ const MainSlider: FC = () => {
         </div>
         <button
           className={styles.prevBtn}
-          onClick={scrollPrev}
+          onClick={() => emblaApi?.scrollPrev()}
           aria-label="Previous slide"
         />
         <button
           className={styles.nextBtn}
-          onClick={scrollNext}
+          onClick={() => emblaApi?.scrollNext()}
           aria-label="Next slide"
         />
       </div>

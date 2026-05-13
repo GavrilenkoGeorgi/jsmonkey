@@ -1,7 +1,7 @@
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import Image from "next/image";
-import useEmblaCarousel from "embla-carousel-react";
 
+import { useEmblaSelectedIndex } from "../../../hooks";
 import { projectCarouselProps } from "../../../types";
 import { SLIDER_IMG_SIZES } from "../../../utils/constants";
 import styles from "./ProjectSlider.module.sass";
@@ -11,38 +11,14 @@ const ProjectSlider: FC<projectCarouselProps> = ({
   images,
   priority,
 }) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel();
-  const [selectedIndex, setSelectedIndex] = useState(0);
-
-  useEffect(() => {
-    if (!emblaApi) return;
-    const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
-
-    onSelect();
-
-    emblaApi.on("select", onSelect);
-    emblaApi.on("reInit", onSelect);
-
-    return () => {
-      emblaApi.off("select", onSelect);
-      emblaApi.off("reInit", onSelect);
-    };
-  }, [emblaApi]);
+  const { emblaRef, emblaApi, selectedIndex } = useEmblaSelectedIndex();
 
   return (
     <div>
-      <div
-        className={styles.viewport}
-        ref={emblaRef}
-        style={{ overflow: "hidden" }}
-      >
-        <div className={styles.slideContainer} style={{ display: "flex" }}>
+      <div className={styles.viewport} ref={emblaRef}>
+        <div className={styles.slideContainer}>
           {images.map((url, index) => (
-            <div
-              key={url}
-              className={styles.slide}
-              style={{ flex: "0 0 100%", minWidth: 0, overflow: "hidden" }}
-            >
+            <div key={url} className={styles.slide}>
               <div className={styles.imgBox}>
                 <Image
                   src={url}
