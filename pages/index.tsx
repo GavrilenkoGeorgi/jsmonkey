@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { ReCaptchaProvider } from "next-recaptcha-v3";
 import HeroSection from "../components/layout/HeroSection";
 import heroImg from "../assets/images/main-page-pattern.webp";
 import MainSlider from "../components/layout/Slider/MainSlider";
@@ -55,12 +54,7 @@ const Home: NextPage = () => {
 
         <section className={styles.section}>
           <FadeIn>
-            <ReCaptchaProvider
-              async
-              reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
-            >
-              <ContactForm />
-            </ReCaptchaProvider>
+            <ContactForm />
           </FadeIn>
         </section>
       </main>

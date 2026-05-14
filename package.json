@@ -16,7 +16,6 @@
     "framer-motion": "^12.38.0",
     "gray-matter": "^4.0.3",
     "next": "^16.2.6",
-    "next-recaptcha-v3": "^1.5.3",
     "react": "^19.2.6",
     "react-aria-components": "^1.17.0",
     "react-dom": "^19.2.6",

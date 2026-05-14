@@ -1,8 +1,6 @@
 import { FC, useCallback, useRef, useState } from "react";
-import { useReCaptcha } from "next-recaptcha-v3";
 
 import { sendContactMsg } from "../../utils/mailSender";
-import { validateToken } from "../../utils/reCaptcha";
 import { isError } from "../../utils";
 import { contactFormMessage, toastTypes } from "../../types";
 
@@ -21,7 +19,6 @@ interface FieldErrors {
 const ContactForm: FC = () => {
   const { setToastMsg } = useToastMsgContext();
 
-  const { executeRecaptcha } = useReCaptcha();
   const [submitting, setSubmitting] = useState(false);
   const formStarted = useRef(false);
   const [errors, setErrors] = useState<FieldErrors>({
@@ -47,7 +44,6 @@ const ContactForm: FC = () => {
     e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
-    let error: string | null = null;
 
     if (name === "email") {
       const error = validateEmail(value);
@@ -62,9 +58,16 @@ const ContactForm: FC = () => {
     async (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
 
-      const form = event.target as HTMLFormElement; // TODO: is this as absolutely necessary?
+      const form = event.target as HTMLFormElement;
       const formData = new FormData(form);
       const formProps = Object.fromEntries(formData);
+
+      // Honeypot check — bots fill fields humans never see
+      if (formProps.website) {
+        form.reset();
+        setToastMsg({ message: "Nice! )", type: toastTypes.success });
+        return;
+      }
 
       // Validate all fields before submitting
       const emailError = validateEmail(String(formProps.email));
@@ -85,51 +88,30 @@ const ContactForm: FC = () => {
       setSubmitting(true);
 
       try {
-        const token = await executeRecaptcha("submit");
-        const tokenScore = await validateToken(token);
-
-        // submit and show errors
-        if (isError(tokenScore)) {
+        const msg: contactFormMessage = {
+          email: String(formProps.email),
+          message: String(formProps.message),
+        };
+        const submit = await sendContactMsg(msg);
+        if (isError(submit)) {
           setToastMsg({
-            message: tokenScore.message,
-            type: toastTypes.error,
-          });
-        } else if (tokenScore.score < 0.5) {
-          setToastMsg({
-            message: `reCaptcha score is too low ${tokenScore.score}`,
+            message: submit.message,
             type: toastTypes.error,
           });
         } else {
-          // all ok
-          const msg: contactFormMessage = {
-            email: String(formProps.email),
-            message: String(formProps.message),
-          };
-          const submit = await sendContactMsg(msg);
-          if (isError(submit)) {
-            // can't send email
-            setToastMsg({
-              message: submit.message,
-              type: toastTypes.error,
-            });
-          } else {
-            form.reset();
-            setErrors({ email: null, message: null });
-            gtag.event({
-              action: "contact_form_success",
-              category: "engagement",
-            });
-            setToastMsg({
-              message: "Nice! )",
-              type: toastTypes.success,
-            });
-          }
+          form.reset();
+          setErrors({ email: null, message: null });
+          gtag.event({
+            action: "contact_form_success",
+            category: "engagement",
+          });
+          setToastMsg({ message: "Nice! )", type: toastTypes.success });
         }
       } finally {
         setSubmitting(false);
       }
     },
-    [executeRecaptcha, setToastMsg],
+    [setToastMsg],
   );
 
   return (
@@ -150,6 +132,16 @@ const ContactForm: FC = () => {
           }
         }}
       >
+        {/* Honeypot field — must stay visually hidden, not type="hidden" */}
+        <input
+          type="text"
+          name="website"
+          className={styles.honeypot}
+          tabIndex={-1}
+          aria-hidden="true"
+          autoComplete="off"
+        />
+
         <label htmlFor="email">Email</label>
         <input
           type="email"
