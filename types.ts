@@ -22,12 +22,13 @@ export type sliderNavArrowProps = {
   label: string;
 };
 
-export type projectSectionProps = {
+export type ProjectSectionProps = {
   animate: boolean;
   project: {
     id: number;
     title: string;
     url: string;
+    linkDisabled: boolean;
     text: string[];
     imageUrl: string;
     images: string[];

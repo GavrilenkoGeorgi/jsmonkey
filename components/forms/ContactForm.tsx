@@ -1,9 +1,18 @@
-import { FC, useCallback, useRef, useState } from "react";
+import { FC, useRef, useState } from "react";
+import {
+  FieldError,
+  Form,
+  Input,
+  Label,
+  TextArea,
+  TextField,
+} from "react-aria-components";
 
 import { sendContactMsg } from "../../utils/mailSender";
 import { isError } from "../../utils";
-import { contactFormMessage, toastTypes } from "../../types";
+import { toastTypes } from "../../types";
 
+import * as z from "zod";
 import * as gtag from "../../utils/gtag";
 import Button from "../layout/Button";
 import styles from "./ContactForm.module.sass";
@@ -11,126 +20,92 @@ import globalStyles from "../../styles/Main.module.scss";
 
 import { useToastMsgContext } from "../../context/toastMsgStore";
 
-interface FieldErrors {
-  email: string | null;
-  message: string | null;
-}
+const ContactFormSchema = z.object({
+  email: z.email("Please enter a valid email address"),
+  message: z
+    .string()
+    .min(2, "Message must be at least 2 characters")
+    .max(500, "Message cannot exceed 500 characters"),
+});
 
 const ContactForm: FC = () => {
   const { setToastMsg } = useToastMsgContext();
-
   const [submitting, setSubmitting] = useState(false);
+  const [fieldErrors, setFieldErrors] = useState({ email: "", message: "" });
   const formStarted = useRef(false);
-  const [errors, setErrors] = useState<FieldErrors>({
-    email: null,
-    message: null,
-  });
 
-  const validateEmail = (email: string): string | null => {
-    if (!email || email.trim() === "") return "Email is required";
-    if (email.length < 2) return "Email is too short";
-    if (email.length > 33) return "Email is too long";
-    return null;
+  const validateField = (name: "email" | "message", value: string) => {
+    const result = ContactFormSchema.shape[name].safeParse(value);
+    setFieldErrors((prev) => ({
+      ...prev,
+      [name]: result.success ? "" : result.error.issues[0].message,
+    }));
   };
 
-  const validateMessage = (msg: string): string | null => {
-    if (!msg || msg.trim() === "") return "Message is required";
-    if (msg.length < 2) return "Message is too short";
-    if (msg.length > 500) return "Message is too long";
-    return null;
-  };
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-  const handleFieldBlur = (
-    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    const { name, value } = e.target;
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form));
 
-    if (name === "email") {
-      const error = validateEmail(value);
-      setErrors((prev) => ({ ...prev, email: error }));
-    } else if (name === "message") {
-      const error = validateMessage(value);
-      setErrors((prev) => ({ ...prev, message: error }));
+    // Honeypot check — bots fill fields humans never see
+    if (data.website) {
+      form.reset();
+      setToastMsg({ message: "Nice! )", type: toastTypes.success });
+      return;
+    }
+
+    const result = ContactFormSchema.safeParse(data);
+    if (!result.success) {
+      const errors: Partial<Record<"email" | "message", string>> = {};
+      result.error.issues.forEach((issue) => {
+        const field = String(issue.path[0]) as "email" | "message";
+        if (!errors[field]) errors[field] = issue.message;
+      });
+      setFieldErrors({
+        email: errors.email ?? "",
+        message: errors.message ?? "",
+      });
+      gtag.event({
+        action: "contact_form_error",
+        category: "engagement",
+        label: Object.keys(errors).join(","),
+      });
+      return;
+    }
+
+    setSubmitting(true);
+
+    try {
+      const submit = await sendContactMsg(result.data);
+      if (isError(submit)) {
+        setToastMsg({ message: submit.message, type: toastTypes.error });
+      } else {
+        form.reset();
+        setFieldErrors({ email: "", message: "" });
+        gtag.event({ action: "contact_form_success", category: "engagement" });
+        setToastMsg({ message: "Nice! )", type: toastTypes.success });
+      }
+    } finally {
+      setSubmitting(false);
     }
   };
 
-  const handleSubmit = useCallback(
-    async (event: React.FormEvent<HTMLFormElement>) => {
-      event.preventDefault();
-
-      const form = event.target as HTMLFormElement;
-      const formData = new FormData(form);
-      const formProps = Object.fromEntries(formData);
-
-      // Honeypot check — bots fill fields humans never see
-      if (formProps.website) {
-        form.reset();
-        setToastMsg({ message: "Nice! )", type: toastTypes.success });
-        return;
-      }
-
-      // Validate all fields before submitting
-      const emailError = validateEmail(String(formProps.email));
-      const messageError = validateMessage(String(formProps.message));
-
-      if (emailError || messageError) {
-        setErrors({ email: emailError, message: messageError });
-        gtag.event({
-          action: "contact_form_error",
-          category: "engagement",
-          label: [emailError && "email", messageError && "message"]
-            .filter(Boolean)
-            .join(","),
-        });
-        return;
-      }
-
-      setSubmitting(true);
-
-      try {
-        const msg: contactFormMessage = {
-          email: String(formProps.email),
-          message: String(formProps.message),
-        };
-        const submit = await sendContactMsg(msg);
-        if (isError(submit)) {
-          setToastMsg({
-            message: submit.message,
-            type: toastTypes.error,
-          });
-        } else {
-          form.reset();
-          setErrors({ email: null, message: null });
-          gtag.event({
-            action: "contact_form_success",
-            category: "engagement",
-          });
-          setToastMsg({ message: "Nice! )", type: toastTypes.success });
-        }
-      } finally {
-        setSubmitting(false);
-      }
-    },
-    [setToastMsg],
-  );
-
   return (
-    <div className={globalStyles.containerMd}>
+    <div
+      className={globalStyles.containerMd}
+      onFocus={() => {
+        if (!formStarted.current) {
+          formStarted.current = true;
+          gtag.event({ action: "contact_form_start", category: "engagement" });
+        }
+      }}
+    >
       <h2 className={styles.title}>Get in Touch</h2>
-      <form
-        onSubmit={handleSubmit}
-        method="post"
+      <Form
         className={styles.form}
-        noValidate
-        onFocus={() => {
-          if (!formStarted.current) {
-            formStarted.current = true;
-            gtag.event({
-              action: "contact_form_start",
-              category: "engagement",
-            });
-          }
-        }}
+        validationBehavior="aria"
+        onSubmit={handleSubmit}
       >
         {/* Honeypot field — must stay visually hidden, not type="hidden" */}
         <input
@@ -142,51 +117,45 @@ const ContactForm: FC = () => {
           autoComplete="off"
         />
 
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          id="email"
+        <TextField
           name="email"
-          placeholder="Your email*"
-          minLength={2}
-          maxLength={33}
+          type="email"
           autoComplete="email"
-          onBlur={handleFieldBlur}
-          aria-invalid={!!errors.email}
-          aria-describedby={errors.email ? "email-error" : undefined}
-        />
-        <div className={styles.errorWrapper}>
-          <p
-            id="email-error"
-            className={`${styles.errorMsg} ${errors.email ? styles.errorMsgVisible : ""}`}
-          >
-            {errors.email}
-          </p>
-        </div>
+          className={styles.field}
+          isInvalid={!!fieldErrors.email}
+        >
+          <Label>Email</Label>
+          <Input
+            placeholder="Your email*"
+            onBlur={(e) => validateField("email", e.target.value)}
+          />
+          <div className={styles.fieldErrorSlot}>
+            <FieldError className={styles.errorMsg}>
+              {fieldErrors.email}
+            </FieldError>
+          </div>
+        </TextField>
 
-        <label htmlFor="message">Message</label>
-        <textarea
-          rows={5}
-          id="message"
+        <TextField
           name="message"
-          placeholder="Message*"
-          minLength={2}
-          maxLength={500}
-          onBlur={handleFieldBlur}
-          aria-invalid={!!errors.message}
-          aria-describedby={errors.message ? "message-error" : undefined}
-        />
-        <div className={styles.errorWrapper}>
-          <p
-            id="message-error"
-            className={`${styles.errorMsg} ${errors.message ? styles.errorMsgVisible : ""}`}
-          >
-            {errors.message}
-          </p>
-        </div>
+          className={styles.field}
+          isInvalid={!!fieldErrors.message}
+        >
+          <Label>Message</Label>
+          <TextArea
+            rows={5}
+            placeholder="Message*"
+            onBlur={(e) => validateField("message", e.target.value)}
+          />
+          <div className={styles.fieldErrorSlot}>
+            <FieldError className={styles.errorMsg}>
+              {fieldErrors.message}
+            </FieldError>
+          </div>
+        </TextField>
 
         <Button type="submit" label="Submit" submitting={submitting} />
-      </form>
+      </Form>
     </div>
   );
 };

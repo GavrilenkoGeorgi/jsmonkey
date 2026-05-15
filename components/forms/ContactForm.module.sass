@@ -80,26 +80,17 @@ $input-background: color.change($highlight-color, $alpha: 0.03)
   label
     margin-bottom: 0.5rem
 
-.errorWrapper
-  position: relative
+.field
+  display: contents
+
+.fieldErrorSlot
   height: 1.5rem
-  margin-top: 0.25rem
+  margin-top: 0.1rem
   margin-bottom: 0.5rem
 
 .errorMsg
-  position: absolute
-  top: 0
-  left: 0
-  margin: 0
   font-size: 80%
   color: $error
-  display: flex
-  align-items: center
-  opacity: 0
-  transition: opacity $defaultAnimLength ease-out
-
-.errorMsgVisible
-  opacity: 1
 
 // Dark theme overrides for form inputs
 :global([data-theme="dark"])

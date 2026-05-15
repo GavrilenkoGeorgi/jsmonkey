@@ -1,6 +1,6 @@
 {
   "name": "jsmonkey",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -22,7 +22,8 @@
     "react-intersection-observer": "^10.0.3",
     "react-markdown": "^10.1.0",
     "sass": "^1.99.0",
-    "sharp": "^0.34.5"
+    "sharp": "^0.34.5",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@types/node": "^25.7.0",
