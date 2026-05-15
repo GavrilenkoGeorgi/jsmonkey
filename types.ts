@@ -28,7 +28,7 @@ export type ProjectSectionProps = {
     id: number;
     title: string;
     url: string;
-    linkDisabled: boolean;
+    linkDisabled?: boolean;
     text: string[];
     imageUrl: string;
     images: string[];

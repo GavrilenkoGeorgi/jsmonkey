@@ -4,12 +4,12 @@ import HeroSection from "../../components/layout/HeroSection";
 import ProjectSection from "../../components/projects/ProjectSection";
 import heroImg from "../../assets/images/projects-pattern.webp";
 
-import { projectSectionProps } from "../../types";
+import { ProjectSectionProps } from "../../types";
 import items from "../../data/projects.json";
 
 import styles from "../../styles/Main.module.scss";
 
-const Projects: NextPage<projectSectionProps> = () => {
+const Projects: NextPage<ProjectSectionProps> = () => {
   const itemsToShow = items.sort((a, b) => a.id - b.id);
   const title = "Projects list";
   const description = "List of things that I am working on.";
