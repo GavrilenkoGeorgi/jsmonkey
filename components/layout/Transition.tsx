@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { useRouter } from "next/router";
 import { motion, AnimatePresence } from "framer-motion";
-import { layoutProps } from "../../types";
+import { LayoutProps } from "../../types";
 
 const variants = {
   hidden: {
@@ -23,7 +23,7 @@ const variants = {
   },
 };
 
-const Transition: FC<layoutProps> = ({ children }) => {
+const Transition: FC<LayoutProps> = ({ children }) => {
   const { asPath } = useRouter();
 
   return (

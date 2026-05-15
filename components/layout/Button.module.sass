@@ -5,18 +5,19 @@
   font-size: 1rem
   font-weight: 400
   letter-spacing: 1.5px
-  background-color: var(--btn-bg)
+  background-color: $input-background
   border: 1px solid var(--border-light)
   justify-content: center
   align-content: center
   padding: .5rem 1.5rem
   margin: 0 auto
-  min-width: 150px
-  min-height: 50px
+  min-width: 120px
+  min-height: 48px
   cursor: pointer
-  transition: color $defaultAnimLength ease-in, border-color $defaultAnimLength ease-in
+  transition: color $defaultAnimLength ease-in, border-color $defaultAnimLength ease-in, background-color $defaultAnimLength ease-in
   &:hover
     border-color: $highlight-color
     color: $highlight-color
+    background-color: $button-background
   @media screen and (min-width: $medium)
     padding: .75rem 2.5rem

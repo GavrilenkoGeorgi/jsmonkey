@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef, useMemo } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { postCardProps } from "../types";
+import { PostCardProps } from "../types";
 import { BlogFilters, defaultFilters } from "../components/blog/BlogControls";
 
 export function useScrollDirection() {
@@ -66,7 +66,7 @@ export const useNextImageImageFade = (_className: string) => {
 };
 
 export function useEmblaSelectedIndex() {
-  const [emblaRef, emblaApi] = useEmblaCarousel();
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   useEffect(() => {
@@ -87,7 +87,7 @@ export function useEmblaSelectedIndex() {
 }
 
 // Blog page filters deserve separate hook
-export function useBlogFilters(posts: postCardProps[]) {
+export function useBlogFilters(posts: PostCardProps[]) {
   const [filters, setFilters] = useState<BlogFilters>(defaultFilters);
   const { sortKey, tagFilter, searchQuery } = filters;
 

@@ -2,11 +2,11 @@ import { FC } from "react";
 import Image from "next/image";
 
 import { useEmblaSelectedIndex } from "../../../hooks";
-import { projectCarouselProps } from "../../../types";
+import { ProjectCarouselProps } from "../../../types";
 import { SLIDER_IMG_SIZES } from "../../../utils/constants";
 import styles from "./ProjectSlider.module.sass";
 
-const ProjectSlider: FC<projectCarouselProps> = ({
+const ProjectSlider: FC<ProjectCarouselProps> = ({
   title,
   images,
   priority,

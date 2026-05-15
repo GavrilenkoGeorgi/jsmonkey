@@ -1,7 +1,7 @@
 import { FC, useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { navLink } from "../../types";
+import { NavLink } from "../../types";
 import { useScrollDirection, useComponentVisible } from "../../hooks";
 import { useTheme } from "../../context/ThemeContext";
 
@@ -138,7 +138,7 @@ const NavBar: FC = () => {
     });
   }, [scrollDirection]);
 
-  const navigation: Array<navLink> = [
+  const navigation: Array<NavLink> = [
     {
       label: "Blog",
       url: "/blog",

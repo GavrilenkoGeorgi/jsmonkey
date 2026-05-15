@@ -1,22 +1,15 @@
 import { ReactNode, Dispatch, SetStateAction } from "react";
 
-export type reCaptchaScore = {
-  action: string;
-  challenge_ts: string;
-  hostname: string;
-  score: number;
-};
-
-export type contactFormMessage = {
+export type ContactFormMessage = {
   email: string;
   message: string;
 };
 
-export type blogProps = {
-  posts: postCardProps[];
+export type BlogProps = {
+  posts: PostCardProps[];
 };
 
-export type sliderNavArrowProps = {
+export type SliderNavArrowProps = {
   clickHandler: () => void;
   hasPrev: boolean;
   label: string;
@@ -31,34 +24,35 @@ export type ProjectSectionProps = {
     linkDisabled?: boolean;
     text: string[];
     imageUrl: string;
+    mobileImageUrl: string;
     images: string[];
     description: string[];
     logoImgs: string[];
   };
 };
 
-export type projectCarouselProps = {
+export type ProjectCarouselProps = {
   title: string;
   priority: boolean;
   images: string[];
 };
 
-export type layoutProps = {
+export type LayoutProps = {
   children: ReactNode;
 };
 
-export type headProps = {
+export type HeadProps = {
   title: string;
   descr: string;
   children: ReactNode;
 };
 
-export type navLink = {
+export type NavLink = {
   label: string;
   url: string;
 };
 
-export type postCardProps = {
+export type PostCardProps = {
   title: string;
   body: string;
   slug?: string;
@@ -68,12 +62,12 @@ export type postCardProps = {
   tags?: string[];
 };
 
-export type heroSectionProps = {
+export type HeroSectionProps = {
   heading: string;
   image: MediaImage;
 };
 
-export type socialIconProps = {
+export type SocialIconProps = {
   image: MediaImage;
   altText: string;
   link: string;
@@ -86,19 +80,19 @@ export type Data = {
 };
 
 // individual post page props
-export type postProps = {
+export type PostProps = {
   frontmatter: any; //?
   markdown: any; //?
   slug: string;
 };
 
-export type staticPropsParams = {
+export type StaticPropsParams = {
   params: {
     slug: string;
   };
 };
 
-export type btnProps = {
+export type BtnProps = {
   label: string;
   type?: string;
   link?: string;
@@ -109,7 +103,7 @@ export type btnProps = {
 // Error Message Context
 // ---------------------
 
-export enum toastTypes {
+export enum ToastTypes {
   error = "error",
   success = "success",
 }

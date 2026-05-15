@@ -4,7 +4,7 @@ import fs from "fs";
 import ReactMarkdown from "react-markdown";
 import matter from "gray-matter";
 import { getFileExt } from "../../utils";
-import { postProps, staticPropsParams } from "../../types";
+import { PostProps, StaticPropsParams } from "../../types";
 
 import HeroSection from "../../components/layout/HeroSection";
 import FadeIn from "../../components/layout/Animation/FadeIn";
@@ -29,7 +29,7 @@ function extractExcerpt(markdown: string, maxLength: number = 160): string {
   );
 }
 
-const Post: NextPage<postProps> = ({ frontmatter, markdown, slug }) => {
+const Post: NextPage<PostProps> = ({ frontmatter, markdown, slug }) => {
   const excerpt = extractExcerpt(markdown);
   const title = frontmatter.title as string;
   const description = excerpt;
@@ -79,7 +79,7 @@ export default Post;
 
 export const getStaticProps = async ({
   params: { slug },
-}: staticPropsParams) => {
+}: StaticPropsParams) => {
   const fileContent = matter(
     fs.readFileSync(`./content/blogs/${slug}.md`, "utf8"),
   );

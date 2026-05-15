@@ -2,7 +2,7 @@ import fs from "fs";
 import matter from "gray-matter";
 import type { NextPage } from "next";
 import Head from "next/head";
-import { blogProps } from "../../types";
+import { BlogProps } from "../../types";
 import HeroSection from "../../components/layout/HeroSection";
 import ListOfPosts from "../../components/blog/ListOfPosts";
 import heroImg from "../../assets/images/blog-hero-image.webp";
@@ -11,7 +11,7 @@ import { useBlogFilters } from "../../hooks";
 
 import styles from "../../styles/Main.module.scss";
 
-const Blog: NextPage<blogProps> = ({ posts }) => {
+const Blog: NextPage<BlogProps> = ({ posts }) => {
   const { filters, setFilters, allTags, displayedPosts } =
     useBlogFilters(posts);
 

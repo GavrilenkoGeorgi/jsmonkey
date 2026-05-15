@@ -31,6 +31,16 @@
   height: auto
   box-shadow: var(--img-shadow)
 
+.slideImgDesktop
+  display: none
+  @media screen and (min-width: $medium)
+    display: block
+
+.slideImgMobile
+  display: block
+  @media screen and (min-width: $medium)
+    display: none
+
 %navBtn
   position: absolute
   top: 50%

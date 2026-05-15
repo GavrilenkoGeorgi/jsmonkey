@@ -6,7 +6,7 @@ import {
   useEffect,
   useCallback,
 } from "react";
-import { layoutProps } from "../types";
+import { LayoutProps } from "../types";
 
 type Theme = "system" | "light" | "dark";
 type ResolvedTheme = "light" | "dark";
@@ -35,7 +35,7 @@ function resolveTheme(theme: Theme): ResolvedTheme {
   return theme;
 }
 
-export const ThemeProvider: FC<layoutProps> = ({ children }) => {
+export const ThemeProvider: FC<LayoutProps> = ({ children }) => {
   const [theme, setThemeState] = useState<Theme>("system");
   const [resolvedTheme, setResolvedTheme] = useState<ResolvedTheme>("light");
 

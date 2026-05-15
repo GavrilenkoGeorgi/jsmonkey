@@ -28,7 +28,15 @@ const MainSlider: FC = () => {
                     width={4368}
                     height={2892}
                     sizes={SLIDER_IMG_SIZES}
-                    className={styles.slideImg}
+                    className={`${styles.slideImg} ${styles.slideImgDesktop}`}
+                  />
+                  <Image
+                    src={item.mobileImageUrl}
+                    alt={`${item.title} slide.`}
+                    width={390}
+                    height={844}
+                    sizes={SLIDER_IMG_SIZES}
+                    className={`${styles.slideImg} ${styles.slideImgMobile}`}
                   />
                 </div>
               </div>

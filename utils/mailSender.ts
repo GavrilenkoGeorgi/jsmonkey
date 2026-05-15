@@ -1,7 +1,7 @@
 import axios from "axios";
-import { contactFormMessage } from "../types";
+import { ContactFormMessage } from "../types";
 
-export const sendContactMsg = async (data: contactFormMessage) => {
+export const sendContactMsg = async (data: ContactFormMessage) => {
   const url = `${process.env.NEXT_PUBLIC_EMAIL_BACKEND}`;
   try {
     const mailerResponse = await axios.post(url, data);

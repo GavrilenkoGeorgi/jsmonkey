@@ -2,7 +2,7 @@ import { FC, useEffect } from "react";
 import { format } from "date-fns";
 import { useAnimation, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { blogProps } from "../../types";
+import { BlogProps } from "../../types";
 
 import PostCard from "./PostCard";
 import styles from "./ListOfPosts.module.sass";
@@ -21,7 +21,7 @@ const cardVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 1 } },
 };
 
-const ListOfPosts: FC<blogProps> = ({ posts }) => {
+const ListOfPosts: FC<BlogProps> = ({ posts }) => {
   const controls = useAnimation();
   const [ref, inView] = useInView();
 

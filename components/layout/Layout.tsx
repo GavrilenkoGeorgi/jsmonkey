@@ -1,35 +1,34 @@
-import { FC } from 'react'
-import { ParallaxProvider } from 'react-scroll-parallax'
-import { Noto_Sans } from "next/font/google"
-import { ToastMsgContextProvider } from '../../context/toastMsgStore'
-import { layoutProps } from '../../types'
+import { FC } from "react";
+import { ParallaxProvider } from "react-scroll-parallax";
+import { Noto_Sans } from "next/font/google";
+import { ToastMsgContextProvider } from "../../context/toastMsgStore";
+import { LayoutProps } from "../../types";
 
-import Navbar from '../navigation/NavBar'
-import Footer from '../layout/Footer'
-import Toast from './Toast'
-import styles from './Layout.module.sass'
+import Navbar from "../navigation/NavBar";
+import Footer from "../layout/Footer";
+import Toast from "./Toast";
+import styles from "./Layout.module.sass";
 
 const font = Noto_Sans({
-  subsets: ['latin'],
-  weight: ['400', '600'],
-  display: 'swap'
-})
+  subsets: ["latin"],
+  weight: ["400", "600"],
+  display: "swap",
+});
 
-const Layout:FC<layoutProps> = ({ children }) => {
-
+const Layout: FC<LayoutProps> = ({ children }) => {
   // form on the main page uses context to set error messages
   // toast is a global component positioned on top of everything
 
-  return <div className={`${styles.layout} ${font.className}`}>
-    <Navbar />
+  return (
+    <div className={`${styles.layout} ${font.className}`}>
+      <Navbar />
       <ToastMsgContextProvider>
-        <ParallaxProvider>
-          {children}
-        </ParallaxProvider>
+        <ParallaxProvider>{children}</ParallaxProvider>
         <Toast />
       </ToastMsgContextProvider>
-    <Footer />
-  </div>
-}
+      <Footer />
+    </div>
+  );
+};
 
-export default Layout
+export default Layout;

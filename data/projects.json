@@ -9,6 +9,7 @@
       "Powered by React and Node.js, this comprehensive web platform offers a holistic experience, enhanced by Google Analytics insights. Experience convenience, functionality, and a captivating user interface, all within Artviva School's integrated digital hub."
     ],
     "imageUrl": "/img/artviva-desktop.webp",
+    "mobileImageUrl": "/img/artviva.webp",
     "images": [
       "/img/projects/artviva/artviva-1.webp",
       "/img/projects/artviva/artviva-2.webp",
@@ -50,6 +51,7 @@
       "With the migration to Next.js and the use of TypeScript, our website delivers exceptional performance and developer-friendly workflows. The integration of Netlify CMS streamlines content management, empowering editors with easy updates."
     ],
     "imageUrl": "/img/huma-desktop.webp",
+    "mobileImageUrl": "/img/huma.webp",
     "images": [
       "/img/projects/huma/huma-1.webp",
       "/img/projects/huma/huma-2.webp",
@@ -71,6 +73,7 @@
       "Sharlushka is a Yahtzee-inspired dice game built as a Progressive Web App. Roll, drag, and score your way through a classic combo-chasing session – solo or against a real opponent in multiplayer. Play as a guest or create an account to track your stats across games and watch your progress on the stats page. Installable on any device, works offline, and built with React, Redux Toolkit, and WebSockets under the hood."
     ],
     "imageUrl": "/img/sharlushka-desktop.webp",
+    "mobileImageUrl": "/img/sharlushka.webp",
     "images": [
       "/img/projects/sharlushka/sharlushka-1.webp",
       "/img/projects/sharlushka/sharlushka-2.webp",

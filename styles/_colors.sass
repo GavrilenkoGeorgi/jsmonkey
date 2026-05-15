@@ -1,9 +1,13 @@
+@use 'sass:color'
+
 $gray: #929292
 $gray-font: #424242
 $highlight-color: #0070f3
 $light-gray: #c5c5c5
 $overlayColor: #0000007c
 $darkModeGrayBkg: #424242
+$button-background: color.change($highlight-color, $alpha: 0.1)
+$input-background: color.change($highlight-color, $alpha: 0.03)
 
 // toast colors
 $toast-bkgrnd: #0070f3

@@ -3,10 +3,10 @@ import Link from "next/link";
 import Image from "next/image";
 
 import * as gtag from "../../utils/gtag";
-import { socialIconProps } from "../../types";
+import { SocialIconProps } from "../../types";
 import styles from "./SocialIcon.module.sass";
 
-const SocialIcon: FC<socialIconProps> = (props) => {
+const SocialIcon: FC<SocialIconProps> = (props) => {
   const { image, altText, link } = props;
 
   return (

@@ -10,7 +10,7 @@ import {
 
 import { sendContactMsg } from "../../utils/mailSender";
 import { isError } from "../../utils";
-import { toastTypes } from "../../types";
+import { ToastTypes } from "../../types";
 
 import * as z from "zod";
 import * as gtag from "../../utils/gtag";
@@ -51,7 +51,7 @@ const ContactForm: FC = () => {
     // Honeypot check — bots fill fields humans never see
     if (data.website) {
       form.reset();
-      setToastMsg({ message: "Nice! )", type: toastTypes.success });
+      setToastMsg({ message: "Nice! )", type: ToastTypes.success });
       return;
     }
 
@@ -79,12 +79,12 @@ const ContactForm: FC = () => {
     try {
       const submit = await sendContactMsg(result.data);
       if (isError(submit)) {
-        setToastMsg({ message: submit.message, type: toastTypes.error });
+        setToastMsg({ message: submit.message, type: ToastTypes.error });
       } else {
         form.reset();
         setFieldErrors({ email: "", message: "" });
         gtag.event({ action: "contact_form_success", category: "engagement" });
-        setToastMsg({ message: "Nice! )", type: toastTypes.success });
+        setToastMsg({ message: "Nice! )", type: ToastTypes.success });
       }
     } finally {
       setSubmitting(false);
