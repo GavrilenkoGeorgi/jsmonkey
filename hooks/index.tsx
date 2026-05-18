@@ -1,7 +1,15 @@
-import { useEffect, useState, useRef, useMemo } from "react";
+import {
+  useEffect,
+  useState,
+  useRef,
+  useMemo,
+  useCallback,
+  ComponentProps,
+} from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { PostCardProps } from "../types";
 import { BlogFilters, defaultFilters } from "../components/blog/BlogControls";
+import { motion } from "framer-motion";
 
 export function useScrollDirection() {
   const [scrollDirection, setScrollDirection] = useState("");
@@ -127,3 +135,63 @@ export function useBlogFilters(posts: PostCardProps[]) {
 
   return { filters, setFilters, allTags, displayedPosts };
 }
+
+// Transition animations
+
+type TransitionAnimationCompleteHandler = NonNullable<
+  ComponentProps<typeof motion.div>["onAnimationComplete"]
+>;
+
+export const variants = {
+  hidden: {
+    opacity: 0,
+    x: 0,
+    y: -50,
+    transition: {
+      duration: 0.5,
+    },
+  },
+  enter: { opacity: 1, x: 0, y: 0 },
+  exit: {
+    opacity: 0,
+    x: 0,
+    y: -50,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
+
+const getElementTop = (element: HTMLElement) => {
+  let top = 0;
+  let current: HTMLElement | null = element;
+
+  while (current) {
+    top += current.offsetTop;
+
+    const offsetParent: Element | null = current.offsetParent;
+    current = offsetParent instanceof HTMLElement ? offsetParent : null;
+  }
+
+  return top;
+};
+
+export const useTransitionAnimationComplete =
+  (): TransitionAnimationCompleteHandler =>
+    useCallback<TransitionAnimationCompleteHandler>((definition) => {
+      if (definition !== "enter") {
+        return;
+      }
+
+      const hash = window.location.hash;
+      if (!hash) {
+        return;
+      }
+
+      const element = document.querySelector(hash);
+      if (!(element instanceof HTMLElement)) {
+        return;
+      }
+
+      window.scrollTo({ top: getElementTop(element), behavior: "instant" });
+    }, []);

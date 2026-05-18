@@ -56,7 +56,7 @@
 
 .leadParagraph,
 .pageParagraph {
-  text-indent: 2rem;
+  text-indent: 1.5rem;
 }
 
 .leadParagraph {
@@ -71,6 +71,7 @@
 
 .pageParagraph {
   line-height: 1.6;
+  margin: 0 0 0.4rem;
   @media screen and (min-width: $medium) {
     font-size: $mediumFontSize;
   }

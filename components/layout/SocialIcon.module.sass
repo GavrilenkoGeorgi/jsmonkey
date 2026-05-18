@@ -3,6 +3,9 @@
 .socialLink
   margin: 0.5rem
   max-width: 3rem
+  transition: transform $defaultAnimLength ease-in
+  &:hover
+    transform: scale(1.1)
   @media screen and (max-width: $medium)
     justify-content: center
 

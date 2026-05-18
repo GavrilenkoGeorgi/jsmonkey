@@ -1,36 +1,27 @@
-import { FC } from "react";
+import { type FC } from "react";
 import { useRouter } from "next/router";
 import { motion, AnimatePresence } from "framer-motion";
 import { LayoutProps } from "../../types";
-
-const variants = {
-  hidden: {
-    opacity: 0,
-    x: 0,
-    y: -50,
-    transition: {
-      duration: 0.5,
-    },
-  },
-  enter: { opacity: 1, x: 0, y: 0 },
-  exit: {
-    opacity: 0,
-    x: 0,
-    y: -50,
-    transition: {
-      duration: 0.5,
-    },
-  },
-};
+import { useTransitionAnimationComplete, variants } from "../../hooks";
 
 const Transition: FC<LayoutProps> = ({ children }) => {
   const { asPath } = useRouter();
+  const onAnimationComplete = useTransitionAnimationComplete();
+
+  const navigateToHash = () => {
+    const hash = window.location.hash;
+    if (hash) {
+      document.querySelector(hash)?.scrollIntoView();
+    } else {
+      window.scrollTo(0, 0);
+    }
+  };
 
   return (
     <AnimatePresence
       initial={false}
       mode="wait"
-      onExitComplete={() => window.scrollTo(0, 0)}
+      onExitComplete={navigateToHash}
     >
       <motion.div
         key={asPath}
@@ -39,6 +30,7 @@ const Transition: FC<LayoutProps> = ({ children }) => {
         animate="enter"
         exit="exit"
         transition={{ ease: "linear" }}
+        onAnimationComplete={onAnimationComplete}
       >
         {children}
       </motion.div>
