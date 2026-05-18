@@ -1,6 +1,6 @@
 [
   {
-    "id": 3,
+    "id": 4,
     "title": "ArtViva",
     "url": "https://artviva.school",
     "linkDisabled": true,
@@ -43,7 +43,7 @@
     ]
   },
   {
-    "id": 2,
+    "id": 3,
     "title": "huma.com",
     "url": "https://huma.com",
     "text": [
@@ -88,6 +88,31 @@
       "Sharlushka is a full-stack Yahtzee-inspired dice game built as a Progressive Web App. It started as a personal project to explore real-world frontend architecture – and grew into a fairly complete game platform. Gameplay follows the classic Yahtzee scoring model: roll five dice, hold the ones you like, re-roll up to twice, then pick a scoring combo. The tricky part is the score calculation logic – detecting combinations like a full house, straights, or Yahtzee across a live dice board required careful implementation and is tested with unit tests.",
       "Multiplayer is built on WebSockets (Socket.IO). Two players can join a shared game session, take turns, and see live game state updates. The frontend manages connection lifecycle, turn syncing, and opponent state through a dedicated multiplayer slice and custom hooks. Auth and stats – players can register to persist their results. Each completed game is saved to the backend and displayed as charts on the stats page using Recharts – breakdowns by combo type, win rates, and score trends over time. PWA – the app is installable on any device and uses Workbox to cache assets and handle service worker updates gracefully, including prompting the user when a new version is available.",
       "Tech used: React 19, TypeScript, Redux Toolkit + RTK Query, React Router 7, dnd-kit for drag-and-drop dice interaction, Framer Motion for animations, react-hook-form + Zod for form validation, Recharts, Webpack 5 with a custom config, Sass modules, and Netlify for hosting. The main challenge was the scoring logic – and later, wiring up a stateful real-time multiplayer experience on top of an app originally built for solo play."
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Ongage",
+    "url": "https://www.ongage.com",
+    "text": [
+      "Ongage is a full-featured email marketing platform built with React 19 and TypeScript. It lets marketers manage subscriber lists, design and send campaigns, build automated workflows, and validate email lists — all from a single, modern web app. The platform integrates AI throughout: a natural-language analytics interface for querying campaign performance, an AI-powered email template generator, and a context-aware AI assistant that can navigate the app and act on behalf of the user via chat."
+    ],
+    "imageUrl": "/img/ongage-desktop.webp",
+    "mobileImageUrl": "/img/ongage.webp",
+    "images": ["/img/projects/ongage/ongage-1.webp"],
+    "logoImgs": [
+      "React",
+      "Tanstack",
+      "Copilot",
+      "Node-js",
+      "Bootstrap",
+      "Axios"
+    ],
+    "description": [
+      "Ongage is a large-scale, multi-tenant email marketing SaaS platform. I built and maintained the React front end that gives marketers full control over every stage of an email program — from subscriber acquisition to post-campaign analysis.",
+      "The platform covers the full email marketing lifecycle. Marketers can import, segment, and export subscriber lists, managing contact statuses and field-level data across millions of contacts. From there they can create, schedule, and A/B test email and SMS campaigns with real-time send statistics, or build sophisticated automated sequences — welcome series, re-engagement flows, and more — using a node-based drag-and-drop workflow editor. A unified vendor management interface lets teams configure and switch between multiple ESP and SMTP delivery providers. Supporting tools include bulk email validation against a third-party service with status tracking and downloadable results, plus analytics dashboards covering campaign overview charts, aggregate performance tables, and insight breakdowns across key deliverability metrics.",
+      "AI is woven throughout the product in three distinct layers. The AI Analytics feature lets users query their campaign data in plain English — typing a question like 'which campaigns had the highest open rate last month?' returns structured results rendered as interactive charts alongside a conversational answer, with a thumbs-up/down feedback loop to improve accuracy over time. For content creation, an AI Email Template Generator guides users through a short brief — choosing tone, target audience, primary goal, language, and email type — and produces a fully styled HTML template that can be previewed and saved directly as a new message. Finally, a CopilotKit-powered AI chat sidebar acts as a persistent in-app assistant: it knows which page the user is on, can navigate to any section of the app, and can create, update, or delete platform entities such as campaigns, segments, automations, and vendor connections on the user's behalf, automatically refreshing the relevant UI data caches after each action via MCP (Model Context Protocol).",
+      "On the engineering side, the codebase follows a strict modular feature architecture where each domain owns its API clients, Zustand stores, TanStack Query hooks, and UI components, keeping pages thin and business logic co-located. A three-variant TanStack Table system handles server-paginated, client-paginated, and context-free tables with persistent column visibility and ordering. Firebase authentication with token-refresh interceptors is wired into every API and AI call. Strict TypeScript, ESLint with exhaustive-deps enforced as an error, Prettier, and Husky pre-commit hooks kept the codebase consistently clean across a large team."
     ]
   }
 ]
