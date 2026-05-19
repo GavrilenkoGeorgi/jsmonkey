@@ -1,16 +1,23 @@
-import type { NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
+import fs from "fs";
+import path from "path";
 import Head from "next/head";
 import HeroSection from "../../components/layout/HeroSection";
 import ProjectSection from "../../components/projects/ProjectSection";
 import heroImg from "../../assets/images/projects-pattern.webp";
 
 import { ProjectSectionProps } from "../../types";
-import items from "../../data/projects.json";
+import projectsData from "../../data/projects.json";
 
 import styles from "../../styles/Main.module.scss";
 
-const Projects: NextPage<ProjectSectionProps> = () => {
-  const itemsToShow = items.sort((a, b) => a.id - b.id);
+type ProjectItem = ProjectSectionProps["project"];
+
+type ProjectsPageProps = {
+  projects: ProjectItem[];
+};
+
+const Projects: NextPage<ProjectsPageProps> = ({ projects }) => {
   const title = "Projects list";
   const description = "List of things that I am working on.";
   const canonicalUrl = "https://jsmonkey.netlify.app/projects";
@@ -39,16 +46,26 @@ const Projects: NextPage<ProjectSectionProps> = () => {
       </Head>
       <main className={styles.main}>
         <HeroSection heading="Projects" image={heroImg} />
-        {itemsToShow.map((item, index) => (
-          <ProjectSection
-            key={item.id}
-            project={item}
-            animate={index > 0 ? true : false} // can't think of anything better right now (
-          />
+        {projects.map((item, index) => (
+          <ProjectSection key={item.id} project={item} animate={index > 0} />
         ))}
       </main>
     </div>
   );
+};
+
+export const getStaticProps: GetStaticProps<ProjectsPageProps> = () => {
+  const contentDir = path.join(process.cwd(), "content", "projects");
+
+  const projects = [...projectsData]
+    .sort((a, b) => a.id - b.id) // id controls display order of the projects
+    .map((item) => {
+      const filePath = path.join(contentDir, `${item.slug}.md`);
+      const description = fs.readFileSync(filePath, "utf-8");
+      return { ...item, description };
+    });
+
+  return { props: { projects } };
 };
 
 export default Projects;

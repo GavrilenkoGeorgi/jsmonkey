@@ -1,6 +1,7 @@
 import { FC } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import ReactMarkdown from "react-markdown";
 
 import ProjectSlider from "../layout/Slider/ProjectSlider";
 import FadeIn from "../layout/Animation/FadeIn";
@@ -23,11 +24,7 @@ const ProjectSection: FC<ProjectSectionProps> = ({ project, animate }) => {
       </aside>
 
       <div className={styles.description}>
-        {description.map((par, index) => (
-          <p key={index} className={styles.projectInfo}>
-            {par}
-          </p>
-        ))}
+        <ReactMarkdown>{description}</ReactMarkdown>
 
         <div
           className={`${styles.divider} ${styles.divTransparent} ${styles.divStopper}`}

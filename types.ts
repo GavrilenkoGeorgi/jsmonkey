@@ -26,7 +26,7 @@ export type ProjectSectionProps = {
     imageUrl: string;
     mobileImageUrl: string;
     images: string[];
-    description: string[];
+    description: string;
     logoImgs: string[];
   };
 };

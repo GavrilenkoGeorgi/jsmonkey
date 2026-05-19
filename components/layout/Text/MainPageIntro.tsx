@@ -10,9 +10,12 @@ const MainPageIntro: FC = () => {
       <p className={styles.pageParagraph}>
         I specialize in building modern, scalable web applications with a strong
         focus on front-end architecture, performance, and user experience. My
-        primary stack includes React, Next.js, TypeScript, Redux, TanStack
-        Query, Zustand, and modern JavaScript standards, allowing me to develop
-        maintainable and high-performing interfaces for complex products.
+        primary stack includes{" "}
+        <strong>
+          React, Next.js, TypeScript, Redux, TanStack Query, Zustand
+        </strong>
+        , and modern JavaScript standards, allowing me to develop maintainable
+        and high-performing interfaces for complex products.
       </p>
       <p className={styles.pageParagraph}>
         I have extensive experience designing reusable component systems,
@@ -22,9 +25,10 @@ const MainPageIntro: FC = () => {
         attention to detail and product quality.
       </p>
       <p className={styles.pageParagraph}>
-        On the back end, I work with Node.js, Express, MongoDB, and Mongoose to
-        build reliable APIs and scalable application infrastructure. I also work
-        with authentication systems, validation layers, and modern development
+        On the back end, I work with{" "}
+        <strong>Node.js, Express, MongoDB, and Mongoose</strong> to build
+        reliable APIs and scalable application infrastructure. I also work with
+        authentication systems, validation layers, and modern development
         tooling to support full-stack application development.
       </p>
       <p className={styles.pageParagraph}>
@@ -35,8 +39,13 @@ const MainPageIntro: FC = () => {
       </p>
       <p className={styles.pageParagraph}>
         Beyond implementation, I enjoy improving engineering processes,
-        exploring modern development patterns, and leveraging AI-assisted
-        workflows to increase productivity and code quality.
+        exploring modern development patterns, and integrating{" "}
+        <strong>AI-assisted</strong> workflows into development. I use AI as a
+        practical engineering tool for tasks such as{" "}
+        <strong>planning, debugging, refactoring, and accelerating</strong>{" "}
+        repetitive work, including building custom development agents and
+        structured workflow systems inside VSCode to improve productivity while
+        maintaining full control over architecture and code quality.
       </p>
       <p className={styles.pageParagraph}>
         I am fluent in English and a native speaker of Ukrainian and Russian.
