@@ -6,7 +6,7 @@ tags:
   - dev react
 author: Gosha
 authorImage: /uploads/author-placeholder.svg
-image: /uploads/donny-jiang-uj_g1zszpoy-unsplash.jpg
+image: /uploads/clark-van-der-beken-iqebzm8f-m4-unsplash.jpg
 share: false
 type: post
 ---
