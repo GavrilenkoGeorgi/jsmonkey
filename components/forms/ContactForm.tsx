@@ -76,8 +76,11 @@ const ContactForm: FC = () => {
 
     try {
       const submit = await sendContactMsg(result.data);
-      if (isError(submit)) {
-        setToastMsg({ message: submit.message, type: ToastTypes.error });
+      if (isError(submit as Error)) {
+        setToastMsg({
+          message: (submit as Error).message,
+          type: ToastTypes.error,
+        });
       } else {
         form.reset();
         setFieldErrors({ email: "", message: "" });

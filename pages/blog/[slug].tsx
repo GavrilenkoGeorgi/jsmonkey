@@ -1,6 +1,6 @@
 import fs from "fs";
 import matter from "gray-matter";
-import type { GetStaticPaths,NextPage } from "next";
+import type { GetStaticPaths, NextPage } from "next";
 import Head from "next/head";
 import ReactMarkdown from "react-markdown";
 
@@ -31,7 +31,7 @@ function extractExcerpt(markdown: string, maxLength: number = 160): string {
 
 const Post: NextPage<PostProps> = ({ frontmatter, markdown, slug }) => {
   const excerpt = extractExcerpt(markdown);
-  const title = frontmatter.title as string;
+  const title = frontmatter.title;
   const description = excerpt;
   const canonicalUrl = `https://jsmonkey.netlify.app/blog/${slug}`;
   const ogImageUrl = `https://jsmonkey.netlify.app${frontmatter.image}`;
