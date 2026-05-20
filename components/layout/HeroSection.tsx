@@ -1,9 +1,9 @@
-import { FC } from "react";
 import Image from "next/image";
+import { FC } from "react";
 import { ParallaxBanner, ParallaxBannerLayer } from "react-scroll-parallax";
-import { HeroSectionProps } from "../../types";
 
 import { useNextImageImageFade } from "../../hooks";
+import { HeroSectionProps } from "../../types";
 import styles from "./HeroSection.module.sass";
 
 const HeroSection: FC<HeroSectionProps> = (props) => {

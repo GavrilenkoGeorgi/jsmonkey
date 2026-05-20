@@ -1,15 +1,14 @@
-import type { GetStaticProps, NextPage } from "next";
 import fs from "fs";
-import path from "path";
+import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
+import path from "path";
+
+import heroImg from "../../assets/images/projects-pattern.webp";
 import HeroSection from "../../components/layout/HeroSection";
 import ProjectSection from "../../components/projects/ProjectSection";
-import heroImg from "../../assets/images/projects-pattern.webp";
-
-import { ProjectSectionProps } from "../../types";
 import projectsData from "../../data/projects.json";
-
 import styles from "../../styles/Main.module.scss";
+import { ProjectSectionProps } from "../../types";
 
 type ProjectItem = ProjectSectionProps["project"];
 

@@ -1,4 +1,4 @@
-import { ReactNode, Dispatch, SetStateAction } from "react";
+import { Dispatch, ReactNode, SetStateAction } from "react";
 
 export type ContactFormMessage = {
   email: string;
@@ -7,12 +7,6 @@ export type ContactFormMessage = {
 
 export type BlogProps = {
   posts: PostCardProps[];
-};
-
-export type SliderNavArrowProps = {
-  clickHandler: () => void;
-  hasPrev: boolean;
-  label: string;
 };
 
 export type ProjectSectionProps = {
@@ -73,25 +67,6 @@ export type SocialIconProps = {
   link: string;
 };
 
-export type Data = {
-  name?: string;
-  error?: string;
-  result?: any; // TODO Define this later?
-};
-
-// individual post page props
-export type PostProps = {
-  frontmatter: any; //?
-  markdown: any; //?
-  slug: string;
-};
-
-export type StaticPropsParams = {
-  params: {
-    slug: string;
-  };
-};
-
 export type BtnProps = {
   label: string;
   type?: string;
@@ -110,7 +85,7 @@ export enum ToastTypes {
 
 export type ToastMsgDataType = {
   message: string;
-  type: string;
+  type: string; // TODO: Fix toast type!
 };
 
 export interface ToastMsgContextProps {

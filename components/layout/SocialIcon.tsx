@@ -1,9 +1,9 @@
-import { FC } from "react";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import { FC } from "react";
 
-import * as gtag from "../../utils/gtag";
 import { SocialIconProps } from "../../types";
+import * as gtag from "../../utils/gtag";
 import styles from "./SocialIcon.module.sass";
 
 const SocialIcon: FC<SocialIconProps> = (props) => {

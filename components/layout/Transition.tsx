@@ -1,8 +1,9 @@
-import { type FC } from "react";
+import { AnimatePresence,motion } from "framer-motion";
 import { useRouter } from "next/router";
-import { motion, AnimatePresence } from "framer-motion";
-import { LayoutProps } from "../../types";
+import { type FC } from "react";
+
 import { useTransitionAnimationComplete, variants } from "../../hooks";
+import { LayoutProps } from "../../types";
 
 const Transition: FC<LayoutProps> = ({ children }) => {
   const { asPath } = useRouter();

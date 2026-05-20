@@ -1,4 +1,5 @@
 import { FC } from "react";
+
 import styles from "../../../styles/Main.module.scss";
 
 const MainPageIntro: FC = () => {

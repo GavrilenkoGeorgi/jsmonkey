@@ -1,16 +1,16 @@
-import type { NextPage, GetStaticPaths } from "next";
-import Head from "next/head";
 import fs from "fs";
-import ReactMarkdown from "react-markdown";
 import matter from "gray-matter";
-import { getFileExt } from "../../utils";
-import { PostProps, StaticPropsParams } from "../../types";
+import type { GetStaticPaths,NextPage } from "next";
+import Head from "next/head";
+import ReactMarkdown from "react-markdown";
 
-import HeroSection from "../../components/layout/HeroSection";
 import FadeIn from "../../components/layout/Animation/FadeIn";
-import styles from "../../styles/Main.module.scss";
+import HeroSection from "../../components/layout/HeroSection";
 import blogStyles from "../../styles/Blog.module.sass";
+import styles from "../../styles/Main.module.scss";
 import markdownStyles from "../../styles/Markdown.module.sass";
+import { PostProps, StaticPropsParams } from "../../types";
+import { getFileExt } from "../../utils";
 
 // Helper function to extract excerpt from markdown
 function extractExcerpt(markdown: string, maxLength: number = 160): string {

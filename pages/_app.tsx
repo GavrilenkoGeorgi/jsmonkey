@@ -1,13 +1,14 @@
-import { useRouter } from "next/router";
-import { useEffect } from "react";
-import type { AppProps } from "next/app";
-import Script from "next/script";
-import * as gtag from "../utils/gtag";
-import { ThemeProvider } from "../context/ThemeContext";
-
 import "../styles/globals.scss";
+
+import type { AppProps } from "next/app";
+import { useRouter } from "next/router";
+import Script from "next/script";
+import { useEffect } from "react";
+
 import Layout from "../components/layout/Layout";
 import Transition from "../components/layout/Transition";
+import { ThemeProvider } from "../context/ThemeContext";
+import * as gtag from "../utils/gtag";
 
 function App({ Component, pageProps }: AppProps) {
   const router = useRouter();

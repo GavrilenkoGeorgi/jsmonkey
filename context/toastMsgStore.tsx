@@ -1,5 +1,6 @@
-import { FC, createContext, useContext, useState } from "react";
-import { LayoutProps, ToastMsgDataType, ToastMsgContextProps } from "../types";
+import { createContext, FC, useContext, useState } from "react";
+
+import { LayoutProps, ToastMsgContextProps,ToastMsgDataType } from "../types";
 
 const initialToastMsg = {
   message: "",

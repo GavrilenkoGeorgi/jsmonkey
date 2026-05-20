@@ -1,10 +1,11 @@
-import { FC, useState, useEffect } from "react";
-import { useRouter } from "next/router";
 import Link from "next/link";
-import { NavLink } from "../../types";
-import { useScrollDirection, useComponentVisible } from "../../hooks";
-import { useTheme } from "../../context/ThemeContext";
+import { useRouter } from "next/router";
+import { FC, useEffect, useState, useSyncExternalStore } from "react";
+import { Button } from "react-aria-components";
 
+import { useTheme } from "../../context/ThemeContext";
+import { useComponentVisible, useScrollDirection } from "../../hooks";
+import { NavLink } from "../../types";
 import * as gtag from "../../utils/gtag";
 import Logo from "../layout/Logo";
 import { MenuToggleBtn } from "./MenuToggleBtn";
@@ -68,16 +69,25 @@ const NavBar: FC = () => {
   const router = useRouter();
   const scrollDirection = useScrollDirection();
   const { theme, resolvedTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
+  // useSyncExternalStore gives false on the server and true on the client
+  // without any setState call, avoiding the set-state-in-effect violation
+  // that the mounted+useEffect pattern would produce.
+  const mounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  );
 
   // mobile menu
   const { ref, isComponentVisible } = useComponentVisible(false);
   const [open, setOpen] = useState(false);
+  // Derived: menu is only visually open when both the open flag is set
+  // AND the click-outside hook confirms focus is still inside the nav.
+  // This replaces the useEffect that synced isComponentVisible → open.
+  const isMenuOpen = open && isComponentVisible;
 
   const toggleMenu = () => {
-    const willOpen = !open;
+    const willOpen = !isMenuOpen;
     setOpen(willOpen);
     gtag.event({
       action: "mobile_menu_toggle",
@@ -126,17 +136,13 @@ const NavBar: FC = () => {
     return () => router.events.off("routeChangeStart", setOpen);
   }, [router.events]);
 
-  // hide on outside click
+  // close mobile menu on scroll (setState inside a callback — not in the
+  // effect body directly, so this does not trigger cascading renders)
   useEffect(() => {
-    if (!isComponentVisible) setOpen(false);
-  }, [isComponentVisible]);
-
-  // close mobile menu and hide overlay on scroll
-  useEffect(() => {
-    setOpen((prevState) => {
-      return prevState && false;
-    });
-  }, [scrollDirection]);
+    const closeMenu = () => setOpen(false);
+    window.addEventListener("scroll", closeMenu, { passive: true });
+    return () => window.removeEventListener("scroll", closeMenu);
+  }, []);
 
   const navigation: Array<NavLink> = [
     {
@@ -170,24 +176,25 @@ const NavBar: FC = () => {
       <nav className={navbarStyle} ref={ref}>
         <div className={styles.navigationContainer}>
           <Logo />
-          <div className={styles.toggleBtnContainer} onClick={toggleMenu}>
-            <MenuToggleBtn open={open} />
-          </div>
-          <div className={`${styles.linksContainer} ${open && styles.open}`}>
-            <button
+          <Button className={styles.toggleBtn} onClick={toggleMenu}>
+            <MenuToggleBtn open={isMenuOpen} />
+          </Button>
+          <div
+            className={`${styles.linksContainer} ${isMenuOpen && styles.open}`}
+          >
+            <Button
               className={styles.themeToggle}
               onClick={cycleTheme}
               aria-label={`Theme: ${themeLabel}. Click to change.`}
-              title={`Theme: ${themeLabel}`}
             >
               {themeIcon}
-            </button>
+            </Button>
             {navLinks}
           </div>
         </div>
       </nav>
       <div
-        className={`${styles.overlay} ${open ? styles.openOverlay : ""}`}
+        className={`${styles.overlay} ${isMenuOpen ? styles.openOverlay : ""}`}
       ></div>
     </>
   );

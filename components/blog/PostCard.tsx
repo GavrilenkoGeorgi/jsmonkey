@@ -1,10 +1,10 @@
-import { FC } from "react";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import { FC } from "react";
 
 import { useNextImageImageFade } from "../../hooks";
-import { POSTCARD_IMG_SIZES } from "../../utils/constants";
 import { PostCardProps } from "../../types";
+import { POSTCARD_IMG_SIZES } from "../../utils/constants";
 import styles from "./PostCard.module.sass";
 
 const PostCTA: FC<PostCardProps> = (props) => {

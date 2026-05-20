@@ -1,15 +1,16 @@
-import {
-  useEffect,
-  useState,
-  useRef,
-  useMemo,
-  useCallback,
-  ComponentProps,
-} from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { PostCardProps } from "../types";
-import { BlogFilters, defaultFilters } from "../components/blog/BlogControls";
 import { motion } from "framer-motion";
+import {
+  ComponentProps,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
+
+import { BlogFilters, defaultFilters } from "../components/blog/BlogControls";
+import { PostCardProps } from "../types";
 
 export function useScrollDirection() {
   const [scrollDirection, setScrollDirection] = useState("");

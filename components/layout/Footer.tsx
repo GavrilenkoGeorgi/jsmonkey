@@ -1,12 +1,11 @@
-import { FC } from "react";
 import Link from "next/link";
+import { FC } from "react";
 
+import githubIcon from "../../assets/icons/icon-github.svg";
+import linkedInIcon from "../../assets/icons/icon-linked-in.svg";
+import styles from "./Footer.module.sass";
 import Logo from "./Logo";
 import SocialIcon from "./SocialIcon";
-import linkedInIcon from "../../assets/icons/icon-linked-in.svg";
-import githubIcon from "../../assets/icons/icon-github.svg";
-
-import styles from "./Footer.module.sass";
 
 const Footer: FC = () => {
   return (

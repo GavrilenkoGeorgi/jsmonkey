@@ -1,4 +1,5 @@
 import axios from "axios";
+
 import { ContactFormMessage } from "../types";
 
 export const sendContactMsg = async (data: ContactFormMessage) => {
@@ -6,7 +7,7 @@ export const sendContactMsg = async (data: ContactFormMessage) => {
   try {
     const mailerResponse = await axios.post(url, data);
     return mailerResponse;
-  } catch (error: any) {
+  } catch (error: unknown) {
     return error;
   }
 };

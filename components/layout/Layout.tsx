@@ -1,13 +1,13 @@
+import { Noto_Sans } from "next/font/google";
 import { FC } from "react";
 import { ParallaxProvider } from "react-scroll-parallax";
-import { Noto_Sans } from "next/font/google";
+
 import { ToastMsgContextProvider } from "../../context/toastMsgStore";
 import { LayoutProps } from "../../types";
-
-import Navbar from "../navigation/NavBar";
 import Footer from "../layout/Footer";
-import Toast from "./Toast";
+import Navbar from "../navigation/NavBar";
 import styles from "./Layout.module.sass";
+import Toast from "./Toast";
 
 const font = Noto_Sans({
   subsets: ["latin"],

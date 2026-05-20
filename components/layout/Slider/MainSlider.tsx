@@ -1,10 +1,10 @@
-import { FC } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { FC } from "react";
 
+import items from "../../../data/projects.json";
 import { useEmblaSelectedIndex } from "../../../hooks";
 import { SLIDER_IMG_SIZES } from "../../../utils/constants";
-import items from "../../../data/projects.json";
 import styles from "./MainSlider.module.sass";
 
 const itemsToShow = [...items].sort((a, b) => a.id - b.id);

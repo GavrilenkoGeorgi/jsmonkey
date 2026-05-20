@@ -1,12 +1,11 @@
-import { FC } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { FC } from "react";
 import ReactMarkdown from "react-markdown";
 
-import ProjectSlider from "../layout/Slider/ProjectSlider";
-import FadeIn from "../layout/Animation/FadeIn";
 import { ProjectSectionProps } from "../../types";
-
+import FadeIn from "../layout/Animation/FadeIn";
+import ProjectSlider from "../layout/Slider/ProjectSlider";
 import styles from "./ProjectSection.module.sass";
 
 const ProjectSection: FC<ProjectSectionProps> = ({ project, animate }) => {

@@ -1,11 +1,12 @@
 import {
-  FC,
   createContext,
-  useContext,
-  useState,
-  useEffect,
+  FC,
   useCallback,
+  useContext,
+  useEffect,
+  useState,
 } from "react";
+
 import { LayoutProps } from "../types";
 
 type Theme = "system" | "light" | "dark";
@@ -36,8 +37,15 @@ function resolveTheme(theme: Theme): ResolvedTheme {
 }
 
 export const ThemeProvider: FC<LayoutProps> = ({ children }) => {
-  const [theme, setThemeState] = useState<Theme>("system");
-  const [resolvedTheme, setResolvedTheme] = useState<ResolvedTheme>("light");
+  const [theme, setThemeState] = useState<Theme>(() => {
+    if (typeof window === "undefined") return "system";
+    return (localStorage.getItem("theme") as Theme | null) ?? "system";
+  });
+  const [resolvedTheme, setResolvedTheme] = useState<ResolvedTheme>(() => {
+    if (typeof window === "undefined") return "light";
+    const stored = (localStorage.getItem("theme") as Theme | null) ?? "system";
+    return resolveTheme(stored);
+  });
 
   const applyTheme = useCallback((resolved: ResolvedTheme) => {
     document.documentElement.setAttribute("data-theme", resolved);
@@ -52,14 +60,6 @@ export const ThemeProvider: FC<LayoutProps> = ({ children }) => {
     },
     [applyTheme],
   );
-
-  // Initialize from localStorage on mount
-  useEffect(() => {
-    const stored = localStorage.getItem("theme") as Theme | null;
-    const initial = stored || "system";
-    setThemeState(initial);
-    applyTheme(resolveTheme(initial));
-  }, [applyTheme]);
 
   // Listen for system theme changes when theme is 'system'
   useEffect(() => {

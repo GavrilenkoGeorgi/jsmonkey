@@ -1,9 +1,9 @@
-import { FC } from "react";
 import Image from "next/image";
+import { FC } from "react";
 
+import submIcon from "../../assets/icons/icon-bars-fade.svg";
 import { BtnProps } from "../../types";
 import styles from "./Button.module.sass";
-import submIcon from "../../assets/icons/icon-bars-fade.svg";
 
 const Button: FC<BtnProps> = (props) => {
   const { label, type, link, submitting } = props;

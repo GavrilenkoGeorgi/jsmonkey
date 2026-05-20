@@ -1,5 +1,5 @@
+import { motion,useAnimation } from "framer-motion";
 import { FC, useEffect } from "react";
-import { useAnimation, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 import { LayoutProps } from "../../../types";

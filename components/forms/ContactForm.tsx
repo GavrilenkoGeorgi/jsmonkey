@@ -7,18 +7,16 @@ import {
   TextArea,
   TextField,
 } from "react-aria-components";
-
-import { sendContactMsg } from "../../utils/mailSender";
-import { isError } from "../../utils";
-import { ToastTypes } from "../../types";
-
 import * as z from "zod";
-import * as gtag from "../../utils/gtag";
-import Button from "../layout/Button";
-import styles from "./ContactForm.module.sass";
-import globalStyles from "../../styles/Main.module.scss";
 
 import { useToastMsgContext } from "../../context/toastMsgStore";
+import globalStyles from "../../styles/Main.module.scss";
+import { ToastTypes } from "../../types";
+import { isError } from "../../utils";
+import * as gtag from "../../utils/gtag";
+import { sendContactMsg } from "../../utils/mailSender";
+import Button from "../layout/Button";
+import styles from "./ContactForm.module.sass";
 
 const ContactFormSchema = z.object({
   email: z.email("Please enter a valid email address"),

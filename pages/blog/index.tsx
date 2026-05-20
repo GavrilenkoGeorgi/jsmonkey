@@ -2,14 +2,14 @@ import fs from "fs";
 import matter from "gray-matter";
 import type { NextPage } from "next";
 import Head from "next/head";
-import { BlogProps } from "../../types";
-import HeroSection from "../../components/layout/HeroSection";
-import ListOfPosts from "../../components/blog/ListOfPosts";
+
 import heroImg from "../../assets/images/blog-hero-image.webp";
 import BlogControls from "../../components/blog/BlogControls";
+import ListOfPosts from "../../components/blog/ListOfPosts";
+import HeroSection from "../../components/layout/HeroSection";
 import { useBlogFilters } from "../../hooks";
-
 import styles from "../../styles/Main.module.scss";
+import { BlogProps } from "../../types";
 
 const Blog: NextPage<BlogProps> = ({ posts }) => {
   const { filters, setFilters, allTags, displayedPosts } =

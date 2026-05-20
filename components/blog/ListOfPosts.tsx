@@ -1,11 +1,11 @@
-import { FC, useEffect } from "react";
 import { format } from "date-fns";
-import { useAnimation, motion } from "framer-motion";
+import { motion,useAnimation } from "framer-motion";
+import { FC, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
-import { BlogProps } from "../../types";
 
-import PostCard from "./PostCard";
+import { BlogProps } from "../../types";
 import styles from "./ListOfPosts.module.sass";
+import PostCard from "./PostCard";
 
 const containerVariants = {
   hidden: {},

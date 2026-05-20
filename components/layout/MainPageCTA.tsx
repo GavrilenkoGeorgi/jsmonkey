@@ -1,20 +1,13 @@
-import { FC, useEffect, useState } from "react";
 import Link from "next/link";
+import { FC, useState } from "react";
 
-import * as gtag from "../../utils/gtag";
 import { getRandomColor } from "../../utils";
+import * as gtag from "../../utils/gtag";
 import styles from "./MainPageCTA.module.sass";
 
 const MainPageCTA: FC = () => {
   const [iconColor, setIconColor] = useState("#000");
-  const [isHovering, setIsHovered] = useState(false);
-
-  const onMouseEnter = () => setIsHovered(true);
-  const onMouseLeave = () => setIsHovered(false);
-
-  useEffect(() => {
-    setIconColor(getRandomColor());
-  }, [isHovering]);
+  const onMouseEnter = () => setIconColor(getRandomColor());
 
   return (
     <div className={styles.downloadResumeCTA}>
@@ -42,7 +35,6 @@ const MainPageCTA: FC = () => {
       <Link
         href="https://github.com/GavrilenkoGeorgi"
         onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
         onClick={() =>
           gtag.event({ action: "github_link_click", category: "engagement" })
         }

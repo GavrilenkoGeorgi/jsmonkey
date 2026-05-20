@@ -1,14 +1,14 @@
+import clsx from "classnames";
 import type { NextPage } from "next";
 import Head from "next/head";
-import HeroSection from "../components/layout/HeroSection";
-import heroImg from "../assets/images/main-page-pattern.webp";
-import MainSlider from "../components/layout/Slider/MainSlider";
-import ContactForm from "../components/forms/ContactForm";
-import MainPageIntro from "../components/layout/Text/MainPageIntro";
-import MainPageCTA from "../components/layout/MainPageCTA";
-import FadeIn from "../components/layout/Animation/FadeIn";
-import clsx from "classnames";
 
+import heroImg from "../assets/images/main-page-pattern.webp";
+import ContactForm from "../components/forms/ContactForm";
+import FadeIn from "../components/layout/Animation/FadeIn";
+import HeroSection from "../components/layout/HeroSection";
+import MainPageCTA from "../components/layout/MainPageCTA";
+import MainSlider from "../components/layout/Slider/MainSlider";
+import MainPageIntro from "../components/layout/Text/MainPageIntro";
 import styles from "../styles/Main.module.scss";
 
 const Home: NextPage = () => {
