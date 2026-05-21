@@ -5,7 +5,7 @@ import ReactMarkdown from "react-markdown";
 import FadeIn from "../../../components/layout/Animation/FadeIn";
 import HeroSection from "../../../components/layout/HeroSection";
 import blogStyles from "../../../styles/Blog.module.sass";
-import styles from "../../../styles/Main.module.scss";
+import styles from "../../../styles/Main.module.sass";
 import markdownStyles from "../../../styles/Markdown.module.sass";
 import { PostFrontmatter } from "../../../types";
 import { getFileExt } from "../../../utils";
