@@ -1,3 +1,5 @@
+"use client";
+
 import { FC, useRef, useState } from "react";
 import {
   FieldError,
@@ -10,7 +12,7 @@ import {
 import * as z from "zod";
 
 import { useToastMsgContext } from "../../context/toastMsgStore";
-import globalStyles from "../../styles/Main.module.scss";
+import globalStyles from "../../styles/Main.module.sass";
 import { ToastTypes } from "../../types";
 import { isError } from "../../utils";
 import * as gtag from "../../utils/gtag";

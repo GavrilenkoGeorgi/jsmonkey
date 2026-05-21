@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
@@ -12,7 +14,7 @@ const ProjectSection: FC<ProjectSectionProps> = ({ project, animate }) => {
   const { title, description, images, logoImgs, url, linkDisabled } = project;
 
   const section = () => (
-    <section className={styles.container} id={title}>
+    <section className={styles.container}>
       <aside className={styles.carousel}>
         <h2 className={styles.projectTitle}>{title}</h2>
         <ProjectSlider
@@ -24,7 +26,6 @@ const ProjectSection: FC<ProjectSectionProps> = ({ project, animate }) => {
 
       <div className={styles.description}>
         <ReactMarkdown>{description}</ReactMarkdown>
-
         <div
           className={`${styles.divider} ${styles.divTransparent} ${styles.divStopper}`}
         ></div>
@@ -52,7 +53,11 @@ const ProjectSection: FC<ProjectSectionProps> = ({ project, animate }) => {
     </section>
   );
 
-  return <>{animate ? <FadeIn>{section()}</FadeIn> : section()}</>;
+  return (
+    <div className={styles.anchor} id={title}>
+      {animate ? <FadeIn>{section()}</FadeIn> : section()}
+    </div>
+  );
 };
 
 export default ProjectSection;

@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import styles from "../../../styles/Main.module.scss";
+import styles from "../../../styles/Main.module.sass";
 
 const MainPageIntro: FC = () => {
   return (

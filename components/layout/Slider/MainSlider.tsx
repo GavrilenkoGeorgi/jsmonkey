@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
@@ -60,7 +62,10 @@ const MainSlider: FC = () => {
             {par}
           </p>
         ))}
-        <Link href={`/projects#${currentItem.title}`}>
+        <Link
+          href={{ pathname: "/projects", hash: currentItem.title }}
+          scroll={false}
+        >
           <div className={styles.ctaWrap}>
             <div className={styles.ctaContainer}>
               <div className={styles.cta}>More info ❯❯❯</div>

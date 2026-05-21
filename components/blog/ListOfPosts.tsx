@@ -1,5 +1,7 @@
+"use client";
+
 import { format } from "date-fns";
-import { motion,useAnimation } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import { FC, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 

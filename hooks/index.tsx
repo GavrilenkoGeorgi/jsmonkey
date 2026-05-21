@@ -1,13 +1,5 @@
 import useEmblaCarousel from "embla-carousel-react";
-import { motion } from "framer-motion";
-import {
-  ComponentProps,
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 import { BlogFilters, defaultFilters } from "../components/blog/BlogControls";
 import { PostCardProps } from "../types";
@@ -137,62 +129,124 @@ export function useBlogFilters(posts: PostCardProps[]) {
   return { filters, setFilters, allTags, displayedPosts };
 }
 
-// Transition animations
+// Hash scrolling
 
-type TransitionAnimationCompleteHandler = NonNullable<
-  ComponentProps<typeof motion.div>["onAnimationComplete"]
->;
+const HASH_SCROLL_RETRY_LIMIT = 12;
+const HASH_SCROLL_RETRY_DELAY = 100;
 
-export const variants = {
-  hidden: {
-    opacity: 0,
-    x: 0,
-    y: -50,
-    transition: {
-      duration: 0.5,
-    },
-  },
-  enter: { opacity: 1, x: 0, y: 0 },
-  exit: {
-    opacity: 0,
-    x: 0,
-    y: -50,
-    transition: {
-      duration: 0.5,
-    },
-  },
+let hashScrollTimeouts: number[] = [];
+
+const clearHashScrollTimeouts = () => {
+  hashScrollTimeouts.forEach((timeout) => window.clearTimeout(timeout));
+  hashScrollTimeouts = [];
 };
 
-const getElementTop = (element: HTMLElement) => {
-  let top = 0;
-  let current: HTMLElement | null = element;
+const getHashId = (hash: string): string => {
+  const encodedId = hash.slice(1).split("#").pop() ?? "";
 
-  while (current) {
-    top += current.offsetTop;
+  try {
+    return decodeURIComponent(encodedId);
+  } catch {
+    return encodedId;
+  }
+};
 
-    const offsetParent: Element | null = current.offsetParent;
-    current = offsetParent instanceof HTMLElement ? offsetParent : null;
+const normalizeHash = (hash: string): string => {
+  const encodedId = hash.slice(1).split("#").pop() ?? "";
+  const normalizedHash = `#${encodedId}`;
+
+  if (encodedId && hash !== normalizedHash) {
+    window.history.replaceState(
+      null,
+      "",
+      `${window.location.pathname}${window.location.search}${normalizedHash}`,
+    );
   }
 
-  return top;
+  return normalizedHash;
 };
 
-export const useTransitionAnimationComplete =
-  (): TransitionAnimationCompleteHandler =>
-    useCallback<TransitionAnimationCompleteHandler>((definition) => {
-      if (definition !== "enter") {
+const getHashTarget = (hash: string): HTMLElement | null => {
+  return document.getElementById(getHashId(hash));
+};
+
+const scrollToHashTarget = (hash: string): boolean => {
+  const element = getHashTarget(hash);
+  if (!element) {
+    return false;
+  }
+
+  const navbarHeight = document.querySelector("nav")?.clientHeight ?? 0;
+  const top =
+    element.getBoundingClientRect().top + window.scrollY - navbarHeight;
+
+  window.scrollTo({
+    top: Math.max(top, 0),
+    behavior: "auto",
+  });
+
+  return true;
+};
+
+const scheduleHashScroll = (attempt = 0) => {
+  if (attempt === 0) {
+    clearHashScrollTimeouts();
+  }
+
+  if (!window.location.hash) {
+    return;
+  }
+
+  window.requestAnimationFrame(() => {
+    window.requestAnimationFrame(() => {
+      const currentHash = normalizeHash(window.location.hash);
+      if (!currentHash) {
         return;
       }
 
-      const hash = window.location.hash;
-      if (!hash) {
+      if (scrollToHashTarget(currentHash)) {
         return;
       }
 
-      const element = document.querySelector(hash);
-      if (!(element instanceof HTMLElement)) {
-        return;
+      if (attempt < HASH_SCROLL_RETRY_LIMIT) {
+        const timeout = window.setTimeout(
+          () => scheduleHashScroll(attempt + 1),
+          HASH_SCROLL_RETRY_DELAY,
+        );
+        hashScrollTimeouts.push(timeout);
       }
+    });
+  });
+};
 
-      window.scrollTo({ top: getElementTop(element), behavior: "instant" });
-    }, []);
+export const useHashScroll = (pathname: string) => {
+  const previousPathname = useRef<string | null>(null);
+
+  useEffect(() => {
+    const pathnameChanged =
+      previousPathname.current !== null &&
+      previousPathname.current !== pathname;
+
+    previousPathname.current = pathname;
+
+    if (window.location.hash) {
+      scheduleHashScroll();
+    } else if (pathnameChanged) {
+      window.scrollTo({ top: 0, behavior: "auto" });
+    }
+
+    const handleHashChange = () => {
+      if (window.location.hash) {
+        scheduleHashScroll();
+      } else {
+        window.scrollTo({ top: 0, behavior: "auto" });
+      }
+    };
+
+    window.addEventListener("hashchange", handleHashChange);
+    return () => {
+      clearHashScrollTimeouts();
+      window.removeEventListener("hashchange", handleHashChange);
+    };
+  }, [pathname]);
+};

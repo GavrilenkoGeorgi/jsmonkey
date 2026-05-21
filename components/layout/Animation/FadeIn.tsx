@@ -1,4 +1,6 @@
-import { motion,useAnimation } from "framer-motion";
+"use client";
+
+import { motion, useAnimation } from "framer-motion";
 import { FC, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 
@@ -6,7 +8,7 @@ import { LayoutProps } from "../../../types";
 
 const slideIn = {
   visible: { opacity: 1, y: 0, transition: { duration: 1 } },
-  hidden: { opacity: 0, y: "+25%" },
+  hidden: { opacity: 0, y: "+15%" },
 };
 
 const FadeIn: FC<LayoutProps> = ({ children }) => {

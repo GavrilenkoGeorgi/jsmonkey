@@ -1,0 +1,64 @@
+@use "variables" as *;
+@use "colors" as *;
+
+.main
+  margin-top: -($navbarHeight)
+  display: flex
+  flex-direction: column
+
+.section
+  padding: 0 1em
+  margin: 4rem 0
+  @media screen and (min-width: $medium)
+    margin-bottom: 5rem
+  .heading
+    text-align: center
+    letter-spacing: 2.6px
+    @media screen and (min-width: $small)
+      font-size: 3rem
+    @media screen and (min-width: $medium)
+      font-size: 4rem
+  &.zeroPadding
+    padding: 0
+
+.sliderSection
+  padding: 0
+
+.containerMd,
+.containerLg
+  margin: 0 auto
+  padding: 0
+
+.containerLg
+  max-width: $lgContMaxWidth
+
+.containerMd
+  max-width: $mdContMaxWidth
+
+.h2Header
+  text-align: center
+  @media screen and (min-width: $medium)
+    font-size: 3rem
+    margin-bottom: 3.5rem
+
+.leadParagraph,
+.pageParagraph
+  text-indent: 1.5rem
+
+.leadParagraph
+  font-size: 1.2rem
+  @media screen and (min-width: $medium)
+    font-size: 2rem
+  @media screen and (min-width: $xxlarge)
+    font-size: 2.5rem
+
+.pageParagraph
+  line-height: 1.6
+  margin: 0 0 0.4rem
+  @media screen and (min-width: $medium)
+    font-size: $mediumFontSize
+  @media screen and (min-width: $xxlarge)
+    font-size: $xxlargeFontSize
+
+.sliderContainer
+  margin: auto

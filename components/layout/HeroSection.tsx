@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { FC } from "react";
 import { ParallaxBanner, ParallaxBannerLayer } from "react-scroll-parallax";
