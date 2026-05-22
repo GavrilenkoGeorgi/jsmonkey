@@ -1,6 +1,6 @@
 ---
 title: Setting Up Strict ESLint and What It Revealed
-date: May 22, 2026 12:26 PM
+date: May 22, 2026 9:32 AM
 draft: true
 tags:
   - dev react
