@@ -1,7 +1,11 @@
+import "highlight.js/styles/atom-one-dark.min.css";
+
 import fs from "fs";
 import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
+import rehypeHighlight from "rehype-highlight";
 
+import MarkdownImage from "../../../components/blog/MarkdownImage";
 import FadeIn from "../../../components/layout/Animation/FadeIn";
 import HeroSection from "../../../components/layout/HeroSection";
 import blogStyles from "../../../styles/Blog.module.sass";
@@ -74,9 +78,21 @@ export default async function BlogPostPage({ params }: { params: Params }) {
         <article className={blogStyles.article}>
           <p className={blogStyles.timestamp}>{frontmatter.date}</p>
           <hr className={blogStyles.hr} />
-          <FadeIn>
+          <FadeIn initialInView>
             <div className={markdownStyles.reactMarkDown}>
-              <ReactMarkdown>{markdown}</ReactMarkdown>
+              <ReactMarkdown
+                rehypePlugins={[rehypeHighlight]}
+                components={{
+                  img: MarkdownImage,
+                  a: ({ node: _node, children, ...props }) => (
+                    <a {...props} target="_blank" rel="noopener noreferrer">
+                      {children}
+                    </a>
+                  ),
+                }}
+              >
+                {markdown}
+              </ReactMarkdown>
             </div>
           </FadeIn>
         </article>
