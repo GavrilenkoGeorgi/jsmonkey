@@ -8,9 +8,47 @@
   @media screen and (min-width: $large)
     font-size: 1.5rem
 
-.reactMarkDown p img
+.imgWide
   display: block
   width: 100%
+  height: auto
+  margin: 1.5rem 0
+
+.imgFloat
+  float: left
+  width: 40%
+  height: auto
+  margin: 1rem 1rem 0 0
+  @media screen and (max-width: $small)
+    float: none
+    width: 100%
+    margin: 1rem 0
+
+.reactMarkDown p
+  overflow: hidden
+
+.reactMarkDown p:has(img)
+  text-indent: 0
+
+.reactMarkDown a
+  color: $highlight-color
+  &:hover
+    text-decoration: underline
+
+.reactMarkDown pre
+  overflow-x: auto
+  border-radius: 4px
+  margin: 1.5rem 0
+  font-size: 0.875rem
+
+.reactMarkDown pre code
+  text-indent: 0
+
+.reactMarkDown :not(pre) > code
+  background-color: var(--bg-secondary)
+  padding: 0.15em 0.4em
+  border-radius: 3px
+  font-size: 0.875em
 
 .reactMarkDown ul
   padding-left: 1.7rem
