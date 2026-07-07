@@ -31,6 +31,9 @@ export function buildMetadata(params: MetadataParams): Metadata {
     title,
     description,
     metadataBase: new URL(siteUrl),
+    icons: {
+      icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    },
     openGraph: {
       title,
       description,
